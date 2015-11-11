@@ -67,7 +67,7 @@
 	<div class="col-md-4">
 		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalReg" data-keyboard="true">Registrieren</button>
 
-	<!-- Modal LOGIN -->
+	<!-- Modal Registrieren -->
 	<div id="myModalReg" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 

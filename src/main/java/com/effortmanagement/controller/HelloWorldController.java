@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class HelloWorldController {
  
 	@RequestMapping("/login")  
-    public ModelAndView helloWorld(HttpServletRequest request,HttpServletResponse res) {  
+    public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
         String name=request.getParameter("usrname");  
         String password=request.getParameter("psw");  
           
