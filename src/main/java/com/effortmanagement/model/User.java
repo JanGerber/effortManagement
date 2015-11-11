@@ -2,11 +2,11 @@ package com.effortmanagement.model;
 
 public class User {
 
-	private int UserID;
-	private int Username;
-	private String  Passwort;
-	private int EMail;
-	private int Hochschule;
+	private int userID;
+	private String username;
+	private String  passwort;
+	private String eMail;
+	private String hochschule;
 
 	public void getUserID() {
 		// TODO - implement User.getUserID
@@ -22,38 +22,35 @@ public class User {
 	}
 
 	public int getUsername() {
-		return Username;
+		return username;
 	}
 
 	/**
 	 * 
 	 * @param Username
 	 */
-	public void setUsername(int Username) {
-		this.Username =Username;
+	public void setUsername(String username) {
+		this.username =username;
 	}
 
 	public String getPasswort() {
-		return Passwort;
+		return passwort;
 	}
 
-	public void setPasswort(int Passwort) {
-		// TODO - implement User.setPasswort
-		throw new UnsupportedOperationException();
+	public void setPasswort(String Passwort) {
+		this.passwort = passwort;
 	}
 
-	public void getEMail() {
-		// TODO - implement User.getEMail
-		throw new UnsupportedOperationException();
+	public String getEMail() {
+		return eMail;
 	}
 
 	/**
 	 * 
 	 * @param EMail
 	 */
-	public void setEMail(int EMail) {
-		// TODO - implement User.setEMail
-		throw new UnsupportedOperationException();
+	public void setEMail(String EMail) {
+
 	}
 
 	public void getHochschule() {
