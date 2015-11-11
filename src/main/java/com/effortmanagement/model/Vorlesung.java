@@ -2,126 +2,79 @@ package com.effortmanagement.model;
 public class Vorlesung {
 
 	private int VorlesungID;
-	private int Vorlesungsname;
+	private String Vorlesungsname;
 	private int Aufwand;
-	private int Note;
+	private float Note;
 	private int Eigeninitiative;
 	private int Lernzeit;
 	private int Notenziel;
 	private int Creditpoints;
-
-	public void getVorlesungID() {
-		// TODO - implement Vorlesung.getVorlesungID
-		throw new UnsupportedOperationException();
+	
+	public int getVorlesungID() {
+		return VorlesungID;
 	}
 
-	/**
-	 * 
-	 * @param VorlesungID
-	 */
-	public void setVorlesungID(int VorlesungID) {
-		// TODO - implement Vorlesung.setVorlesungID
-		throw new UnsupportedOperationException();
+	public void setVorlesungID(int vorlesungID) {
+		VorlesungID = vorlesungID;
 	}
 
-	public void getVorlesungsname() {
-		// TODO - implement Vorlesung.getVorlesungsname
-		throw new UnsupportedOperationException();
+	public String getVorlesungsname() {
+		return Vorlesungsname;
 	}
 
-	/**
-	 * 
-	 * @param Vorlesungsname
-	 */
-	public void setVorlesungsname(int Vorlesungsname) {
-		// TODO - implement Vorlesung.setVorlesungsname
-		throw new UnsupportedOperationException();
+	public void setVorlesungsname(String vorlesungsname) {
+		Vorlesungsname = vorlesungsname;
 	}
 
-	public void getAufwand() {
-		// TODO - implement Vorlesung.getAufwand
-		throw new UnsupportedOperationException();
+	public int getAufwand() {
+		return Aufwand;
 	}
 
-	/**
-	 * 
-	 * @param Aufwand
-	 */
-	public void setAufwand(int Aufwand) {
-		// TODO - implement Vorlesung.setAufwand
-		throw new UnsupportedOperationException();
+	public void setAufwand(int aufwand) {
+		Aufwand = aufwand;
 	}
 
-	public void getNote() {
-		// TODO - implement Vorlesung.getNote
-		throw new UnsupportedOperationException();
+	public float getNote() {
+		return Note;
 	}
 
-	/**
-	 * 
-	 * @param Note
-	 */
-	public void setNote(int Note) {
-		// TODO - implement Vorlesung.setNote
-		throw new UnsupportedOperationException();
+	public void setNote(float note) {
+		Note = note;
 	}
 
-	public void getEigeninitiative() {
-		// TODO - implement Vorlesung.getEigeninitiative
-		throw new UnsupportedOperationException();
+	public int getEigeninitiative() {
+		return Eigeninitiative;
 	}
 
-	/**
-	 * 
-	 * @param Eigeninitiative
-	 */
-	public void setEigeninitiative(int Eigeninitiative) {
-		// TODO - implement Vorlesung.setEigeninitiative
-		throw new UnsupportedOperationException();
+	public void setEigeninitiative(int eigeninitiative) {
+		Eigeninitiative = eigeninitiative;
 	}
 
-	public void getLernzeit() {
-		// TODO - implement Vorlesung.getLernzeit
-		throw new UnsupportedOperationException();
+	public int getLernzeit() {
+		return Lernzeit;
 	}
 
-	/**
-	 * 
-	 * @param Lernzeit
-	 */
-	public void setLernzeit(int Lernzeit) {
-		// TODO - implement Vorlesung.setLernzeit
-		throw new UnsupportedOperationException();
+	public void setLernzeit(int lernzeit) {
+		Lernzeit = lernzeit;
 	}
 
-	public void getNotenziel() {
-		// TODO - implement Vorlesung.getNotenziel
-		throw new UnsupportedOperationException();
+	public int getNotenziel() {
+		return Notenziel;
 	}
 
-	/**
-	 * 
-	 * @param Notenziel
-	 */
-	public void setNotenziel(int Notenziel) {
-		// TODO - implement Vorlesung.setNotenziel
-		throw new UnsupportedOperationException();
+	public void setNotenziel(int notenziel) {
+		Notenziel = notenziel;
 	}
 
-	public void getCreditpoints() {
-		// TODO - implement Vorlesung.getCreditpoints
-		throw new UnsupportedOperationException();
+	public int getCreditpoints() {
+		return Creditpoints;
 	}
 
-	/**
-	 * 
-	 * @param Creditpoints
-	 */
-	public void setCreditpoints(int Creditpoints) {
-		// TODO - implement Vorlesung.setCreditpoints
-		throw new UnsupportedOperationException();
+	public void setCreditpoints(int creditpoints) {
+		Creditpoints = creditpoints;
 	}
 
+	
 	public boolean ZielErreicht() {
 		// TODO - implement Vorlesung.ZielErreicht
 		throw new UnsupportedOperationException();
@@ -141,5 +94,7 @@ public class Vorlesung {
 		// TODO - implement Vorlesung.Vorlesung
 		throw new UnsupportedOperationException();
 	}
+
+
 
 }

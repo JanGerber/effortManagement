@@ -5,66 +5,34 @@ public class Semester {
 	private String Semestername;
 	private int Startdatum;
 	private int Enddatum;
-
-	public void getSemesterID() {
-		// TODO - implement Semester.getSemesterID
-		throw new UnsupportedOperationException();
+	
+	
+	public int getSemesterID() {
+		return SemesterID;
+	}
+	public void setSemesterID(int semesterID) {
+		SemesterID = semesterID;
+	}
+	public String getSemestername() {
+		return Semestername;
+	}
+	public void setSemestername(String semestername) {
+		Semestername = semestername;
+	}
+	public int getStartdatum() {
+		return Startdatum;
+	}
+	public void setStartdatum(int startdatum) {
+		Startdatum = startdatum;
+	}
+	public int getEnddatum() {
+		return Enddatum;
+	}
+	public void setEnddatum(int enddatum) {
+		Enddatum = enddatum;
 	}
 
-	/**
-	 * 
-	 * @param SemesterID
-	 */
-	public void setSemesterID(int SemesterID) {
-		// TODO - implement Semester.setSemesterID
-		throw new UnsupportedOperationException();
+
 	}
 
-	public void getSemestername() {
-		// TODO - implement Semester.getSemestername
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param Semestername
-	 */
-	public void setSemestername(int Semestername) {
-		// TODO - implement Semester.setSemestername
-		throw new UnsupportedOperationException();
-	}
-
-	public void getStartdatum() {
-		// TODO - implement Semester.getStartdatum
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param Startdatum
-	 */
-	public void setStartdatum(int Startdatum) {
-		// TODO - implement Semester.setStartdatum
-		throw new UnsupportedOperationException();
-	}
-
-	public void getEnddatum() {
-		// TODO - implement Semester.getEnddatum
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param Enddatum
-	 */
-	public void setEnddatum(int Enddatum) {
-		// TODO - implement Semester.setEnddatum
-		throw new UnsupportedOperationException();
-	}
-
-	public Semester() {
-		// TODO - implement Semester.Semester
-		throw new UnsupportedOperationException();
-	}
-
-}
+	

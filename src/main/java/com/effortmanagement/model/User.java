@@ -7,69 +7,39 @@ public class User {
 	private String  passwort;
 	private String eMail;
 	private String hochschule;
-
-	public void getUserID() {
-		// TODO - implement User.getUserID
-		throw new UnsupportedOperationException();
+	
+	
+	
+	public int getUserID() {
+		return userID;
 	}
-
-	/**
-	 * 
-	 * @param UserID
-	 */
-	public void setUserID(int UserID) {
-		this.userID = UserID;
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
-
 	public String getUsername() {
 		return username;
 	}
-
-	/**
-	 * 
-	 * @param Username
-	 */
 	public void setUsername(String username) {
-		this.username =username;
+		this.username = username;
 	}
-
 	public String getPasswort() {
 		return passwort;
 	}
-
-	public void setPasswort(String Passwort) {
+	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-
-	public String getEMail() {
+	public String geteMail() {
 		return eMail;
 	}
-
-	/**
-	 * 
-	 * @param EMail
-	 */
-	public void setEMail(String EMail) {
-
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	public String getHochschule() {
+		return hochschule;
+	}
+	public void setHochschule(String hochschule) {
+		this.hochschule = hochschule;
 	}
 
-	public void getHochschule() {
-		// TODO - implement User.getHochschule
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param Hochschule
-	 */
-	public void setHochschule(int Hochschule) {
-		// TODO - implement User.setHochschule
-		throw new UnsupportedOperationException();
-	}
-
-	public User() {
-		// TODO - implement User.User
-		throw new UnsupportedOperationException();
-	}
 
 }

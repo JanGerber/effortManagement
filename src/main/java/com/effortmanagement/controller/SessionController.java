@@ -6,13 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
  
-/*
- * author: Crunchify.com
- * 
- */
+
  
 @Controller
-public class HelloWorldController {
+public class SessionController {
  
 	@RequestMapping("/login")  
     public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
@@ -27,6 +24,16 @@ public class HelloWorldController {
             return new ModelAndView("error", "message","Sorry, username or password error");  
         }
 	}
+
+    @RequestMapping("/logout")  
+    public ModelAndView logout(HttpServletRequest request,HttpServletResponse res) {  
+    		
+              
+            String message = "Sie haben sich erflogreich ausgelogt";
+                return new ModelAndView("logout", "message",message);  
+    
+
+    }  
     @RequestMapping("/registrieren")  
     public ModelAndView registrieren(HttpServletRequest request,HttpServletResponse res) {  
             String name=request.getParameter("username");  
