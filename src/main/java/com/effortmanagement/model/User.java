@@ -18,10 +18,10 @@ public class User {
 	 * @param UserID
 	 */
 	public void setUserID(int UserID) {
-		this.UserID = UserID;
+		this.userID = UserID;
 	}
 
-	public int getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
