@@ -4,7 +4,7 @@ public class User {
 
 	private int UserID;
 	private int Username;
-	private int Passwort;
+	private String  Passwort;
 	private int EMail;
 	private int Hochschule;
 
@@ -18,13 +18,11 @@ public class User {
 	 * @param UserID
 	 */
 	public void setUserID(int UserID) {
-		// TODO - implement User.setUserID
-		throw new UnsupportedOperationException();
+		this.UserID = UserID;
 	}
 
-	public void getUsername() {
-		// TODO - implement User.getUsername
-		throw new UnsupportedOperationException();
+	public int getUsername() {
+		return Username;
 	}
 
 	/**
@@ -32,19 +30,13 @@ public class User {
 	 * @param Username
 	 */
 	public void setUsername(int Username) {
-		// TODO - implement User.setUsername
-		throw new UnsupportedOperationException();
+		this.Username =Username;
 	}
 
-	public void getPasswort() {
-		// TODO - implement User.getPasswort
-		throw new UnsupportedOperationException();
+	public String getPasswort() {
+		return Passwort;
 	}
 
-	/**
-	 * 
-	 * @param Passwort
-	 */
 	public void setPasswort(int Passwort) {
 		// TODO - implement User.setPasswort
 		throw new UnsupportedOperationException();
