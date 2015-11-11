@@ -2,7 +2,7 @@ package com.effortmanagement.model;
 public class Semester {
 
 	private int SemesterID;
-	private int Semestername;
+	private String Semestername;
 	private int Startdatum;
 	private int Enddatum;
 
