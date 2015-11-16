@@ -1,38 +1,45 @@
 package com.effortmanagement.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="semester")
 public class Semester {
-
-	private int SemesterID;
-	private String Semestername;
-	private int Startdatum;
-	private int Enddatum;
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
+	private String name;
+	
+	private Integer rating;
 	
 	
-	public int getSemesterID() {
-		return SemesterID;
-	}
-	public void setSemesterID(int semesterID) {
-		SemesterID = semesterID;
-	}
-	public String getSemestername() {
-		return Semestername;
-	}
-	public void setSemestername(String semestername) {
-		Semestername = semestername;
-	}
-	public int getStartdatum() {
-		return Startdatum;
-	}
-	public void setStartdatum(int startdatum) {
-		Startdatum = startdatum;
-	}
-	public int getEnddatum() {
-		return Enddatum;
-	}
-	public void setEnddatum(int enddatum) {
-		Enddatum = enddatum;
-	}
-
-
-	}
-
 	
+	
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getRating() {
+		return rating;
+	}
+	public void setRating(Integer rating) {
+		this.rating = rating;
+	}
+	
+	
+
+}

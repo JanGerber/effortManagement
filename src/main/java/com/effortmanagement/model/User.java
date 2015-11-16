@@ -9,6 +9,22 @@ public class User {
 	private String hochschule;
 	
 	
+	/**
+	 * @param userID
+	 * @param username
+	 * @param passwort
+	 * @param eMail
+	 * @param hochschule
+	 */
+	public User(int userID, String username, String passwort, String eMail, String hochschule) {
+		this.userID = userID;
+		this.username = username;
+		this.passwort = passwort;
+		this.eMail = eMail;
+		this.hochschule = hochschule;
+	}
+	
+	
 	
 	public int getUserID() {
 		return userID;
@@ -40,6 +56,7 @@ public class User {
 	public void setHochschule(String hochschule) {
 		this.hochschule = hochschule;
 	}
+	
 
 
 }
