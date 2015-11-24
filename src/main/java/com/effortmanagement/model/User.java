@@ -8,8 +8,6 @@ public class User {
 	private String eMail;
 	private String hochschule;
 	
-	private boolean	loginFail = false;
-	private boolean	registerFail = false;
 	
 	public User() {
 		this.userName = "Std Name";
@@ -66,19 +64,7 @@ public class User {
 	public void setHochschule(String hochschule) {
 		this.hochschule = hochschule;
 	}
-	public boolean getLoginFail() {
-		return loginFail;
-	}
-	public void setLoginFail(boolean loginFail) {
-		this.loginFail = loginFail;
-	}
-	public boolean getRegisterFail() {
-		return registerFail;
-	}
-	public void setRegisterFail(boolean registerFail) {
-		this.registerFail = registerFail;
-	}
-	
+
 
 
 }

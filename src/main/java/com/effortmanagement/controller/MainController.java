@@ -41,10 +41,13 @@ public class MainController {
      
         request.getSession().setAttribute("user", user);
         
-        
+        String passwort = userService.getPasswort(user.getUserName());
 
-        if(/*Überprüfung Datenbank ob Nutzer vorhanden ist mit diesem passwort*/user.getPasswort().equals("password")&& user.getUserName().equals("Mustermann")){  
-              return new ModelAndView("startseite");  
+        if(passwort != null & user.getPasswort().equals(passwort)){  
+            user.setUserID(userService.getId(user.getUserName())); 
+        	user.setHochschule(userService.getHochschule(user.getUserName()));
+        	user.seteMail(userService.getEmail(user.getUserName()));
+        	return new ModelAndView("startseite");  
         }  
         else{ 
         	
