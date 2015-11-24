@@ -211,3 +211,6 @@
 	color: black;
 	text-align: left;
 }
+.modal.in {
+   display:block;
+}

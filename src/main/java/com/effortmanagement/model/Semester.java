@@ -1,4 +1,4 @@
-package com.effortmanagement.model;
+/*package com.effortmanagement.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,4 +42,4 @@ public class Semester {
 	
 	
 
-}
+}*/

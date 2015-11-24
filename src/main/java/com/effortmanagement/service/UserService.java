@@ -1,15 +1,25 @@
 package com.effortmanagement.service;
 
-import java.util.List;
+import java.sql.*;
 
-import com.effortmanagement.model.Semester;
+import com.effortmanagement.dao.UserDatabase;
 
-public interface UserService {
+public class UserService  {
+	private ResultSet r;
+	UserDatabase userDatabase = new UserDatabase();
 	
-	public void addSemester(Semester semester);
-	public void updateSemester(Semester semester);
-	public Semester getSemester(int id);
-	public void deleteSemester(int id);
-	public List<Semester> getSemester();
+	
+	
+	public String getPasswort(userName){
+	    int counter=0;
+	    r = userDatabase.getPasswort(userName);
+	    r.next();
+	    
+		
+		
+	}
 
+	
+	
+	
 }

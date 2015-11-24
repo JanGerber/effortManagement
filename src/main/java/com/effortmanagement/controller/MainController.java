@@ -7,28 +7,48 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import java.sql.*;
 
 import com.effortmanagement.model.User;
-import com.effortmanagement.service.SemesterService;
+import com.effortmanagement.service.*;
+
+
+
  
 
  
 @Controller
 public class MainController {
 	
+	UserService userService = new UserService();
 	
+    @RequestMapping("/index")  
+    public ModelAndView index(HttpServletRequest request,HttpServletResponse res) {  
+    		
+             //Startseite
+    	System.out.println("Index");
+            return new ModelAndView("index");  
+    
+
+    }
  
 	@RequestMapping("/login")  
     public ModelAndView login(HttpServletRequest request,HttpServletResponse res) {  
-        String name=request.getParameter("usrname");  
-        String password=request.getParameter("psw");  
-          
-        if(password.equals("password")&& name.equals("Mustermann")){  
-        String message = "Hallo "+name + " <br> ,Sie haben sich erfolgreich mit diesem Passwort: \" " + password +"\" angeledet";  
-        return new ModelAndView("startseite", "message", message);  
+		User user = new User();
+		user.setUserName(request.getParameter("usrname"));  
+		user.setPasswort(request.getParameter("psw"));
+        
+     
+        request.getSession().setAttribute("user", user);
+        
+        
+
+        if(/*Überprüfung Datenbank ob Nutzer vorhanden ist mit diesem passwort*/user.getPasswort().equals("password")&& user.getUserName().equals("Mustermann")){  
+              return new ModelAndView("startseite");  
         }  
-        else{  
-            return new ModelAndView("error", "message","Sorry, username or password error");  
+        else{ 
+        	
+            return new ModelAndView("index", "falschesPass",true);  
         }
 	}
 
@@ -36,9 +56,9 @@ public class MainController {
     public ModelAndView logout(HttpServletRequest request,HttpServletResponse res) {  
     		
              //Session löschen
-    	
-            String message = "Sie haben sich erflogreich ausgelogt";
-                return new ModelAndView("logout", "message",message);  
+    		request.getSession().removeAttribute("user");
+            
+            return new ModelAndView("index", "logoutMessage",true);  
     
 
     }  
@@ -50,21 +70,22 @@ public class MainController {
             String passwordWieder =request.getParameter("passwordRepeat");
             String email =request.getParameter("email");
             String university =request.getParameter("university");
-           
-            /*if(Prüfung ob username schon vorhanden ist){
-            	//return Username schon vorhanden
+            
+            User user = new User(name, password, email, university);
+            
+            if(/*Datenbank überprüfen ob Nutzer vorhanden ist = null*/false){
+            	return new ModelAndView("index","userVorhanden", true );
             }
-            if(Passwort ungleich){
-            	//return Passwort ungleich
+            if(password.equals(passwordWieder)== false){
+            	return new ModelAndView("index","passwortUngleich", true );
             }
-            User neuerUser = new User(/*höchste User ID finden und um 1 erhöhen, name, password, email, university);
+            
+            //User in der Datenbank anlegen
             
             ModelAndView modelAndView = new ModelAndView("startseite");
-            modelAndView.addObject("user", neuerUser);
-            */         
-            String message = "Sie haben sich mit folgenden Werten regestriert" + "<br>Name: " + name + "<br>Passwort: " + password + "<br>PasswortWieder: "+ passwordWieder +  "<br>email: " + email + "<br>University: " + university;
-                return new ModelAndView("registriert", "message",message);  
+            modelAndView.addObject("user", user);
+                   
+            return modelAndView;
     
-
     }  
 }

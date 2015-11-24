@@ -1,4 +1,4 @@
-package com.effortmanagement.controller;
+/*package com.effortmanagement.controller;
 
 
 import java.util.List;
@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.effortmanagement.model.Semester;
-import com.effortmanagement.service.SemesterService;
+import com.effortmanagement.model;
+
 
 @Controller
 @RequestMapping(value="/semester")
 public class SemesterController {
 	
-	/*@Autowired
-	private SemesterService semesterService;*/
+	
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public ModelAndView addSemesterPage() {
@@ -80,4 +79,4 @@ public class SemesterController {
 		return modelAndView;
 	}
 
-}
+}*/

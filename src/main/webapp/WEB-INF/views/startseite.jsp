@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+	
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -38,8 +40,13 @@
 <div class="container">
 	
   <h3>Startseite</h3>
-  	${message} 
-
+  	
+  	<jsp:useBean id="user" class="com.effortmanagement.model.User" scope="session"/>
+  	<p><c:out value="${user.userName}"/><p>
+  	<p><c:out value="${user.passwort}"/><p>
+  	<p><c:out value="${user.hochschule}"/><p>
+  	<p><c:out value="${user.eMail}"/><p>
+  	
 </div>
 
 </body>
