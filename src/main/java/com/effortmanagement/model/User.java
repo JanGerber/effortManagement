@@ -5,14 +5,14 @@ public class User {
 	private int	userId;
 	private String userName;
 	private String  passwort;
-	private String eMail;
+	private String email;
 	private String hochschule;
 	
 	
 	public User() {
 		this.userName = "Std Name";
 		this.passwort = "STD password";
-		this.eMail = "std@test.de";
+		this.email = "std@test.de";
 		this.hochschule = "STD DHBW";
 	}
 	/**
@@ -24,20 +24,20 @@ public class User {
 	public User(String userName, String passwort, String eMail, String hochschule) {
 		this.userName = userName;
 		this.passwort = passwort;
-		this.eMail = eMail;
+		this.email = eMail;
 		this.hochschule = hochschule;
 	}
 	public User(String userName, String passwort) {
 		this.userName = userName;
 		this.passwort = passwort;
 		//Datenbank aufrufen und herausfinden wie die email und hochschulen Name sind
-		this.eMail = null;
+		this.email = null;
 		this.hochschule = null;
 	}
 	public int getUserId() {
 		return userId;
 	}
-	public void setUserID(int userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}	
 	public String getUserName() {
@@ -52,17 +52,18 @@ public class User {
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-	public String geteMail() {
-		return eMail;
-	}
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
-	}
+
 	public String getHochschule() {
 		return hochschule;
 	}
 	public void setHochschule(String hochschule) {
 		this.hochschule = hochschule;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String eMail) {
+		this.email = eMail;
 	}
 
 

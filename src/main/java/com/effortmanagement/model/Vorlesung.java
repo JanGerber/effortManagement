@@ -1,4 +1,4 @@
-/*package com.effortmanagement.model;
+package com.effortmanagement.model;
 public class Vorlesung {
 
 	private int VorlesungID;
@@ -97,4 +97,4 @@ public class Vorlesung {
 
 
 
-}*/
+}

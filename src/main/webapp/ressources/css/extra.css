@@ -29,7 +29,7 @@
 	  height:100%;
   }
   
-  .container-fluid {
+  .container-fluid2 {
       padding: 60px 50px;
   }
   .bg-grey {
@@ -111,28 +111,7 @@
       background-color: #f4511e;
       color: #fff;
   }
-  .navbar {
-      margin-bottom: 0;
-      background-color: #f4511e;
-      z-index: 9999;
-      border: 0;
-      font-size: 12px !important;
-      line-height: 1.42857143 !important;
-      letter-spacing: 4px;
-      border-radius: 0;
-      font-family: Montserrat, sans-serif;
-  }
-  .navbar li a, .navbar .navbar-brand {
-      color: #fff !important;
-  }
-  .navbar-nav li a:hover, .navbar-nav li.active a {
-      color: #f4511e !important;
-      background-color: #fff !important;
-  }
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-      color: #fff !important;
-  }
+
   footer .glyphicon {
       font-size: 20px;
       margin-bottom: 20px;
@@ -211,6 +190,23 @@
 	color: black;
 	text-align: left;
 }
-.modal.in {
-   display:block;
+.listeErste{
+	background-color: #eee;
+	color: black;
+}
+.padtop15{
+	padding-top: 15px; 
+}
+.modal-header {
+	text-align: center;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:0;
+	border-bottom-left-radius:0; 
+}
+.modal-footer{
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+	border-top-right-radius:0;
+	border-top-left-radius:0; 	
 }

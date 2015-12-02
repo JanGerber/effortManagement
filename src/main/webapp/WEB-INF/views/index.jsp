@@ -29,6 +29,12 @@
     <strong>Success!</strong> Sie haben sich erfolgreich abgemeldet.
   </div>
   </c:if>
+  <c:if test="${requestScope.nichtEingeloggt}">
+  <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Fehler!</strong> Sie sind nicht angemeldet.
+  </div>
+  </c:if>
   <img src="ressources/bilder/Logo.png" alt="effortManagement" style="height: 40%;">
   <h1>effort Management</h1> 
   <p>Plane dein Semester</p>
@@ -36,7 +42,7 @@
   <div class="col-md-2">
 	</div>
   <div class="col-md-4">
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">LOGIN</button>
+	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="buttonLogin">LOGIN</button>
 
 	<!-- Modal LOGIN -->
 	<div id="myModal" class="modal fade"  role="dialog">
@@ -62,14 +68,14 @@
 		</c:if>
           <form action="login.html" method="Post">
             <div class="form-group form-groupNeu">
-              <label for="usrname"><span class="glyphicon glyphicon-user" required="required"></span> Username</label>
+              <label for="usrname"><span class="glyphicon glyphicon-user" ></span> Username</label>
               <input type="text" name="usrname"  class="form-control" id="usrname" placeholder="Username eingeben" required="required">
             </div>
             <div class="form-group form-groupNeu">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="password" name="psw" class="form-control" id="psw" placeholder="Passwort eingeben" required="required">
             </div>
-            <button type="submit" value="login" class="btn btn-default btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+            <button type="submit" value="login" class="btn btn-default btn-success btn-block" id="buttonLoginM"><span class="glyphicon glyphicon-off"></span> Login</button>
           </form>
         </div>
 
@@ -83,7 +89,7 @@
 	</div>
 	</div>
 	<div class="col-md-4">
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalReg" data-keyboard="true">Registrieren</button>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalReg" data-keyboard="true" id="buttonRegister">Registrieren</button>
 
 	<!-- Modal Registrieren -->
 	<div id="myModalReg" class="modal fade" role="dialog">
@@ -115,27 +121,27 @@
 			</c:if>
           <form  action="registrieren.html" method="Post"autocomplete="off">
             <div class="form-group form-groupNeu">
-              <label for="username"><span class="glyphicon glyphicon-user" required="required"></span> Username</label>
-              <input type="text" name="username" class="form-control" id="username" placeholder="Username eingeben">
+              <label for="username"><span class="glyphicon glyphicon-user" ></span> Username</label>
+              <input type="text" name="username" class="form-control" id="username" required="required" placeholder="Username eingeben">
             </div>
             <div class="form-group form-groupNeu">
-              <label for="password"><span class="glyphicon glyphicon-eye-open" required="required"></span> Password</label>
-              <input type="password" name="password"  class="form-control" id="password" placeholder="Passwort eingeben">
+              <label for="password"><span class="glyphicon glyphicon-eye-open" ></span> Password</label>
+              <input type="password" name="password"  class="form-control" id="password" required="required" placeholder="Passwort eingeben">
             </div>
 			 <div class="form-group form-groupNeu">
-              <label for="passwordRepeat"><span class="glyphicon glyphicon-eye-open" required="required"></span> Password</label>
-              <input type="password" name="passwordRepeat"  class="form-control" id="passwordWieder" placeholder="Passwort wiederholen">
+              <label for="passwordRepeat"><span class="glyphicon glyphicon-eye-open" ></span> Password</label>
+              <input type="password" name="passwordRepeat"  class="form-control" id="passwordWieder" required="required" placeholder="Passwort wiederholen">
             </div>
 		   <div class="form-group form-groupNeu">
-              <label for="email"><span class="glyphicon glyphicon-envelope" required="required"></span> E-Mail</label>
-              <input type="email" name="email"  class="form-control" id="email" placeholder="E-Mail eingeben">
+              <label for="email"><span class="glyphicon glyphicon-envelope" ></span> E-Mail</label>
+              <input type="email" name="email"  class="form-control" id="email" required="required" placeholder="E-Mail eingeben">
             </div>
 			<div class="form-group form-groupNeu">
-              <label for="university"><span class="glyphicon glyphicon-home" required="required"></span> Hochschule</label>
-              <input type="text" name="university" class="form-control" id="university" placeholder="Name der Hochschule">
+              <label for="university"><span class="glyphicon glyphicon-home" ></span> Hochschule</label>
+              <input type="text" name="university" class="form-control" id="university" required="required" placeholder="Name der Hochschule">
             </div>
             <div class="form-group" style="text-align: right;">
-            <button type="submit" value="register" class="btn btn-default btn-success" ><span class="glyphicon glyphicon-ok"></span> Registrieren</button>
+            <button type="submit" value="register" class="btn btn-default btn-success" id="buttonRegisterM"><span class="glyphicon glyphicon-ok"></span> Registrieren</button>
       		</div>
        </form>
        
@@ -170,7 +176,7 @@
 
 
 <!-- Container (About Section) -->
-<div id="about" class="container-fluid ">
+<div id="about" class="container-fluid container-fluid2">
   <div class="row">
     <div class="col-sm-8">
       <h2>About effortManagement</h2><br>
@@ -191,7 +197,7 @@
   </div>
 </div>
 
-<div class="container-fluid bg-grey">
+<div class="container-fluid container-fluid2 bg-grey">
   <div class="row">
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-globe logo"></span>
@@ -206,7 +212,7 @@
 </div>
 
 <!-- Container (Services Section) -->
-<div id="services" class="container-fluid text-center">
+<div id="services" class="container-fluid container-fluid2 text-center">
   <h2>SERVICES</h2>
   <h4>What we offer</h4>
   <br>
@@ -248,7 +254,7 @@
 </div>
 
 <!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container-fluid text-center bg-grey">
+<div id="portfolio" class="container-fluid  container-fluid2 text-center bg-grey">
   <h2>Portfolio</h2><br>
   <h4>What we have created</h4>
   <div class="row text-center">
@@ -310,7 +316,7 @@
 </div>
 
 <!-- Container (Pricing Section) -->
-<div id="pricing" class="container-fluid">
+<div id="pricing" class="container-fluid container-fluid2">
   <div class="text-center">
     <h2>Spende</h2>
     <h4>unterst&uuml;tze uns mit einer Spende</h4>
@@ -377,7 +383,7 @@
 </div>
 
 <!-- Container (Contact Section) -->
-<div id="contact" class="container-fluid bg-grey">
+<div id="contact" class="container-fluid container-fluid2 bg-grey">
   <h2 class="text-center">Kontakt</h2>
   <div class="row">
     <div class="col-sm-5">
@@ -433,7 +439,7 @@ marker.setMap(map);
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<footer class="container-fluid text-center">
+<footer class="container-fluid container-fluid2 text-center">
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
