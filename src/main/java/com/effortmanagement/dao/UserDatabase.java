@@ -6,7 +6,7 @@ import java.sql.*;
 public class UserDatabase extends AccesDatabase {
 	private ResultSet r;
 	public UserDatabase(){
-	connectDB();
+		connectDB();
 	}
 	
 	public ResultSet getPasswort(String userName){
