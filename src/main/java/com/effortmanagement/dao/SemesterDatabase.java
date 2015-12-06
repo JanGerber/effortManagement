@@ -11,7 +11,7 @@ public class SemesterDatabase extends AccesDatabase {
 	}
 	public ResultSet getSemester(int userId){
 		try{
-			r = stmt.executeQuery("Select * from semester where user_Id like '"+userId+"'");
+			r = stmt.executeQuery("Select * from semester where user_Id like '"+userId+"' ORDER BY startDatum");
 			return r;
 		}catch(Exception ex){
 			return null;

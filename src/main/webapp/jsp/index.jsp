@@ -7,22 +7,22 @@
   <title>effortManagement</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="ressources/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
   <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link href="ressources/css/scrolling-nav.css" rel="stylesheet">
-  <link rel="stylesheet" href="ressources/css/extra.css">
+  <link href="resources/css/scrolling-nav.css" rel="stylesheet">
+  <link rel="stylesheet" href="resources/css/extra.css">
   
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="0" >
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="0" onresize="groesseJumbo()">
 
 
 
-<div class="jumbotron text-center">
-<div class="container" id="container">
+<div class="jumbotron text-center" id="jumboFenster">
+<div class="container" id="containerFenster">
   <c:if test="${requestScope.logoutMessage}">
   <div class="alert alert-success">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -35,7 +35,7 @@
     <strong>Fehler!</strong> Sie sind nicht angemeldet.
   </div>
   </c:if>
-  <img src="ressources/bilder/Logo.png" alt="effortManagement" style="height: 40%;">
+  <img src="resources/bilder/Logo.png" alt="effortManagement" style="height: 40%;">
   <h1>effort Management</h1> 
   <p>Plane dein Semester</p>
 <div class="row">  
@@ -260,21 +260,21 @@
   <div class="row text-center">
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
+        <img src="resources/bilder/paris.jpg" alt="Paris" width="400" height="300">
         <p><strong>Paris</strong></p>
         <p>Yes, we built Paris</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="newyork.jpg" alt="New York" width="400" height="300">
+        <img src="resources/bilder/newyork.jpg" alt="New York" width="400" height="300">
         <p><strong>New York</strong></p>
         <p>We built New York</p>
       </div>
     </div>
     <div class="col-sm-4">
       <div class="thumbnail">
-        <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+        <img src="resources/bilder/sanfran.jpg" alt="San Francisco" width="400" height="300">
         <p><strong>San Francisco</strong></p>
         <p>Yes, San Fran is ours</p>
       </div>
@@ -469,15 +469,29 @@ $(document).ready(function(){
   });
 })
 </script>
+<script>
+document.getElementsByTagName("BODY")[0].onresize = function() {myFunction()};
+
+
+function myFunction() {
+    document.getElementById("jumboFenster").style.minHeight = (document.getElementById("containerFenster").offsetHeight + 10) + "px";
+}
+</script>
+
+
+
+
+
+
 
     <!-- jQuery -->
-    <script src="ressources/js/jquery.js"></script>
+    <script src="resources/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="ressources/js/bootstrap.min.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
 
     <!-- Scrolling Nav JavaScript -->
-    <script src="ressources/js/jquery.easing.min.js"></script>
-    <script src="ressources/js/scrolling-nav.js"></script>
+    <script src="resources/js/jquery.easing.min.js"></script>
+    <script src="resources/js/scrolling-nav.js"></script>
 </body>
 </html>

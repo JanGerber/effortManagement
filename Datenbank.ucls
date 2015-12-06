@@ -4,7 +4,7 @@
   <class id="1" language="java" name="com.effortmanagement.service.UserService" project="webapplication" 
     file="/webapplication/src/main/java/com/effortmanagement/service/UserService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="293" y="244"/>    
+    <position height="297" width="227" x="512" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="com.effortmanagement.dao.UserDatabase" project="webapplication" 
     file="/webapplication/src/main/java/com/effortmanagement/dao/UserDatabase.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="371" y="653"/>    
+    <position height="-1" width="-1" x="548" y="606"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -23,7 +23,7 @@
   <class id="3" language="java" name="com.effortmanagement.dao.AccesDatabase" project="webapplication" 
     file="/webapplication/src/main/java/com/effortmanagement/dao/AccesDatabase.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="574" y="293"/>    
+    <position height="297" width="147" x="325" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -33,7 +33,7 @@
   <class id="4" language="java" name="com.effortmanagement.service.SemesterService" project="webapplication" 
     file="/webapplication/src/main/java/com/effortmanagement/service/SemesterService.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="829" y="217"/>    
+    <position height="171" width="238" x="47" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -43,7 +43,7 @@
   <class id="5" language="java" name="com.effortmanagement.dao.SemesterDatabase" project="webapplication" 
     file="/webapplication/src/main/java/com/effortmanagement/dao/SemesterDatabase.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="760" y="646"/>    
+    <position height="-1" width="-1" x="222" y="561"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

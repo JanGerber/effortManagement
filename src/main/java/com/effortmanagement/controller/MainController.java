@@ -69,6 +69,8 @@ public class MainController {
             user.setUserId(userService.getId(user.getUserName())); 
         	user.setHochschule(userService.getHochschule(user.getUserName()));
         	user.setEmail(userService.getEmail(user.getUserName()));
+        	List<Semester> semester = semesterService.getSemester(user.getUserId()); 	//abrufen aller vorhandenen Semester
+        	request.getSession().setAttribute("listSemester", semester);   				//Liste der Semester in Session ablegen
         	return new ModelAndView("redirect:startseite.html");  
         }  
         else{ 

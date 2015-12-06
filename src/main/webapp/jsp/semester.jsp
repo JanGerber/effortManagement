@@ -3,25 +3,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Case</title>
+  <title>effortManagement</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="ressources/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
   <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
- <script src="ressources/js/bootstrap-datepicker.js"></script>
- <script src="ressources/js/bootstrap-datepicker.de.js" charset="UTF-8"></script>
- <link rel="stylesheet" href="ressources/css/extra.css">
- <link rel="stylesheet" href="ressources/css/bootstrap-datepicker3.standalone.min.css">
+ <script src="resources/js/bootstrap-datepicker.js"></script>
+ <script src="resources/js/bootstrap-datepicker.de.js" charset="UTF-8"></script>
+ <link rel="stylesheet" href="resources/css/extra.css">
+ <link rel="stylesheet" href="resources/css/bootstrap-datepicker3.standalone.min.css">
+ 
+ 
 </head>
 <body  style="background-color:#eee">
 <jsp:useBean id="user" class="com.effortmanagement.model.User" scope="session"/>	
-
+<!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -34,9 +35,17 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="startseite.html">Home</a></li>
+        <li ><a href="startseite.html">Home</a></li>
         <li class="active"><a href="semester.html">Semester</a></li>
-        <li><a href="#">Vorlesungen</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vorlesung
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <c:forEach items="${sessionScope.listSemester}" var="semester">
+            	<li><a href="#"><c:out value="${semester.semesterName}"></c:out></a></li>
+            </c:forEach>
+          </ul>
+        </li>
         <li><a href="#">Auswertungen</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -45,7 +54,8 @@
     </div>
   </div>
 </nav>
-  
+<!-- Navigation ENDE --> 
+ 
 <div class="container">
         <section style="padding-bottom: 50px; padding-top: 50px;">
         		<h1>Semester</h1>
@@ -69,7 +79,7 @@
 				            <td>${semester.endDatum}</td>
 				            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalSemesterAender${semester.semesterId}">Edit</button></td>
 				            
-				            <td><a href="/webapplication/semesterDelete.html?semesterId=${semester.semesterId}" >Delete</a></td>
+				            <td><a href="/semesterDelete.html?semesterId=${semester.semesterId}" >Delete</a></td>
 				        </tr>
 				        
 				       <!-- Modal Semester Aendern -->

@@ -4,10 +4,10 @@ import java.sql.*;
 public class AccesDatabase {
 	protected Connection con;
 	protected Statement stmt;
-	private String serverName="localhost";
+	private String serverName="127.0.0.1";
 	private String portNumber="3306";
-	private String databaseName="effortData";
-	private String url="jdbc:mysql://localhost:3306/" + databaseName;
+	private String databaseName="effortdata";
+	private String url="jdbc:mysql://127.0.0.1:3306/" + databaseName;
 	private String userName="root";
 	private String password="mysql";
 	
