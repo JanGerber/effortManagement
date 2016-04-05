@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class DatenDAO {
 
 	protected static final String DB_DRIVER = "org.h2.Driver";
-	protected static final String DB_CONNECTION = "jdbc:h2:tcp://localhost/wettkampfDB";
+	protected static final String DB_CONNECTION = "jdbc:h2:~/effortManagementDB";
 	protected static final String DB_USER = "sa";
 	protected static final String DB_PASSWORD = "";
 

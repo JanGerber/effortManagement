@@ -16,8 +16,8 @@ import com.effortmanagement.service.UserService;
 @RequestMapping("/")
 public class RegistrierenController {
 	
-	@Autowired
-	private UserService userService;
+	//@Autowired
+	private UserService userService = new UserService();
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)

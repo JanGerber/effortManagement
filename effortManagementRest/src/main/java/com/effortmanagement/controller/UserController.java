@@ -13,15 +13,15 @@ import com.effortmanagement.service.UserService;
 @RequestMapping("/user")
 public class UserController {
 	
-	@Autowired
-	private UserService userService;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET, produces="application/json")
+	private UserService userService = new UserService();
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public User getUser() {
 		return userService.getUser(1);//TODO user
          
     }
-	@RequestMapping(value = "/", method = RequestMethod.PUT, produces="application/json")
+	@RequestMapping(value = "/", method = RequestMethod.PUT)
 	public void changeUser( @RequestBody User user) {
 		if(user.getEmail() != null){
 			userService.changeEmail(1, user.getEmail()); //TODO user

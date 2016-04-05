@@ -2,7 +2,8 @@ package com.effortmanagement.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,16 +20,19 @@ import com.effortmanagement.service.SemesterService;
 @RequestMapping("/semester")
 public class SemesterController {
 	
-	@Autowired
-	private SemesterService semesterService;
+	private final Logger logger = LoggerFactory.getLogger(SemesterController.class);
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET , produces="application/json")
+	
+	
+	//@Autowired
+	private SemesterService semesterService = new SemesterService();
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public List<Semester> getSemesterList() {
-		semesterService.getSemesterList(1); //TODO user
-		return null;
+		return semesterService.getSemesterList(1); //TODO user
     }
 	
-	@RequestMapping(value = "/{semesterId}", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value = "/{semesterId}", method = RequestMethod.GET)
 	public Semester getSemester(@PathVariable int semesterId) {
 		Semester semester = semesterService.getSemester(semesterId);
 		if(semester.getUser_Id() != 0){

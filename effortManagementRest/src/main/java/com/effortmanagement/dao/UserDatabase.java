@@ -62,7 +62,7 @@ public class UserDatabase extends DatenDAO {
 		User user = new User();
 		ResultSet rs =null;
 
-		String selectSQL = "Select userName, hochschule, email, userId from user where userName like ?";
+		String selectSQL = "Select userName, hochschule, email, userID from user where userName like ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -155,7 +155,7 @@ public class UserDatabase extends DatenDAO {
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
 
-		String selectSQL = "UPDATE user SET passwort= ? WHERE userId IN (?)";
+		String selectSQL = "UPDATE user SET passwort= ? WHERE userID LIKE ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -195,7 +195,7 @@ public class UserDatabase extends DatenDAO {
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
 
-		String selectSQL = "UPDATE user SET email= ? WHERE userId LIKE ?";
+		String selectSQL = "UPDATE user SET email= ? WHERE userID LIKE ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -233,7 +233,7 @@ public class UserDatabase extends DatenDAO {
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
 
-		String selectSQL = "UPDATE user SET hochschule= ? WHERE userId LIKE ?";
+		String selectSQL = "UPDATE user SET hochschule= ? WHERE userID LIKE ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -271,7 +271,7 @@ public class UserDatabase extends DatenDAO {
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
 
-		String selectSQL = "UPDATE user SET userName= ? WHERE userId LIKE ?";
+		String selectSQL = "UPDATE user SET userName= ? WHERE userID LIKE ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -311,7 +311,7 @@ public class UserDatabase extends DatenDAO {
 		User user = new User();
 		ResultSet rs =null;
 
-		String selectSQL = "Select userName, hochschule, email, userId from user where userId like ?";
+		String selectSQL = "Select userName, hochschule, email, userID from user where userID like ?";
 
 		try {
 			dbConnection = getDBConnection();

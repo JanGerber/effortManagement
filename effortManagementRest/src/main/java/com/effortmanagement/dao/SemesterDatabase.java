@@ -21,7 +21,7 @@ public class SemesterDatabase extends DatenDAO {
 		List<Semester> semesterList = new ArrayList<Semester>();
 		ResultSet rs =null;
 
-		String selectSQL = "Select * from semester where user_Id like ? ORDER BY startDatum";
+		String selectSQL = "Select semesterId, semesterName, startDatum, endDatum, user_Id from semester where user_Id like ? ORDER BY startDatum";
 
 		try {
 			dbConnection = getDBConnection();
@@ -36,6 +36,7 @@ public class SemesterDatabase extends DatenDAO {
 					    semester.setSemesterName(rs.getString(2));
 					    semester.setStartDatum(rs.getString(3));
 					    semester.setEndDatum(rs.getString(4));
+					    semester.setUser_Id(rs.getInt(5));
 					    semesterList.add(semester);
 					}
 			}
@@ -269,9 +270,9 @@ public class SemesterDatabase extends DatenDAO {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		Semester semester = new Semester();
-		ResultSet rs =null;
+		ResultSet rs = null;
 
-		String selectSQL = "Select * from semester where semesterId like ?";
+		String selectSQL = "Select semesterId, semesterName, startDatum, endDatum, user_Id from semester where semesterId like ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -285,6 +286,7 @@ public class SemesterDatabase extends DatenDAO {
 					  semester.setSemesterName(rs.getString(2));
 					  semester.setStartDatum(rs.getString(3));
 					  semester.setEndDatum(rs.getString(4));
+					  semester.setUser_Id(rs.getInt(5));
 				}
 			}
 		} catch (SQLException e) {

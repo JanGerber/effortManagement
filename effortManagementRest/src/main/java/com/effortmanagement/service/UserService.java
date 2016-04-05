@@ -13,8 +13,8 @@ import com.effortmanagement.model.User;
 
 public class UserService  {
 	
-	@Autowired
-	private UserDatabase userDatabase;
+	//@Autowired
+	private UserDatabase userDatabase = new UserDatabase();
 	
 	private final Logger logger = LoggerFactory.getLogger(UserService.class);
 	
