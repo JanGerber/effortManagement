@@ -1,3 +1,5 @@
+Datenbank anlegen
+
 CREATE TABLE `semester` (
   `semesterId` int(11) NOT NULL AUTO_INCREMENT,
   `semesterName` varchar(100) NOT NULL,
