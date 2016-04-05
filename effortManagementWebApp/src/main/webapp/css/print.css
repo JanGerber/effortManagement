@@ -1,0 +1,85 @@
+#rahmen{
+	border: 0.5pt solid #000;
+	width: 250mm;
+	height: 40 mm;
+}
+.aussenLinksTable{
+	color: #F00;
+    font-size: 18pt;
+    font-family: Arial,sans-serif;
+    text-align: right;
+}
+.mitteDpTable{
+	color: #000;
+    font-size: 18pt;
+    font-family: Arial,sans-serif;
+    text-align: center;
+}
+.aussenRechtsTable{
+	color: #00F;
+	font-size: 18pt;
+	font-family: Arial,sans-serif;
+	text-align: left;
+}
+.beschreibung{
+	color: #000;
+    font-size: 12pt;
+    font-weight: 700;
+    font-family: Arial,sans-serif;
+    vertical-align: middle;
+}
+.geraeteName{
+	color: #000;
+    font-size: 18pt;
+    font-family: Arial,sans-serif;
+}
+.borderHeim{
+	color: #F00;
+	font-size: 10pt;
+	font-family: Arial,sans-serif;
+	text-align: center;
+	border: 0.5pt solid #000;
+}
+.borderGast{
+    color: #00F;
+    font-size: 10pt;
+    font-family: Arial,sans-serif;
+    text-align: center;
+    border: 0.5pt solid #000;
+}
+#grossFeld{
+	height: 4mm;
+	width: 10mm;
+	transform: rotate(270deg);
+}
+#mittelFeld{
+	height: 4mm;
+    width: 4mm;
+    transform: rotate(270deg);
+}
+#nameverkettet{
+	height: 4mm;
+    width: 40mm;
+    
+}
+#smallFeld{
+	height: 4mm;
+    width: 3mm;
+}
+table{
+	border-collapse: collapse;
+}
+.center-block{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.obereTabelle{
+	
+}
+.mittigGeraetErgebnis{
+	width: 250mm;
+
+}
+
+

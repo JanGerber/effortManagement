@@ -1,0 +1,19 @@
+CREATE TABLE `semester` (
+  `semesterId` int(11) NOT NULL AUTO_INCREMENT,
+  `semesterName` varchar(100) NOT NULL,
+  `startDatum` date NOT NULL,
+  `endDatum` date NOT NULL,
+  `user_Id` int(11) NOT NULL,
+  PRIMARY KEY (`semesterId`),
+  KEY `userId_idx` (`user_Id`),
+  CONSTRAINT `userId` FOREIGN KEY (`user_Id`) REFERENCES `user` (`userID`) ON UPDATE CASCADE
+)
+
+CREATE TABLE `user` (
+  `userID` int(10) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `passwort` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `hochschule` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`userID`)
+)
