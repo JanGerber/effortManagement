@@ -1,11 +1,58 @@
-        <div class="container">
-            <h1>Not found <span>:(</span></h1>
-            <p>Sorry, but the page you were trying to view does not exist.</p>
-            <p>It looks like this was the result of either:</p>
-            <ul>
-                <li>a mistyped address</li>
-                <li>an out-of-date link</li>
-            </ul>
-        </div>
+<div class="container">
+	
+  <h3>Startseite</h3>
+  	
+  	
+  	    <div class="container">
+        <section style="padding-bottom: 50px; padding-top: 50px;">        		
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="resources/bilder/250x250.png" class="img-rounded img-responsive" />
+                    <br />
+                    <br />
+                    
+		            <ul class="list-group">
+		            <li class="list-group-item text-muted listeErste"><strong>Benutzerdaten</strong></li>
+		            <li class="list-group-item text-right"><span class="pull-left"><strong>Username</strong></span>{{user.userName}}</li>
+		            <li class="list-group-item text-right"><span class="pull-left"><strong>E-Mail Addresse</strong></span>{{user.email}}</li>
+		            <li class="list-group-item text-right"><span class="pull-left"><strong>Hochschule</strong></span>{{user.hochschule}}</li>
+		            
+		          </ul> 
+                    <br>
+                    
+                    <div class="col-md-6 padtop15">
+                    <button type="button" class="btn btn-success" ng-click="profilAnpassen({{user.userId}})">Profil anpassen</button> 
+					</div>
+                    <div class="col-md-6 padtop15">
+                    <button type="button" class="btn btn-warning" ng-click="passwortAendern({{user.userId}})" id="buttonPasswortAendern">Passwort ändern</button>
+                 	</div>
+                 	
+                    <br /><br/>
+                </div>
+                <div class="col-md-8">
+                    <div class="alert alert-info">
+                        <h2>User Bio : </h2>
+                        <h4>Bootstrap user profile template </h4>
+                        <p>
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                             3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. 
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- ROW END -->
+
+
+        </section>
+        <!-- SECTION END -->
+    </div>
+    <!-- CONATINER END -->
+  	
+</div>
+
+
+
 
 

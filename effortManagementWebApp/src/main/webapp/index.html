@@ -46,13 +46,13 @@
 	<link rel="stylesheet" href="css/anzeige.css">
 	
 	
-	<title>Wettkampf Editor</title>
+	<title>effortManagement</title>
 </head>
 
 <body>
 	<div ng-controller="mainCtrl">
 		
-		<nav class="navbar navbar-inverse" ng-class="{hidden: $route.current.activetab == 'anzeige'}"  >
+		<nav class="navbar navbar-inverse" ng-class="{hidden: $route.current.activetab == 'startseite'}"  >
 			  <div class="container-fluid">
 				<div class="navbar-header">
 				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -60,17 +60,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>                        
 				  </button>
-				  <a class="navbar-brand" href="#">WettkampfEditor</a>
+				  <a class="navbar-brand" href="#">effortManagement</a>
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 				  <ul class="nav navbar-nav">
-					<li ng-class="{active: $route.current.activetab == 'wettkampf'}" ><a href="#/wettkampf" >Wettkämpfe</a></li>
-					<li ng-class="{active: $route.current.activetab == 'turner'}" ><a href="#/turner" >Turner</a></li>
-					<li ng-class="{active: $route.current.activetab == 'mannschaften'}"><a href="#/mannschaften" >Mannschaften</a></li>
-					<li ng-class="{active: $route.current.activetab == 'upload'}"><a href="#/upload" >Upload</a></li>
+					<li ng-class="{active: $route.current.activetab == 'startseite'}" ><a href="#/home" >Home</a></li>
+					<li ng-class="{active: $route.current.activetab == 'turner'}" ><a href="#/semester" >Semester</a></li>
+					<li ng-class="{active: $route.current.activetab == 'vorlesung'}"><a href="#/vorlesung" >Vorlesung</a></li>
+					<li ng-class="{active: $route.current.activetab == 'upload'}"><a href="#/auswertung" >Auswertung</a></li>
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
-					<li><a href="#/anzeige"><span class="fa fa-desktop"></span> Anzeige</a></li>
+					<li><a href="#/logout"><span class="fa fa-sign-out "></span> Logout</a></li>
 				  </ul>
 				</div>
 			  </div>
