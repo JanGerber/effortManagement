@@ -12,8 +12,7 @@ import com.effortmanagement.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
-	
+
 	private UserService userService = new UserService();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)

@@ -15,6 +15,8 @@ public class SemesterDatabase extends DatenDAO {
 	
 	private final Logger logger = LoggerFactory.getLogger(SemesterDatabase.class);
 	
+
+	
 	public List<Semester> getSemesterList(int userId){
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;

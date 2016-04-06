@@ -16,12 +16,11 @@ import com.effortmanagement.service.UserService;
 @RequestMapping("/")
 public class RegistrierenController {
 	
-	//@Autowired
 	private UserService userService = new UserService();
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void newSemester(@RequestBody CreateUser user) {
+	public void newUser(@RequestBody CreateUser user) {
 		
 		userService.newUser(user);
 		//TODO log the user in

@@ -13,10 +13,12 @@ import com.effortmanagement.model.Semester;
 
 
 public class SemesterService {
-	//@Autowired
+	
 	private SemesterDatabase semesterDao = new SemesterDatabase();
 	
 	private final Logger logger = LoggerFactory.getLogger(SemesterService.class);
+	
+
 	
 	public List<Semester> getSemesterList(int userId){
 		return semesterDao.getSemesterList(userId); 
