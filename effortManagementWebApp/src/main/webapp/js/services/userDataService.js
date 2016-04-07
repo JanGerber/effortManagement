@@ -2,7 +2,7 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
 															function($http , $location) {
     var srv = {};
 
-    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/jaxtest';
+    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage';
 
     //get User
     srv.getUser = function() {
@@ -12,9 +12,13 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
     srv.changeUser = function(user) {
 		return $http.put( srv._baseUrl + "/user/", user); 
     };
-    //alle Turner
+    //new User
     srv.newUser = function(user) {
 		return $http.post( srv._baseUrl + "/", user); 
+    };
+  //change User
+    srv.changePasswort = function(passwort) {
+		return $http.put( srv._baseUrl + "/user/passwort", passwort); 
     };
     
 
@@ -28,6 +32,9 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
         },
         newUser: function(user) {
             return srv.newUser(user);
+        },
+        changePasswort: function(passwort) {
+            return srv.changePasswort(passwort);
         },
   
     };

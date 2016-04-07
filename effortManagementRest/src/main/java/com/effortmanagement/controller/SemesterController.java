@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.effortmanagement.model.ChangeSemester;
 import com.effortmanagement.model.CreateSemester;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.service.SemesterService;
@@ -27,7 +27,7 @@ public class SemesterController {
 	
 	private SemesterService semesterService = new SemesterService();
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Semester> getSemesterList() {
 		return semesterService.getSemesterList(1); //TODO user
     }
@@ -55,7 +55,7 @@ public class SemesterController {
 	
 	
 	@RequestMapping(value = "/{semesterId}", method = RequestMethod.PUT, produces="application/json")
-	public void changeSemester(@PathVariable int semesterId, @RequestBody Semester semester) {
+	public void changeSemester(@PathVariable int semesterId, @RequestBody ChangeSemester semester) {
 		Semester semesterOld = semesterService.getSemester(semesterId);
 		
 		if(semesterOld.getUser_Id() != 0){
@@ -73,7 +73,7 @@ public class SemesterController {
 		}
     }
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void newSemester(@RequestBody CreateSemester semester) {
 		semester.setUser_Id(1); //TODO  userId

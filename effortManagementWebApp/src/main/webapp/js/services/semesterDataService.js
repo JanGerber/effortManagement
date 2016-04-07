@@ -1,8 +1,8 @@
-angular.module('wettEditor').service('wettkampfDataService',[ '$http', '$location' ,
+angular.module('wettEditor').service('semesterDataService',[ '$http', '$location' ,
 															function($http , $location) {
     var srv = {};
 
-    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/jaxtest';
+    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage';
 
     //get all Semester
     srv.getSemesterList = function() {

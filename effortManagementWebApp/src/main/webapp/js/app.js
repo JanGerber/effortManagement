@@ -2,7 +2,7 @@
     	.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                redirectTo: '/home',
+                redirectTo: '/startseite',
             })
             // route for the semester page
             .when('/semester', {

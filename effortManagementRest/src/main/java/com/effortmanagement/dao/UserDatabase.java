@@ -81,7 +81,7 @@ public class UserDatabase extends DatenDAO {
 		} catch (SQLException e) {
 			logger.error("getUserByName");
 			logger.error(e.getMessage());
-
+			user = null;
 		} finally {
 			if (preparedStatement != null) {
 				try {
@@ -351,6 +351,50 @@ public class UserDatabase extends DatenDAO {
 
 		}
 		return user;
+	}
+	public String getPasswort(int userId) {
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;
+		String password = null; 
+		ResultSet rs =null;
+
+		String selectSQL = "Select passwort from user where userID like ?";
+
+		try {
+			dbConnection = getDBConnection();
+			preparedStatement = dbConnection.prepareStatement(selectSQL);
+			preparedStatement.setInt(1, userId);
+			rs = preparedStatement.executeQuery();
+			if(rs != null){
+				
+					while (rs.next()){
+					    password = rs.getString(1);
+				}
+			}
+		} catch (SQLException e) {
+			logger.error("Error(getPasswort) ");
+			logger.error(e.getMessage());
+
+		} finally {
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (dbConnection != null) {
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+
+		}
+		return password;
 	}
 
 

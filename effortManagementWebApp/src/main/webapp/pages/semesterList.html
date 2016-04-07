@@ -15,12 +15,12 @@
 				    </tr>
 				    </thead>
 				   <tbody>
-				        <tr ng-repeat="">
+				        <tr ng-repeat="semester in semesterList">
 				            <td ng-bind="semester.semesterName"></td>
 				            <td ng-bind="semester.startDatum"></td>
 				            <td ng-bind="semester.endDatum"></td>
-				            <td> <button type="button" class="btn btn-default" ng-click="editSemester(semester)">Bearbeiten</button></td>
-				            <td><a ng-click="deleteSemester(semester.semesterId)" >Delete</a></td>
+				            <td> <button type="button" class="btn btn-default" ng-click="editSemester(semester.semesterId)">Bearbeiten</button></td>
+				            <td><a ng-click="deleteSemester(semester.semesterId)" style="cursor: pointer">Delete</a></td>
 				        </tr> 
 				    </tbody>   				     
 				    </table>
@@ -33,4 +33,5 @@
   	
 </div>
 
+<pre>{{semesterList}}</pre>
 

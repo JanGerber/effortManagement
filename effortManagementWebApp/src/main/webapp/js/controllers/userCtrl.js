@@ -6,6 +6,20 @@ angular.module('wettEditor').controller(
 					
 			        $scope.items = ['item1', 'item2', 'item3'];
 			        
+			        $scope.loadUserData = function() {
+			        	console.log("loadUserData")
+						userDataService.getUser().then(
+								function(response) {
+									$scope.user = response.data;
+									console.log(response);
+								}, function(response) {
+									console.log(response);
+									// error
+								});
+					};
+					
+			        $scope.loadUserData();
+			        
 					$scope.profilAnpassen = function() {
 
 						var modalInstance = $uibModal.open({
@@ -19,6 +33,11 @@ angular.module('wettEditor').controller(
 								}
 							}
 						});
+						
+						modalInstance.result.then(function (selectedItem) {
+					    }, function () {
+					    	$scope.loadUserData();	
+					    });
 					};
 
 					$scope.passwortAendern = function() {
@@ -34,6 +53,11 @@ angular.module('wettEditor').controller(
 								}
 							}
 						});
+						
+						modalInstance.result.then(function (selectedItem) {
+					    }, function () {
+					    	$scope.loadUserData();	
+					    });
 
 					};
 

@@ -1,13 +1,10 @@
 package com.effortmanagement.service;
-import java.sql.*;
 import java.util.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.effortmanagement.dao.SemesterDatabase;
-import com.effortmanagement.dao.UserDatabase;
 import com.effortmanagement.model.CreateSemester;
 import com.effortmanagement.model.Semester;
 

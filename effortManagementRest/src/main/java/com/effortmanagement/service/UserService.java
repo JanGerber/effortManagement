@@ -1,12 +1,11 @@
 package com.effortmanagement.service;
 
-import java.sql.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.effortmanagement.dao.UserDatabase;
+import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.CreateUser;
 import com.effortmanagement.model.User;
 
@@ -28,9 +27,13 @@ public class UserService  {
 	}
 	
 
-	public void changePasswort(int userId,String oldPasswort, String newPasswort){
-		
-		userDatabase.changePasswort(userId, newPasswort);
+	public void changePasswort(int userId ,ChangePasswort  passwort){
+		if(passwort.getOldPasswort().equals(userDatabase.getPasswort(userId))){
+		userDatabase.changePasswort(userId, passwort.getNewPasswort()); 
+		}else{
+			logger.error("altest Passwort falsch(eingegeben, muss): " + passwort.getOldPasswort() + " , " + userDatabase.getPasswort(userId));
+			//TODO wrong old password
+		}
 		
 	}
 	public void changeEmail(int userId,String newEmail){
@@ -38,6 +41,9 @@ public class UserService  {
 		
 	}
 	public void changeUserName(int userId,String newUserName){
+		if(userDatabase.getUserByName(newUserName) != null){
+			//TODO Error userName bereits vergeben
+		}
 		userDatabase.changeUserName(userId, newUserName);
 		
 	}
