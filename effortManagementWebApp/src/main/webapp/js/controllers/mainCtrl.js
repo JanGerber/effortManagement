@@ -4,7 +4,5 @@ angular.module('wettEditor').controller(
                     function($rootScope, $scope, $filter, $route)  {
              			$scope.$route = $route;
             			
-            			
-
                     } ]);
 

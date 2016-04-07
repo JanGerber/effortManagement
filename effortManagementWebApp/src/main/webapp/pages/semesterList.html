@@ -19,8 +19,8 @@
 				            <td ng-bind="semester.semesterName"></td>
 				            <td ng-bind="semester.startDatum"></td>
 				            <td ng-bind="semester.endDatum"></td>
-				            <td> <button type="button" class="btn btn-default" ng-click="editSemester({{semester}})">Bearbeiten</button></td>
-				            <td><a ng-click="editSemester({{semester.semesterId}})" >Delete</a></td>
+				            <td> <button type="button" class="btn btn-default" ng-click="editSemester(semester)">Bearbeiten</button></td>
+				            <td><a ng-click="deleteSemester(semester.semesterId)" >Delete</a></td>
 				        </tr> 
 				    </tbody>   				     
 				    </table>

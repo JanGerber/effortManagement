@@ -1,60 +1,37 @@
-	<!-- Modal Profil anpassen -->
-	<div id="myModalProfil" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
-
-		<!-- Modal content-->
-		<div class="modal-content">
 		<div class="modal-header " style="background-color:green">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 style="color:white;"><span ></span>Profil anpassen</h4>
         </div>
         <div class="modal-body" id="modal-bodyLinks">
-        
-        <!-- Fehler User vorhanden -->
-        <c:if test="${requestScope.userVorhanden}">
-				 <script type="text/javascript">
-				    $(window).load(function(){
-				        $('#myModalProfil').modal('show');
-				    });
-				</script>
-				<div class="alert alert-danger">
-	  				<strong>Fehler!</strong> Dieser Benutzername ist bereits vergeben.
-				</div> 
-
-			</c:if>	 
-		<!-- ENDE: Fehler User vorhanden -->    
+ 
 		   
 		<form  action="profilAnpassen.html" method="Post"autocomplete="off">
             <div class="form-group form-groupNeu">
               <label for="benutzername">Benutzername:</label>
-              <input type="text" name="benutzername" class="form-control" id="benutzername" required="required" placeholder="Benutzername eingeben" value="<c:out value="${user.userName}"/>">
+              <input type="text" name="benutzername" class="form-control" id="benutzername" required="required" placeholder="Benutzername eingeben" ng-model="user.userName">
             </div>
             <div class="form-group form-groupNeu">
               <label for="email">E-Mail:</label>
-              <input type="email" name="email"  class="form-control" id="email" required="required" placeholder="E-mail Adresse eingeben" value="<c:out value="${user.email}"/>">
+              <input type="email" name="email"  class="form-control" id="email" required="required" placeholder="E-mail Adresse eingeben" ng-model="user.email">
             </div>
 			 <div class="form-group form-groupNeu">
               <label for="hochschule">Hochschule:</label>
-              <input type="text" name="hochschule"  class="form-control" id="hochschule" required="required" placeholder="Name der Hochschule eingeben" value="<c:out value="${user.hochschule}"/>">
+              <input type="text" name="hochschule"  class="form-control" id="hochschule" required="required" placeholder="Name der Hochschule eingeben" ng-model="user.hochschule">
             </div>
 		  
             <div class="form-group" style="text-align: right;">
-            <button type="submit" value="aendernPass" class="btn btn-default btn-warning" id="buttonProfilAnpassenM" ><span class="glyphicon glyphicon-ok"></span> Bestätigen</button>
+            <button type="button" value="aendernPass" class="btn btn-default btn-warning" id="buttonProfilAnpassenM" ng-click="editUser()"><span class="glyphicon glyphicon-ok"></span> Bestätigen</button>
       		</div>
        </form>
        
         </div>
 
 		 <div class="modal-footer footerERG" >
-          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <button type="button" class="btn btn-default btn-default pull-left" ng-click="closeModal()"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
          
        
         </div>
-		</div>
 
-	  </div>
-	</div>
-	</div>
-	<!-- Modal ENDE Profil anpassen -->
+
 
 

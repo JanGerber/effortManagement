@@ -1,7 +1,17 @@
 angular.module('wettEditor').controller(
-            'athlCtrl',
-            [ '$rootScope', '$scope',  '$http', '$routeParams', 'wettkampfDataService', '$location', '$filter',
-                    function($rootScope, $scope,  $http, $routeParams, wettkampfDataService, $location , $filter) {
-						
-                    } ]);
+		'passwortEditCtrl',
+		[
+				'$rootScope',
+				'$scope',
+				'$http',
+				'$routeParams',
+				'userDataService',
+				'$location',
+				'$filter',
+				function($rootScope, $scope, $http, $routeParams,
+						userDataService, $location, $filter) {
 
+					$scope.closeModal = function() {
+						$uibModalInstance.dismiss('');
+					}
+				} ]);
