@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.effortmanagement.dao.UserDatabase;
+import com.effortmanagement.exceptions.PasswordsIsWrongException;
+import com.effortmanagement.exceptions.UserNameAlreadyExistException;
 import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.CreateUser;
 import com.effortmanagement.model.User;
@@ -32,7 +34,7 @@ public class UserService  {
 		userDatabase.changePasswort(userId, passwort.getNewPasswort()); 
 		}else{
 			logger.error("altest Passwort falsch(eingegeben, muss): " + passwort.getOldPasswort() + " , " + userDatabase.getPasswort(userId));
-			//TODO wrong old password
+			throw new PasswordsIsWrongException("Das eingegebene Passwort ist falsch");
 		}
 		
 	}
@@ -42,7 +44,7 @@ public class UserService  {
 	}
 	public void changeUserName(int userId,String newUserName){
 		if(userDatabase.getUserByName(newUserName) != null){
-			//TODO Error userName bereits vergeben
+			throw new UserNameAlreadyExistException("Dieser User Name ist bereits vergeben");
 		}
 		userDatabase.changeUserName(userId, newUserName);
 		
@@ -52,7 +54,9 @@ public class UserService  {
 	}
 	
 	public void newUser(CreateUser user){
-		//TODO check if user name already in the database
+		if(userDatabase.getUserByName(user.getUserName()) != null){
+			throw new UserNameAlreadyExistException("Dieser User Name ist bereits vergeben");
+		}
 		userDatabase.newUser(user);
 	}
 }

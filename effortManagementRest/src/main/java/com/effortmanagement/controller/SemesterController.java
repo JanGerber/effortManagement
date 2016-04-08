@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.effortmanagement.exceptions.UserNotAuthorizedException;
 import com.effortmanagement.model.ChangeSemester;
 import com.effortmanagement.model.CreateSemester;
 import com.effortmanagement.model.Semester;
@@ -36,7 +37,7 @@ public class SemesterController {
 	public Semester getSemester(@PathVariable int semesterId) {
 		Semester semester = semesterService.getSemester(semesterId);
 		if(semester.getUser_Id() != 0){
-			//TODO User is not allowed to get this semester
+			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu betrachten (SemesterId: " + semesterId +")");
 		}
 		return semester;
         
@@ -48,7 +49,7 @@ public class SemesterController {
 	public void deleteSemester(@PathVariable int semesterId) {
 		Semester semester = semesterService.getSemester(semesterId);
 		if(semester.getUser_Id() != 0){
-			//TODO User is not allowed to delete this semester
+			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu löschen (SemesterId: " + semesterId +")");
 		}
 		semesterService.deleteSemester(semesterId);
     }
@@ -59,7 +60,7 @@ public class SemesterController {
 		Semester semesterOld = semesterService.getSemester(semesterId);
 		
 		if(semesterOld.getUser_Id() != 0){
-			//TODO User is not allowed to change this semester
+			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu bearbeiten (SemesterId: " + semesterId +")");
 		}
 		
 		if(semester.getStartDatum() != null){

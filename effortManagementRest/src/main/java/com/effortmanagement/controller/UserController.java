@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.effortmanagement.dao.SemesterDatabase;
+import com.effortmanagement.exceptions.UserNotAuthorizedException;
 import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.ChangeUser;
 import com.effortmanagement.model.User;
@@ -27,6 +28,8 @@ public class UserController {
 	@RequestMapping(value = "", method = RequestMethod.PUT)
 	public void changeUser( @RequestBody ChangeUser user) {
 		logger.info("changeUser: " + user.getEmail());
+		
+		
 		if(user.getEmail() != null){
 			logger.info("Email change: " + user.getEmail());
 			userService.changeEmail(1, user.getEmail()); //TODO user
