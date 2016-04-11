@@ -1,20 +1,23 @@
-Datenbank anlegen
+Für H2 Datenbank Script
 
-CREATE TABLE IF NOT EXIST 'semester' (
-  'semesterId' int(11) NOT NULL AUTO_INCREMENT,
-  'semesterName' varchar(100) NOT NULL,
-  'startDatum' date NOT NULL,
-  'endDatum' date NOT NULL,
-  'user_Id' int(11) NOT NULL,
-  PRIMARY KEY ('semesterId'),
-  FOREIGN KEY ('user_Id') REFERENCES Persons('user')
-)
+CREATE TABLE semester (
+  semesterId int(11) NOT NULL AUTO_INCREMENT,
+  semesterName varchar(100) NOT NULL,
+  startDatum date NOT NULL,
+  endDatum date NOT NULL,
+  user_Id int(11) NOT NULL,
+  PRIMARY KEY (semesterId),
+  FOREIGN KEY (user_Id) REFERENCES user(userID)
+);
 
-CREATE TABLE  IF NOT EXIST 'user' (
-  'userID' int(10) NOT NULL AUTO_INCREMENT,
-  'userName' varchar(100)  NOT NULL,
-  'passwort' varchar(100) NOT NULL,
-  'email' varchar(100) NOT NULL,
-  'hochschule' varchar(100) NOT NULL,
-  PRIMARY KEY ('userID')
-)
+CREATE TABLE user (
+  userID int(10) NOT NULL AUTO_INCREMENT,
+  userName varchar(100)  NOT NULL,
+  passwort varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  hochschule varchar(100) NOT NULL,
+  PRIMARY KEY (userID)
+);
+
+
+
