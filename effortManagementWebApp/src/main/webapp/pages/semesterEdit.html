@@ -6,7 +6,10 @@
 </div>
 
 <div class="modal-body" id="modal-bodyLinks">
-
+	<div>
+		<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
+			close="closeAlert($index)">{{alert.msg}}</uib-alert>
+	</div>
 	<form>
 		<div class="form-group form-groupNeu">
 			<label for="semesterName">Semester Name</label> <input type="text"

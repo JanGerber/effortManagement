@@ -1,20 +1,20 @@
 angular.module('wettEditor').controller(
 		'userCtrl',
-		['$rootScope','$scope','$location','$routeParams','$http','$timeout','$filter','userDataService', '$uibModal',
+		['$rootScope','$scope','$location','$routeParams','$http','$timeout','$filter','userDataService', '$uibModal','alertService',
 				function($rootScope, $scope, $location, $routeParams, $http,
-						$timeout, $filter, userDataService, $uibModal) {
+						$timeout, $filter, userDataService, $uibModal, alertService) {
 					
 			        $scope.items = ['item1', 'item2', 'item3'];
+			        
+			        
 			        
 			        $scope.loadUserData = function() {
 			        	console.log("loadUserData")
 						userDataService.getUser().then(
 								function(response) {
 									$scope.user = response.data;
-									console.log(response);
 								}, function(response) {
-									console.log(response);
-									// error
+									alertService.add("warning", "This is a warning.");
 								});
 					};
 					

@@ -1,8 +1,8 @@
 angular.module('wettEditor').controller(
             'userEditCtrl',
-            [ '$rootScope', '$scope','$http', '$filter','$location', 'userDataService' , '$uibModalInstance',
-                    function($rootScope, $scope, $http, $filter, $location , userDataService , $uibModalInstance) {
-
+            [ '$rootScope', '$scope','$http', '$filter','$location', 'userDataService' , '$uibModalInstance','alertService',
+                    function($rootScope, $scope, $http, $filter, $location , userDataService , $uibModalInstance,alertService) {
+            	    $rootScope.closeAlert = alertService.closeAlert; 
             	    changeUser = {
             	    	userName : "",
             	    	email : "",
@@ -15,7 +15,7 @@ angular.module('wettEditor').controller(
 									$scope.user = response.data;
 								}, function(response) {
 									console.log(response);
-									// error
+									alertService.add("warning", response.data.errorMessage);
 								});
 					};						
 						
@@ -30,7 +30,7 @@ angular.module('wettEditor').controller(
 								function(response) {
 									$uibModalInstance.dismiss('changed');
 								}, function(response) {
-									// error
+									alertService.add("warning", response.data.errorMessage);
 								});
 					};
 					

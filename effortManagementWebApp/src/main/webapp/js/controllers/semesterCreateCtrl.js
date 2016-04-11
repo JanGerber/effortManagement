@@ -1,7 +1,7 @@
 angular.module('wettEditor').controller(
             'semesterCreateCtrl',
-            [ '$rootScope', '$scope', '$location', '$routeParams' ,'$filter','$http', '$window', '$uibModalInstance', 'semesterDataService' ,
-                    function($rootScope, $scope, $location, $routeParams, $filter, $http, $window , $uibModalInstance, semesterDataService) {
+            [ '$rootScope', '$scope', '$location', '$routeParams' ,'$filter','$http', '$window', 'alertService' , '$uibModalInstance', 'semesterDataService' ,
+                    function($rootScope, $scope, $location, $routeParams, $filter, $http, $window , alertService , $uibModalInstance, semesterDataService) {
             	
             	$scope.semester ={
             			semesterName : '',
@@ -14,13 +14,15 @@ angular.module('wettEditor').controller(
 					$uibModalInstance.dismiss('');
 				}
 				
+            	$rootScope.closeAlert = alertService.closeAlert; 
+            	
             	$scope.newSemester = function() {
 
             		semesterDataService.newSemester($scope.semester).then(
 							function(response) {
 								$uibModalInstance.dismiss('created');
 							}, function(response) {
-								// error
+								alertService.add("warning", response.data.errorMessage);
 							});
 				};
 								

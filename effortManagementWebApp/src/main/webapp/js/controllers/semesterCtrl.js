@@ -1,7 +1,7 @@
 angular.module('wettEditor').controller(
             'semesterCtrl',
-            [ '$rootScope', '$scope',  '$http', '$routeParams', 'semesterDataService', '$location', '$filter', '$uibModal',
-                    function($rootScope, $scope,  $http, $routeParams, semesterDataService, $location , $filter, $uibModal) {
+            [ '$rootScope', '$scope',  '$http', '$routeParams', 'semesterDataService','alertService', '$location', '$filter', '$uibModal',
+                    function($rootScope, $scope,  $http, $routeParams, semesterDataService,alertService, $location , $filter, $uibModal) {
 						
             	//Semester List laden
             	$scope.loadSemesterListData = function() {
@@ -10,7 +10,7 @@ angular.module('wettEditor').controller(
 							function(response) {
 								$scope.semesterList = response.data;
 							}, function(response) {
-								// error
+								alertService.add("warning", response.data.errorMessage);
 							});
 				};
 				
@@ -22,7 +22,7 @@ angular.module('wettEditor').controller(
 							function(response) {
 								$scope.loadSemesterListData();	
 							}, function(response) {
-								// error
+								alertService.add("warning", response.data.errorMessage);
 							});
             		
 				};

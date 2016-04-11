@@ -3,7 +3,9 @@
           <h4 style="color:white;"><span ></span>Profil anpassen</h4>
         </div>
         <div class="modal-body" id="modal-bodyLinks">
- 
+ 		 <div>
+			<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
+  		</div>
 		   
 		<form  action="profilAnpassen.html" method="Post"autocomplete="off">
             <div class="form-group form-groupNeu">

@@ -1,55 +1,58 @@
 
-	<div class="modal-header " style="background-color: orange">
-		<button type="button" class="close" ng-click="closeModal()">&times;</button>
-		<h4 style="color: white;">
-			<span></span> Semester erstellen
-		</h4>
+<div class="modal-header " style="background-color: orange">
+	<button type="button" class="close" ng-click="closeModal()">&times;</button>
+	<h4 style="color: white;">
+		<span></span> Semester erstellen
+	</h4>
+</div>
+<div class="modal-body" id="modal-bodyLinks">
+	<div>
+		<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
+			close="closeAlert($index)">{{alert.msg}}</uib-alert>
 	</div>
-	<div class="modal-body" id="modal-bodyLinks">
+	<form autocomplete="off">
 
-		<form autocomplete="off">
+		<div class="form-group form-groupNeu">
+			<label for="semesterName">Semester Name</label> <input type="text"
+				name="semesterName" class="form-control" id="semesterName"
+				required="required" placeholder="Semester Name"
+				ng-model="semester.semesterName">
+		</div>
 
-			<div class="form-group form-groupNeu">
-				<label for="semesterName">Semester Name</label> <input type="text"
-					name="semesterName" class="form-control" id="semesterName"
-					required="required" placeholder="Semester Name"
-					ng-model="semester.semesterName">
-			</div>
-
-			<div id="sandbox-container" class="form-group form-groupNeu">
-				<div class="input-daterange input-group" id="datepicker">
-					<div class="form-group form-groupNeu">
-						<label for="startDatum">Start Datum</label> <input type="text"
-							name="startDatum" class="form-control" id="startDatum"
-							required="required" placeholder="Start Datum wählen"
-							ng-model="semester.startDatum">
-					</div>
-					<div class="form-group form-groupNeu">
-						<label for="endDatum">End Datum</label> <input type="text"
-							name="endDatum" class="form-control" id="endDatum"
-							required="required" placeholder="End Datum wählen"
-							ng-model="semester.endDatum">
-					</div>
+		<div id="sandbox-container" class="form-group form-groupNeu">
+			<div class="input-daterange input-group" id="datepicker">
+				<div class="form-group form-groupNeu">
+					<label for="startDatum">Start Datum</label> <input type="text"
+						name="startDatum" class="form-control" id="startDatum"
+						required="required" placeholder="Start Datum wählen"
+						ng-model="semester.startDatum">
+				</div>
+				<div class="form-group form-groupNeu">
+					<label for="endDatum">End Datum</label> <input type="text"
+						name="endDatum" class="form-control" id="endDatum"
+						required="required" placeholder="End Datum wählen"
+						ng-model="semester.endDatum">
 				</div>
 			</div>
+		</div>
 
 
-			<div class="form-group" style="text-align: right;">
-				<button type="button" class="btn btn-default btn-warning"
-					ng-click="newSemester()">
-					<span class="glyphicon glyphicon-ok"></span>Neues Semester
-				</button>
-			</div>
-		</form>
+		<div class="form-group" style="text-align: right;">
+			<button type="button" class="btn btn-default btn-warning"
+				ng-click="newSemester()">
+				<span class="glyphicon glyphicon-ok"></span>Neues Semester
+			</button>
+		</div>
+	</form>
 
-	</div>
+</div>
 
-	<div class="modal-footer footerERG">
-		<button type="button" class="btn btn-default btn-default pull-left"
-			ng-click="closeModal()">
-			<span class="glyphicon glyphicon-remove"></span> Cancel
-		</button>
+<div class="modal-footer footerERG">
+	<button type="button" class="btn btn-default btn-default pull-left"
+		ng-click="closeModal()">
+		<span class="glyphicon glyphicon-remove"></span> Cancel
+	</button>
 
 
-	</div>
+</div>
 
