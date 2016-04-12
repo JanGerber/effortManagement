@@ -1,23 +1,38 @@
 Für H2 Datenbank Script
 
 CREATE TABLE semester (
-  semesterId int(11) NOT NULL AUTO_INCREMENT,
+  semesterId INT NOT NULL AUTO_INCREMENT,
   semesterName varchar(100) NOT NULL,
-  startDatum date NOT NULL,
-  endDatum date NOT NULL,
-  user_Id int(11) NOT NULL,
+  startDatum DATE NOT NULL,
+  endDatum DATE NOT NULL,
+  user_Id INT NOT NULL,
   PRIMARY KEY (semesterId),
   FOREIGN KEY (user_Id) REFERENCES user(userID)
 );
 
 CREATE TABLE user (
-  userID int(10) NOT NULL AUTO_INCREMENT,
+  userID INT NOT NULL AUTO_INCREMENT,
   userName varchar(100)  NOT NULL,
   passwort varchar(100) NOT NULL,
   email varchar(100) NOT NULL,
   hochschule varchar(100) NOT NULL,
   PRIMARY KEY (userID)
 );
+CREATE TABLE vorlesung (
+  vorlesungId INT NOT NULL AUTO_INCREMENT,
+  vorlesungName varchar(100) NOT NULL,
+  aufwand DOUBLE NOT NULL,
+  geplanterAufwand  DOUBLE NOT NULL,
+  angestrebteNote DOUBLE NOT NULL,
+  endNote DOUBLE NOT NULL,
+  lernzeit DOUBLE NULL,
+  semesterId INT  NOT NULL,
+  userID INT NOT NULL,
+  PRIMARY KEY (vorlesungId),
+  FOREIGN KEY (semesterId) REFERENCES semester(semesterId),
+  FOREIGN KEY (userId) REFERENCES user(userID)
+);
+
 
 
 
