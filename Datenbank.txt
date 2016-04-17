@@ -1,4 +1,4 @@
-Für H2 Datenbank Script
+﻿Für H2 Datenbank Script
 
 CREATE TABLE semester (
   semesterId INT NOT NULL AUTO_INCREMENT,
@@ -26,6 +26,7 @@ CREATE TABLE vorlesung (
   angestrebteNote DOUBLE NOT NULL,
   endNote DOUBLE NOT NULL,
   lernzeit DOUBLE NULL,
+  creditPoints INT  NOT NULL,
   semesterId INT  NOT NULL,
   userID INT NOT NULL,
   PRIMARY KEY (vorlesungId),
