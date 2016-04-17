@@ -7,38 +7,38 @@ import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.CreateVorlesung;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Vorlesung;
+import com.effortmanagement.model.VorlesungAufwand;
 
 public class VorlesungService {
 	
-	private VorlesungDatabase vorlesungDatabase = new VorlesungDatabase();
+	private VorlesungDatabase vorlesungDAO = new VorlesungDatabase();
 
 	public void createSemester(CreateVorlesung vorlesung) {
-		// TODO Auto-generated method stub
+		vorlesungDAO.insertSemester(vorlesung);
 		
 	}
 
 	public List<NoteVorlesung> getNotenList(int semesterId) {
-		// TODO Auto-generated method stub
-		return null;
+		return vorlesungDAO.selectNotenVorlesung(semesterId);
 	}
 
 	public Vorlesung getVorlesungById(int vorlesungId) {
-		// TODO Auto-generated method stub
-		return null;
+		return vorlesungDAO.selectVorlesungById(vorlesungId);
 	}
 
 	public void addAufwand(BucheAufwand aufwand) {
-		// TODO Auto-generated method stub
+		Vorlesung vorlesung = getVorlesungById(aufwand.getVorlesungId());
+		vorlesungDAO.changeAufwand(aufwand.getZeit() + vorlesung.getLernzeit());
 		
 	}
 
-	public void getAufwandById(int vorlesungId) {
-		// TODO Auto-generated method stub
-		
+	public VorlesungAufwand getAufwandById(int vorlesungId) {
+		//TODO Berechnung des Nutzten Aufwand Faktors
+		Vorlesung vorlesung = getVorlesungById(vorlesungId);
+		return null;
 	}
 
 	public List<Vorlesung> getVorlesungList(int semesterId) {
-		// TODO Auto-generated method stub
-		return null;
+		return vorlesungDAO.selectVorlesungListById(semesterId);
 	}
 }
