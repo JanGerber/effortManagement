@@ -159,7 +159,7 @@ public class VorlesungDatabase extends DatenDAO{
 		List<NoteVorlesung> notenList = new ArrayList<NoteVorlesung>();
 		ResultSet rs =null;
 
-		String selectSQL = "Select ################# from semester where semesterId like ?";
+		String selectSQL = "Select ################## from semester where semesterId like ?";
 
 		try {
 			dbConnection = getDBConnection();
