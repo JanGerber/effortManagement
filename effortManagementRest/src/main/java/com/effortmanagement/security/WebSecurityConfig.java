@@ -18,10 +18,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	private static final String LOGIN_PATH = ApiPaths.ROOT + ApiPaths.User.ROOT + ApiPaths.User.LOGIN;
+//	private static final String LOGIN_PATH = ApiPaths.ROOT + ApiPaths.User.ROOT + ApiPaths.User.LOGIN;
 
-    @Autowired
-    private NuvolaUserDetailsService  userDetailsService;
+//    @Autowired
+//    private NuvolaUserDetailsService  userDetailsService;
     @Autowired
     private HttpAuthenticationEntryPoint authenticationEntryPoint;
     @Autowired
@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService);
+//        authenticationProvider.setUserDetailsService(userDetailsService);
         authenticationProvider.setPasswordEncoder(new ShaPasswordEncoder());
 
         return authenticationProvider;
@@ -71,15 +71,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .permitAll()
-                .loginProcessingUrl(LOGIN_PATH)
-                .usernameParameter(Parameters.USERNAME)
-                .passwordParameter(Parameters.PASSWORD)
+//                .loginProcessingUrl(LOGIN_PATH)
+//                .usernameParameter(Parameters.USERNAME)
+//                .passwordParameter(Parameters.PASSWORD)
                 .successHandler(authSuccessHandler)
                 .failureHandler(authFailureHandler)
                 .and()
                 .logout()
                 .permitAll()
-                .logoutRequestMatcher(new AntPathRequestMatcher(LOGIN_PATH, "DELETE"))
+//                .logoutRequestMatcher(new AntPathRequestMatcher(LOGIN_PATH, "DELETE"))
                 .logoutSuccessHandler(logoutSuccessHandler)
                 .and()
                 .sessionManagement()
