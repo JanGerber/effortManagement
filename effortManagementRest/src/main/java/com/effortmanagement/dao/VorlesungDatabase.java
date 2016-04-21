@@ -26,7 +26,7 @@ public class VorlesungDatabase extends DatenDAO{
 		List<Vorlesung> vorlesungList = new ArrayList<Vorlesung>();
 		ResultSet rs =null;
 
-		String selectSQL = "Select ################# from vorlesung where s like ?";
+		String selectSQL = "Select ############## from vorlesung where s like ?";
 
 		try {
 			dbConnection = getDBConnection();
