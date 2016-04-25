@@ -28,7 +28,7 @@ public class VorlesungService {
 
 	public void addAufwand(BucheAufwand aufwand) {
 		Vorlesung vorlesung = getVorlesungById(aufwand.getVorlesungId());
-		vorlesungDAO.changeAufwand(aufwand.getZeit() + vorlesung.getLernzeit());
+		vorlesungDAO.changeAufwand(aufwand.getVorlesungId(),aufwand.getZeit() + vorlesung.getLernzeit());
 		
 	}
 
