@@ -9,6 +9,7 @@ public class Vorlesung {
 	private int Lernzeit;
 	private int Notenziel;
 	private int Creditpoints;
+	private int userId;
 	
 	public int getVorlesungID() {
 		return VorlesungID;
@@ -93,6 +94,14 @@ public class Vorlesung {
 	public Vorlesung() {
 		// TODO - implement Vorlesung.Vorlesung
 		throw new UnsupportedOperationException();
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 

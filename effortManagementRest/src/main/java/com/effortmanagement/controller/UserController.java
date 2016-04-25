@@ -21,6 +21,7 @@ public class UserController {
 
 	private UserService userService = new UserService();
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public User getUser() {
 		return userService.getUser(1);//TODO user
