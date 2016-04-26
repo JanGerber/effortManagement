@@ -63,7 +63,7 @@ public class VorlesungController {
     }
 	@RequestMapping(value = "/{vorlesungId}/aufwand", method = RequestMethod.GET)
 	public void getAufwandById(@PathVariable int vorlesungId) {
-		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() == 1 ){
+		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() == 1 ){ //TODO User Id
 			throw new UserNotAuthorizedException("Sie sind können auf diese Vorlesung keinen Aufwand buchen");
 		}
 		vorlesungService.getAufwandById(vorlesungId);
