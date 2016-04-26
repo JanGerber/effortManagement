@@ -22,6 +22,24 @@
                 controller  : 'startCtrl',
                 activetab: 'startseite'
             })
+            // route for the start page
+            .when('/vorlesung', {
+                templateUrl : 'pages/vorlesung.html',
+                controller  : 'vorlesungCtrl',
+                activetab: 'vorlesung'
+            })
+            // route for the start page
+            .when('/aufwand', {
+                templateUrl : 'pages/vorlesungAufwand.html',
+                controller  : 'vorlesungAufwandCtrl',
+                activetab: 'aufwand'
+            })
+            // route for the start page
+            .when('/noten', {
+                templateUrl : 'pages/notenUebersicht.html',
+                controller  : 'notenUebersichtCtrl',
+                activetab: 'noten'
+            })
 	        .otherwise({
 	            templateUrl: 'pages/404.html',
 	        });

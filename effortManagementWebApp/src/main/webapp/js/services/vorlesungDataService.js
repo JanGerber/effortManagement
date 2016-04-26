@@ -13,7 +13,7 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
 		return $http.get( srv._baseUrl + "/list/" + semesterId + "/noten"); 
     };
     //get Vorlesung
-    srv.getVorlesungById = function(vorlesung) {
+    srv.getVorlesungById = function(vorlesungId) {
 		return $http.get( srv._baseUrl + "/" +  vorlesungId); 
     };
     //put Aufwand
@@ -22,7 +22,7 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
     };
     //get Aufwand
     srv.getAufwandById = function(vorlesungId) {
-		return $http.get( srv._baseUrl + vorlesungId  +"/aufwand"); 
+		return $http.get( srv._baseUrl +"/" + vorlesungId  +"/aufwand"); 
     };  
     //get alle Vorlesung
     srv.getVorlesungList = function(semesterId) {
@@ -32,23 +32,23 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
     
     // Public API
     return {
-    	newVorlesung: function() {
-            return srv.getSemesterList();
+    	newVorlesung: function(vorlesung) {
+            return srv.newVorlesung(vorlesung);
         },
         getNotenList: function(semesterId) {
-	        return srv.getSemesterById(semesterId);
+	        return srv.getNotenList(semesterId);
 	    },
-	    getVorlesungById: function(semesterId) {
-            return srv.deleteSemester(semesterId);
+	    getVorlesungById: function(vorlesungId) {
+            return srv.getVorlesungById(vorlesungId);
         },
-        putAufwand: function(semesterId, semester) {
-	        return srv.changeSemester(semesterId, semester);
+        putAufwand: function(vorlesungId, aufwand) {
+	        return srv.putAufwand(vorlesungId, aufwand);
 	    },
-	    getAufwandById: function(semester) {
-            return srv.newSemester(semester);
+	    getAufwandById: function(vorlesungId) {
+            return srv.getAufwandById(vorlesungId);
         },
-        getVorlesungList: function(semester) {
-            return srv.newSemester(semester);
+        getVorlesungList: function(semesterId) {
+            return srv.getVorlesungList(semesterId);
         }
    
     };
