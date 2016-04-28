@@ -29,6 +29,12 @@
                 activetab: 'vorlesung'
             })
             // route for the start page
+            .when('/vorlesung/:semesterId', {
+                templateUrl : 'pages/vorlesung.html',
+                controller  : 'vorlesungCtrl',
+                activetab: 'vorlesung'
+            })
+            // route for the start page
             .when('/aufwand', {
                 templateUrl : 'pages/vorlesungAufwand.html',
                 controller  : 'vorlesungAufwandCtrl',

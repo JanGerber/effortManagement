@@ -2,7 +2,7 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
 															function($http , $location) {
     var srv = {};
 
-    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage';
+    srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage/vorlesung';
 
     //new Vorlesung
     srv.newVorlesung = function(vorlesung) {
@@ -18,6 +18,7 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
     };
     //put Aufwand
     srv.putAufwand = function(vorlesungId, aufwand) {
+    	console.log(vorlesungId + aufwand);
 		return $http.put( srv._baseUrl + "/" +  vorlesungId + "/aufwand", aufwand); 
     };
     //get Aufwand

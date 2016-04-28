@@ -65,7 +65,13 @@
 				  <ul class="nav navbar-nav">
 					<li ng-class="{active: $route.current.activetab == 'home'}" ><a href="#/home" >Home</a></li>
 					<li ng-class="{active: $route.current.activetab == 'semester'}" ><a href="#/semester" >Semester</a></li>
-					<li ng-class="{active: $route.current.activetab == 'vorlesung'}"><a href="#/vorlesung" >Vorlesung</a></li>
+					<li class="dropdown" ng-class="{active: $route.current.activetab == 'vorlesung'}">
+				        <a class="dropdown-toggle" data-toggle="dropdown" href="#/vorlesung">Vorlesung
+				        <span class="caret"></span></a>
+				        <ul class="dropdown-menu" >
+				          <li ng-repeat="semester in semesterList"><a ng-href="#/vorlesung/{{semester.semesterId}}" ng-bind="semester.semesterName"></a></li>
+				        </ul>
+				    </li>
 					<li ng-class="{active: $route.current.activetab == 'noten'}"><a href="#/noten" >Noten</a></li>
 					<li ng-class="{active: $route.current.activetab == 'aufwand'}"><a href="#/aufwand" >Aufwand</a></li>
 				  </ul>
