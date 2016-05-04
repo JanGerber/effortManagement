@@ -3,10 +3,12 @@ angular.module('wettEditor').controller(
             [ '$rootScope', '$scope', '$location', '$routeParams' ,'$filter','$http', '$window', 'alertService' , '$uibModal', 'semesterDataService' , 'vorlesungDataService',
                     function($rootScope, $scope, $location, $routeParams, $filter, $http, $window , alertService , $uibModal, semesterDataService, vorlesungDataService) {
             	
+            	$scope.aktuelleSemesterId = null;
+            	$scope.vorlesungList = [];
+            	console.log(($scope.vorlesungList.length !== 0) );
+            	console.log(($scope.vorlesungList) );
+            	$scope.aktuelleSemesterId = $routeParams.semesterId;
             	
-            	$scope.vorlesungList = {};
-            	
-            	$aktuelleSemesterId = $routeParams.semesterId;
             	
             	//Modal oeffnen neues Vorlesung
             	$scope.newVorlesung = function() {
@@ -18,14 +20,14 @@ angular.module('wettEditor').controller(
 						size : 'lg',
 						resolve : {
 							semesterId : function() {
-								return $aktuelleSemesterId;
+								return $scope.aktuelleSemesterId;
 							}
 						}
 					});
 					
 					modalInstance.result.then(function (selectedItem) {
 				    }, function () {
-				    	$scope.loadVorlesungListData($aktuelleSemesterId);	
+				    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
 				    });
 				};
 				
@@ -46,7 +48,7 @@ angular.module('wettEditor').controller(
 					
 					modalInstance.result.then(function (selectedItem) {
 					    }, function () {
-					    	$scope.loadVorlesungListData($aktuelleSemesterId);	
+					    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
 					    });
 				};
 				//Vorlesung loeschen
@@ -69,19 +71,21 @@ angular.module('wettEditor').controller(
 				    	$scope.loadSemesterListData();	
 				    });
 				};
+				
 				//Semester List laden
             	$scope.loadSemesterListData = function() {
 
             		semesterDataService.getSemesterList().then(
 							function(response) {
 								$scope.semesterList = response.data;
-								$scope.loadAktuellesSemester();
-								console.log($scope.semesterList);
+								$scope.loadVorlesungListData($scope.aktuelleSemesterId);
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);
 							});
 				};
+				
 				$scope.loadSemesterListData();
+				
 				
 				//Vorlesung List laden
             	$scope.loadVorlesungListData = function(semesterId) {
@@ -89,40 +93,16 @@ angular.module('wettEditor').controller(
             		vorlesungDataService.getVorlesungList(semesterId).then(
 							function(response) {
 								$scope.vorlesungList = response.data;
-								$aktuelleSemesterId = semesterId;
-								$scope.loadAktuellesSemester();
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);
 							});
 				};
-				$scope.aktuellesSemester = "kein Semester";
 				
 				
 				//Aktuelles Semester bestimmen
-				$scope.loadAktuellesSemester = function() {
-					if($aktuelleSemesterId != undefined){
-						vorlesungDataService.getVorlesungList($aktuelleSemesterId).then(
-								function(response) {
-									$scope.vorlesungList = response.data;
-									angular.forEach($scope.semesterList, function(value, key) {
-										  if(value.semesterId == $aktuelleSemesterId){
-											  $scope.aktuellesSemester = value.semesterName;
-										  }
-										});
-								}, function(response) {
-									alertService.add("warning", response.data.errorMessage);
-								});
-					}else{
-						var anzElement = true;
-						angular.forEach($scope.semesterList, function(value, key) {
-							  if(value  != undefined && anzElement == true){
-								  anzElement = false;
-								  $scope.aktuellesSemester = value.semesterName;
-								  $aktuelleSemesterId = value.semesterId;
-								  $scope.loadVorlesungListData(value.semesterId);
-							  }
-							});
-				}
+				$scope.changeSemester = function() {
+					$scope.vorlesungList = [];
+					$scope.loadVorlesungListData($scope.aktuelleSemesterId);
 				};
 } ]);
 
