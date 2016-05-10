@@ -39,7 +39,8 @@ angular.module('wettEditor').controller(
 
 						AnzAngestrebteNote++;
 						gesamtAngestrebteNote += $scope.vorlesungList[index].angestrebteNote;
-					    if ($scope.vorlesungList[index].erhalteneNote !== 0){
+						
+					    if ($scope.vorlesungList[index].endNote !== 0){
 					    	AnzErhalteneNote++;
 					    	gesamtErhalteneNote += $scope.vorlesungList[index].endNote;
 					    }

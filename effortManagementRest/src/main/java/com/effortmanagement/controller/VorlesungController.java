@@ -21,6 +21,7 @@ import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.model.User;
 import com.effortmanagement.model.Vorlesung;
+import com.effortmanagement.model.VorlesungAufwand;
 import com.effortmanagement.service.SemesterService;
 import com.effortmanagement.service.UserService;
 import com.effortmanagement.service.VorlesungService;
@@ -62,11 +63,11 @@ public class VorlesungController {
 		
     }
 	@RequestMapping(value = "/{vorlesungId}/aufwand", method = RequestMethod.GET)
-	public void getAufwandById(@PathVariable int vorlesungId) {
-		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() == 1 ){ //TODO User Id
-			throw new UserNotAuthorizedException("Sie sind können auf diese Vorlesung keinen Aufwand buchen");
+	public VorlesungAufwand getAufwandById(@PathVariable int vorlesungId) {
+		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() != 1 ){ //TODO User Id
+			throw new UserNotAuthorizedException("Sie können für diese Vorlesung keine Nutzten/Aufwand betrachten");
 		}
-		vorlesungService.getAufwandById(vorlesungId);
+		return vorlesungService.getAufwandById(vorlesungId);
     }
 	@RequestMapping(value = "/list/{semesterId}", method = RequestMethod.GET)
 	public List<Vorlesung> getListVorlesung(@PathVariable int semesterId) {

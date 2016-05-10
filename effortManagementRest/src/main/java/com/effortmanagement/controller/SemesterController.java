@@ -36,7 +36,7 @@ public class SemesterController {
 	@RequestMapping(value = "/{semesterId}", method = RequestMethod.GET)
 	public Semester getSemester(@PathVariable int semesterId) {
 		Semester semester = semesterService.getSemester(semesterId);
-		if(semester.getUser_Id() != 0){
+		if(semester.getUser_Id() != 1){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu betrachten (SemesterId: " + semesterId +")");
 		}
 		return semester;
@@ -48,7 +48,7 @@ public class SemesterController {
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void deleteSemester(@PathVariable int semesterId) {
 		Semester semester = semesterService.getSemester(semesterId);
-		if(semester.getUser_Id() != 0){
+		if(semester.getUser_Id() != 1){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu löschen (SemesterId: " + semesterId +")");
 		}
 		semesterService.deleteSemester(semesterId);
@@ -59,7 +59,7 @@ public class SemesterController {
 	public void changeSemester(@PathVariable int semesterId, @RequestBody ChangeSemester semester) {
 		Semester semesterOld = semesterService.getSemester(semesterId);
 		
-		if(semesterOld.getUser_Id() != 0){
+		if(semesterOld.getUser_Id() != 1){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu bearbeiten (SemesterId: " + semesterId +")");
 		}
 		
