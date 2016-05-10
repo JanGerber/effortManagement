@@ -1,11 +1,102 @@
 <div class="container">
-        <section style="padding-bottom: 50px; padding-top: 50px;">
-        		<h1>Vorlesung Aufwand / Nutzen</h1>
-				
-				
-        </section>
-        <!-- SECTION END -->
-    
-    <!-- CONATINER END -->
-  	
+	<section style="padding-bottom: 50px; padding-top: 50px;">
+		<h1>Vorlesung Aufwand / Nutzen</h1>
+
+		<div class="row">
+
+			<div class="col-sm-2">
+				<div class="form-group">
+					<label for="semester">Semester wählen:</label> <select
+						class="form-control" id="semester" ng-model="aktuelleSemesterId"
+						required="required">
+						<option ng-repeat="semester in semesterList"
+							ng-bind="semester.semesterName" value="{{semester.semesterId}}"></option>
+
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="form-group">
+					<label for="vorlesung">Vorlesung wählen:</label> <select
+						class="form-control" id="vorlesung" ng-model="aktuelleSemesterId"
+						required="required">
+						<option ng-repeat="semester in semesterList"
+							ng-bind="semester.semesterName" value="{{semester.semesterId}}"></option>
+
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-2">
+				<div class="form-group">
+					<br>
+
+					<button type="button" id="button" class="btn btn-primary"
+						ng-click="">Aufwand anzeigen</button>
+				</div>
+			</div>
+
+
+
+		</div>
+		<div class="row" style="border: 1px solid black">
+			<div class="container">
+				<h3>Vorlesungstitel</h3>
+				<hr />
+				<div class="row">
+					<div class="col-sm-2">
+						<label class="form-control-static">Vorgegebener Aufwand</label>
+					</div>
+
+					<div class="col-sm-3">
+						<p class="form-control-static" ng-bind=""></p>
+					</div>
+					<div class="col-sm-2">
+						<label class="form-control-static">Geplanter Aufwand</label>
+					</div>
+					<div class="col-sm-3">
+						<p class="form-control-static" ng-bind=""></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<label class="form-control-static">Gebuchter Aufwand</label>
+					</div>
+					<div class="col-sm-3">
+						<p class="form-control-static" ng-bind=""></p>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="col-sm-2">
+						<label class="form-control-static">Angestrebte Note</label>
+					</div>
+					<div class="col-sm-3">
+						<p class="form-control-static" ng-bind=""></p>
+					</div>
+
+
+					<div class="col-sm-2">
+						<label class="form-control-static">Erreichte Note</label>
+					</div>
+					<div class="col-sm-3">
+						<p class="form-control-static" ng-bind=""></p>
+					</div>
+
+				</div>
+				<hr />
+				<div class="row">
+					<div class="col-sm-5">
+						<h3>Aufwand/Nutzen Rechner:</h3>
+					</div>
+					<div class="col-sm-5">
+						<h3>Gut, 50 Punkte</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- SECTION END -->
+
+	<!-- CONATINER END -->
+
 </div>
