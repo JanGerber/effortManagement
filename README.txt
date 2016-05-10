@@ -1,0 +1,1 @@
+https://travis-ci.org/JanGerber/effortManagement.svg?branch=FrontEnd-WebApp
