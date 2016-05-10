@@ -1,5 +1,5 @@
 		<div class="modal-header " style="background-color:green">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" ng-click="closeModal()">&times;</button>
           <h4 style="color:white;"><span ></span>Profil anpassen</h4>
         </div>
         <div class="modal-body" id="modal-bodyLinks">
@@ -7,7 +7,7 @@
 			<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
   		</div>
 		   
-		<form  action="profilAnpassen.html" method="Post"autocomplete="off">
+		<form autocomplete="off">
             <div class="form-group form-groupNeu">
               <label for="benutzername">Benutzername:</label>
               <input type="text" name="benutzername" class="form-control" id="benutzername" required="required" placeholder="Benutzername eingeben" ng-model="user.userName">
@@ -22,7 +22,7 @@
             </div>
 		  
             <div class="form-group" style="text-align: right;">
-            <button type="button" value="aendernPass" class="btn btn-default btn-warning" id="buttonProfilAnpassenM" ng-click="editUser()"><span class="glyphicon glyphicon-ok"></span> Best‰tigen</button>
+            <button type="button" value="aendernPass" class="btn btn-default btn-warning" id="buttonProfilAnpassenM" ng-click="editUser()"><span class="glyphicon glyphicon-ok"></span> Best√§tigen</button>
       		</div>
        </form>
        

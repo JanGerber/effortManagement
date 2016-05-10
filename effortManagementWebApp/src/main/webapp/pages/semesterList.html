@@ -20,7 +20,7 @@
 				            <td ng-bind="semester.startDatum"></td>
 				            <td ng-bind="semester.endDatum"></td>
 				            <td> <button type="button" class="btn btn-default" ng-click="editSemester(semester.semesterId)">Bearbeiten</button></td>
-				            <td><a ng-click="deleteSemester(semester.semesterId)" style="cursor: pointer">Delete</a></td>
+				            <td><a ng-click="deleteSemester(semester.semesterId)" style="cursor: pointer"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></td>
 				        </tr> 
 				    </tbody>   				     
 				    </table>
@@ -33,5 +33,4 @@
   	
 </div>
 
-<pre>{{semesterList}}</pre>
 

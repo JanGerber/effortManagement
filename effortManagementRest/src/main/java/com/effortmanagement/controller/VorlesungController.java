@@ -21,6 +21,7 @@ import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.model.User;
 import com.effortmanagement.model.Vorlesung;
+import com.effortmanagement.model.VorlesungAufwand;
 import com.effortmanagement.service.SemesterService;
 import com.effortmanagement.service.UserService;
 import com.effortmanagement.service.VorlesungService;
@@ -48,29 +49,29 @@ public class VorlesungController {
 	@RequestMapping(value = "/{vorlesungId}", method = RequestMethod.GET)
 	public Vorlesung getVorlesung(@PathVariable int vorlesungId) {
 		Vorlesung vorlesung = vorlesungService.getVorlesungById(vorlesungId);
-		if(vorlesung.getUserId() == 1){ //TODO UserId
+		if(vorlesung.getUserId() != 1){ //TODO UserId
 			throw new UserNotAuthorizedException("Sie sind nicht autorisiert sich diese Vorlesung anzeigen zu lassen");
 		}
 		return vorlesung;
     }
 	@RequestMapping(value = "/{vorlesungId}/aufwand", method = RequestMethod.PUT)
 	public void bucheAufwand(@RequestBody BucheAufwand aufwand, @PathVariable int vorlesungId) {
-		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() == 1 ){
+		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() != 1 ){
 			throw new UserNotAuthorizedException("Sie sind können auf diese Vorlesung keinen Aufwand buchen");
 		}
 		vorlesungService.addAufwand(aufwand);
 		
     }
 	@RequestMapping(value = "/{vorlesungId}/aufwand", method = RequestMethod.GET)
-	public void getAufwandById(@PathVariable int vorlesungId) {
-		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() == 1 ){
-			throw new UserNotAuthorizedException("Sie sind können auf diese Vorlesung keinen Aufwand buchen");
+	public VorlesungAufwand getAufwandById(@PathVariable int vorlesungId) {
+		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() != 1 ){ //TODO User Id
+			throw new UserNotAuthorizedException("Sie können für diese Vorlesung keine Nutzten/Aufwand betrachten");
 		}
-		vorlesungService.getAufwandById(vorlesungId);
+		return vorlesungService.getAufwandById(vorlesungId);
     }
 	@RequestMapping(value = "/list/{semesterId}", method = RequestMethod.GET)
 	public List<Vorlesung> getListVorlesung(@PathVariable int semesterId) {
-		if(semesterService.getSemester(semesterId).getUser_Id() == 1){ //TODO UserId
+		if(semesterService.getSemester(semesterId).getUser_Id() != 1){ //TODO UserId	
 			throw new UserNotAuthorizedException("Sie können die Vorlesungen dieses Semester nicht abrufen!");
 		}
 		return vorlesungService.getVorlesungList(semesterId); 

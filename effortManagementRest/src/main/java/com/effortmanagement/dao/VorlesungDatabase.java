@@ -26,7 +26,7 @@ public class VorlesungDatabase extends DatenDAO{
 		List<Vorlesung> vorlesungList = new ArrayList<Vorlesung>();
 		ResultSet rs =null;
 
-		String selectSQL = "Select ############## from vorlesung where s like ?";
+		String selectSQL = "Select vorlesungId,vorlesungName, aufwand, geplanterAufwand,angestrebteNote,endNote,lernzeit,creditPoints, semesterId, userId from vorlesung where semesterId like ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -37,7 +37,16 @@ public class VorlesungDatabase extends DatenDAO{
 				
 					while (rs.next()){
 					    Vorlesung vorlesung = new Vorlesung();
-					    //TODO  Vorlesung Attribute hinzufügen
+					    vorlesung.setVorlesungId(rs.getInt(1));
+					    vorlesung.setVorlesungName(rs.getString(2));
+					    vorlesung.setAufwand(rs.getInt(3));
+					    vorlesung.setGeplanterAufwand(rs.getInt(4));
+					    vorlesung.setAngestrebteNote(rs.getDouble(5));
+					    vorlesung.setEndNote(rs.getDouble(6));
+					    vorlesung.setLernzeit(rs.getDouble(7));
+					    vorlesung.setCreditPoints(rs.getInt(8));
+					    vorlesung.setSemesterId(rs.getInt(9));
+					    vorlesung.setUserId(rs.getInt(10));
 					    vorlesungList.add(vorlesung);
 					}
 			}
@@ -114,7 +123,7 @@ public class VorlesungDatabase extends DatenDAO{
 		Vorlesung vorlesung = new Vorlesung();
 		ResultSet rs = null;
 
-		String selectSQL = "Select ######## from vorlesung where vorlesungId like ?";
+		String selectSQL = "Select vorlesungId,vorlesungName, aufwand, geplanterAufwand,angestrebteNote,endNote,lernzeit,creditPoints, semesterId, userId from vorlesung where vorlesungId like ?";
 
 		try {
 			dbConnection = getDBConnection();
@@ -124,7 +133,16 @@ public class VorlesungDatabase extends DatenDAO{
 			if(rs != null){
 				
 					while (rs.next()){
-					  //TODO vorlesung füllen
+					    vorlesung.setVorlesungId(rs.getInt(1));
+					    vorlesung.setVorlesungName(rs.getString(2));
+					    vorlesung.setAufwand(rs.getInt(3));
+					    vorlesung.setGeplanterAufwand(rs.getInt(4));
+					    vorlesung.setAngestrebteNote(rs.getDouble(5));
+					    vorlesung.setEndNote(rs.getDouble(6));
+					    vorlesung.setLernzeit(rs.getDouble(7));
+					    vorlesung.setCreditPoints(rs.getInt(8));
+					    vorlesung.setSemesterId(rs.getInt(9));
+					    vorlesung.setUserId(rs.getInt(10));
 				}
 			}
 		} catch (SQLException e) {
@@ -200,18 +218,26 @@ public class VorlesungDatabase extends DatenDAO{
 		return notenList;
 	}
 
-	public int insertSemester(CreateVorlesung vorlesung) {
+	public int insertVorlesung(CreateVorlesung vorlesung) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
 		int rs = 0;
 
-		String selectSQL = "INSERT INTO vorlesung (###################) VALUES (?, ?, ?,?)";
+		String selectSQL = "INSERT INTO vorlesung (vorlesungName, aufwand, geplanterAufwand,angestrebteNote,creditPoints, semesterId, userId,lernzeit) VALUES (?,?,?,?,?,?,?,?)";
 
 		try {
 			dbConnection = getDBConnection();
 			preparedStatement = dbConnection.prepareStatement(selectSQL,Statement.RETURN_GENERATED_KEYS);
 	
-			//TODO preparedStatement.setString(1, semester.getSemesterName());
+			preparedStatement.setString(1, vorlesung.getVorlesungName());
+			preparedStatement.setInt(2, vorlesung.getAufwand());
+			preparedStatement.setInt(3, vorlesung.getGeplanterAufwand());
+			preparedStatement.setDouble(4, vorlesung.getAngestrebteNote());
+			preparedStatement.setInt(5, vorlesung.getCreditPoints());
+			preparedStatement.setInt(6, vorlesung.getSemesterId());
+			preparedStatement.setInt(7, vorlesung.getUserId());
+			preparedStatement.setInt(8, 0);
+			
 			
 			rs = preparedStatement.executeUpdate();
             ResultSet keyRs = preparedStatement.getGeneratedKeys();

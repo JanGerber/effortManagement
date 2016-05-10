@@ -24,7 +24,7 @@ CREATE TABLE vorlesung (
   aufwand DOUBLE NOT NULL,
   geplanterAufwand  DOUBLE NOT NULL,
   angestrebteNote DOUBLE NOT NULL,
-  endNote DOUBLE NOT NULL,
+  endNote DOUBLE NULL,
   lernzeit DOUBLE NULL,
   creditPoints INT  NOT NULL,
   semesterId INT  NOT NULL,

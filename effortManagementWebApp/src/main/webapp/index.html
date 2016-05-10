@@ -23,11 +23,17 @@
 	<script src="js/controllers/startCtrl.js"></script>
 	<script src="js/controllers/userCtrl.js"></script>	
 	<script src="js/controllers/userEditCtrl.js"></script>
+	<script src="js/controllers/notenUebersichtCtrl.js"></script>
+	<script src="js/controllers/vorlesungAufwandCtrl.js"></script>
+	<script src="js/controllers/vorlesungBucheAufwandCtrl.js"></script>
+	<script src="js/controllers/vorlesungCreateCtrl.js"></script>	
+	<script src="js/controllers/vorlesungCtrl.js"></script>
 	
 	<!-- Service --> 
 	<script src="js/services/semesterDataService.js"></script>
 	<script src="js/services/userDataService.js"></script>
 	<script src="js/services/alertService.js"></script>
+	<script src="js/services/vorlesungDataService.js"></script>
 	<!-- Directive -->
 	<!-- Filter -->
 	
@@ -57,10 +63,17 @@
 				</div>
 				<div class="collapse navbar-collapse" id="myNavbar">
 				  <ul class="nav navbar-nav">
-					<li ng-class="{active: $route.current.activetab == 'startseite'}" ><a href="#/home" >Home</a></li>
-					<li ng-class="{active: $route.current.activetab == 'turner'}" ><a href="#/semester" >Semester</a></li>
-					<li ng-class="{active: $route.current.activetab == 'vorlesung'}"><a href="#/vorlesung" >Vorlesung</a></li>
-					<li ng-class="{active: $route.current.activetab == 'upload'}"><a href="#/auswertung" >Auswertung</a></li>
+					<li ng-class="{active: $route.current.activetab == 'home'}" ><a href="#/home" >Home</a></li>
+					<li ng-class="{active: $route.current.activetab == 'semester'}" ><a href="#/semester" >Semester</a></li>
+					<li class="dropdown" ng-class="{active: $route.current.activetab == 'vorlesung'}">
+				        <a class="dropdown-toggle" data-toggle="dropdown">Vorlesung
+				        <span class="caret"></span></a>
+				        <ul class="dropdown-menu" >
+				          <li ng-repeat="semester in semesterList"><a ng-href="#/vorlesung/{{semester.semesterId}}" ng-bind="semester.semesterName"></a></li>
+				        </ul>
+				    </li>
+					<li ng-class="{active: $route.current.activetab == 'noten'}"><a href="#/noten" >Noten</a></li>
+					<li ng-class="{active: $route.current.activetab == 'aufwand'}"><a href="#/aufwand" >Aufwand</a></li>
 				  </ul>
 				  <ul class="nav navbar-nav navbar-right">
 					<li><a href="#/logout"><span class="fa fa-sign-out "></span> Logout</a></li>

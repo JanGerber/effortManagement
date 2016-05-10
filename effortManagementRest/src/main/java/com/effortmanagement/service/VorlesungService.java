@@ -2,19 +2,25 @@ package com.effortmanagement.service;
 
 import java.util.List;
 
+import org.slf4j.LoggerFactory;
+
 import com.effortmanagement.dao.*;
 import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.CreateVorlesung;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Vorlesung;
 import com.effortmanagement.model.VorlesungAufwand;
+import org.slf4j.Logger;
 
 public class VorlesungService {
+	
+	private final Logger logger = LoggerFactory.getLogger(VorlesungService.class);
 	
 	private VorlesungDatabase vorlesungDAO = new VorlesungDatabase();
 
 	public void createSemester(CreateVorlesung vorlesung) {
-		vorlesungDAO.insertSemester(vorlesung);
+		logger.debug("createVorlesung: " + vorlesung.getVorlesungName());
+		vorlesungDAO.insertVorlesung(vorlesung);
 		
 	}
 
@@ -33,9 +39,28 @@ public class VorlesungService {
 	}
 
 	public VorlesungAufwand getAufwandById(int vorlesungId) {
-		//TODO Berechnung des Nutzten Aufwand Faktors
 		Vorlesung vorlesung = getVorlesungById(vorlesungId);
-		return null;
+		VorlesungAufwand aufwand = new VorlesungAufwand();
+		
+		aufwand.setAufwandNutzen(berechneAufwand(vorlesung));
+		aufwand.setAngestrebteNote(vorlesung.getAngestrebteNote());
+		aufwand.setAufwand(vorlesung.getAufwand());
+		aufwand.setCreditPoints(vorlesung.getCreditPoints());
+		aufwand.setEndNote(vorlesung.getEndNote());
+		aufwand.setLernzeit(vorlesung.getLernzeit());
+		aufwand.setSemesterId(vorlesung.getSemesterId());
+		aufwand.setUserId(vorlesung.getUserId());
+		aufwand.setVorlesungId(vorlesung.getVorlesungId());
+		aufwand.setVorlesungName(vorlesung.getVorlesungName());
+		aufwand.setGeplanterAufwand(vorlesung.getGeplanterAufwand());
+		
+		return aufwand;
+	}
+
+	private int berechneAufwand(Vorlesung vorlesung) {
+		// TODO Auto-generated method stub
+		//TODO Berechnung des Nutzten Aufwand Faktors
+		return (int)(Math.random() * 100); 
 	}
 
 	public List<Vorlesung> getVorlesungList(int semesterId) {

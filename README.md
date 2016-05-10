@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/JanGerber/effortManagement.svg?branch=FrontEnd-WebApp)](https://travis-ci.org/JanGerber/effortManagement)

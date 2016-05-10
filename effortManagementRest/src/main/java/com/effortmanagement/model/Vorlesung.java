@@ -1,109 +1,79 @@
 package com.effortmanagement.model;
 public class Vorlesung {
 
-	private int VorlesungID;
-	private String Vorlesungsname;
-	private int Aufwand;
-	private float Note;
-	private int Eigeninitiative;
-	private int Lernzeit;
-	private int Notenziel;
-	private int Creditpoints;
+	private int vorlesungId;
+	private String vorlesungName;
+	private int aufwand;
+	private int geplanterAufwand;
+	private double angestrebteNote;
+	private double endNote;
+	private double lernzeit;
+	private int creditPoints;
+	private int semesterId;
 	private int userId;
 	
-	public int getVorlesungID() {
-		return VorlesungID;
+	public int getVorlesungId() {
+		return vorlesungId;
 	}
-
-	public void setVorlesungID(int vorlesungID) {
-		VorlesungID = vorlesungID;
+	public void setVorlesungId(int vorlesungId) {
+		this.vorlesungId = vorlesungId;
 	}
-
-	public String getVorlesungsname() {
-		return Vorlesungsname;
+	public String getVorlesungName() {
+		return vorlesungName;
 	}
-
-	public void setVorlesungsname(String vorlesungsname) {
-		Vorlesungsname = vorlesungsname;
+	public void setVorlesungName(String vorlesungName) {
+		this.vorlesungName = vorlesungName;
 	}
-
 	public int getAufwand() {
-		return Aufwand;
+		return aufwand;
 	}
-
 	public void setAufwand(int aufwand) {
-		Aufwand = aufwand;
+		this.aufwand = aufwand;
 	}
-
-	public float getNote() {
-		return Note;
+	public int getGeplanterAufwand() {
+		return geplanterAufwand;
 	}
-
-	public void setNote(float note) {
-		Note = note;
+	public void setGeplanterAufwand(int geplanterAufwand) {
+		this.geplanterAufwand = geplanterAufwand;
 	}
-
-	public int getEigeninitiative() {
-		return Eigeninitiative;
+	public double getAngestrebteNote() {
+		return angestrebteNote;
 	}
-
-	public void setEigeninitiative(int eigeninitiative) {
-		Eigeninitiative = eigeninitiative;
+	public void setAngestrebteNote(double angestrebteNote) {
+		this.angestrebteNote = angestrebteNote;
 	}
-
-	public int getLernzeit() {
-		return Lernzeit;
+	public double getEndNote() {
+		return endNote;
 	}
-
-	public void setLernzeit(int lernzeit) {
-		Lernzeit = lernzeit;
+	public void setEndNote(double endNote) {
+		this.endNote = endNote;
 	}
-
-	public int getNotenziel() {
-		return Notenziel;
+	public double getLernzeit() {
+		return lernzeit;
 	}
-
-	public void setNotenziel(int notenziel) {
-		Notenziel = notenziel;
+	public void setLernzeit(double lernzeit) {
+		this.lernzeit = lernzeit;
 	}
-
-	public int getCreditpoints() {
-		return Creditpoints;
+	public int getCreditPoints() {
+		return creditPoints;
 	}
-
-	public void setCreditpoints(int creditpoints) {
-		Creditpoints = creditpoints;
+	public void setCreditPoints(int creditPoints) {
+		this.creditPoints = creditPoints;
 	}
-
-	
-	public boolean ZielErreicht() {
-		// TODO - implement Vorlesung.ZielErreicht
-		throw new UnsupportedOperationException();
+	public int getSemesterId() {
+		return semesterId;
 	}
-
-	public boolean Bestanden() {
-		// TODO - implement Vorlesung.Bestanden
-		throw new UnsupportedOperationException();
+	public void setSemesterId(int semesterId) {
+		this.semesterId = semesterId;
 	}
-
-	public int Erfolg() {
-		// TODO - implement Vorlesung.Erfolg
-		throw new UnsupportedOperationException();
-	}
-
-	public Vorlesung() {
-		// TODO - implement Vorlesung.Vorlesung
-		throw new UnsupportedOperationException();
-	}
-
 	public int getUserId() {
 		return userId;
 	}
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
+	
 
 
 }
