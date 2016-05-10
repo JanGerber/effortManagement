@@ -1,1 +1,1 @@
-https://travis-ci.org/JanGerber/effortManagement.svg?branch=FrontEnd-WebApp
+<img src="https://travis-ci.org/JanGerber/effortManagement.svg?branch=FrontEnd-WebApp" alt="Selfhtml">
