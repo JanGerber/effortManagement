@@ -100,9 +100,18 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
+		<plugin>
+			<groupId>org.eluder.coveralls</groupId>
+			<artifactId>coveralls-maven-plugin</artifactId>
+			<version>4.1.0</version>
+			<configuration>
+				<repoToken>LQ8Tvv5KP3SLaVdLxkQAWtnn402BlQGmC</repoToken>
+			</configuration>
+		</plugin>
 		<plugin>
 	        <groupId>org.apache.tomcat.maven</groupId>
 	        <artifactId>tomcat7-maven-plugin</artifactId>
