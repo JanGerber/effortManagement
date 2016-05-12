@@ -11,6 +11,7 @@ public class ChangeSemesterTest {
 	
 	@Before
 	public void setUp() throws Exception {
+		cs1 = new ChangeSemester(); //default Constructor
 		cs1 = new ChangeSemester("Sem1","01.01.01","01.01.02");//String semesterName, String startDatum, String endDatum
 	}
 

@@ -11,6 +11,7 @@ public class ChangePasswortTest {
 	
 	@Before
 	public void SetUp() throws Exception {
+		pw1 = new ChangePasswort(); //default Constructor
 		pw1 = new ChangePasswort("a","b"); //ChangePasswort(oldPW,newPW)
 	}
 
