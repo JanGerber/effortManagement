@@ -4,7 +4,7 @@ public class CreateUser {
 	
 	private String userName;
 	private String  passwort;
-	private String email;
+	private String eMail;
 	private String hochschule;
 	
 	
@@ -16,10 +16,11 @@ public class CreateUser {
 	 * @param eMail
 	 * @param hochschule
 	 */
-	public CreateUser(String userName, String passwort, String eMail, String hochschule) {
+	public CreateUser(String userName, String passwort, String email, String hochschule) {
 		this.userName = userName;
 		this.passwort = passwort;
 		this.hochschule = hochschule;
+		this.eMail = email;
 	}
 	public String getUserName() {
 		return userName;
@@ -41,10 +42,10 @@ public class CreateUser {
 		this.hochschule = hochschule;
 	}
 	public String getEmail() {
-		return email;
+		return eMail;
 	}
-	public void setEmail(String eMail) {
-		this.email = eMail;
+	public void setEmail(String email) {
+		this.eMail = email;
 	}
 
 
