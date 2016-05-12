@@ -4,6 +4,9 @@ angular.module('wettEditor').controller(
                     function($rootScope, $scope, $http, $filter, $location , userDataService ,alertService, $uibModalInstance) {
             	$rootScope.closeAlert = alertService.closeAlert; 
             	    
-
+            	$scope.closeModal = function(){
+					$uibModalInstance.dismiss('');
+				};
+            	
 } ]);
 

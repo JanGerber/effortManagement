@@ -28,27 +28,22 @@ public class SemesterControllerTest {
 
 	@Test
 	public void testGetSemesterList() {
-		assertEquals(1, 1);
 	}
 
 	@Test
 	public void testGetSemester() {
-		assertEquals(1, 1);
 	}
 
 	@Test
 	public void testDeleteSemester() {
-		assertEquals(1, 1);
 	}
 
 	@Test
 	public void testChangeSemester() {
-		assertEquals(1, 1);
 	}
 
 	@Test
 	public void testNewSemester() {
-		assertEquals(1, 1);
 	}
 
 }

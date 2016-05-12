@@ -20,6 +20,10 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
     srv.changePasswort = function(passwort) {
 		return $http.put( srv._baseUrl + "/user/passwort", passwort); 
     };
+    //login
+    srv.loginUser = function(user) {
+		return $http.get( srv._baseUrl + "/user/login"); 
+    };
     
 
     // Public API
@@ -36,6 +40,9 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
         changePasswort: function(passwort) {
             return srv.changePasswort(passwort);
         },
+        loginUser: function(user) {
+            return srv.loginUser(user);
+        }
   
     };
 }]);

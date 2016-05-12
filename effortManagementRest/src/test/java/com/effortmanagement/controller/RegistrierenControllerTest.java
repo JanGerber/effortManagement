@@ -28,7 +28,6 @@ public class RegistrierenControllerTest {
 
 	@Test
 	public void testNewUser() {
-		assertEquals(1, 1);
 	}
 
 }

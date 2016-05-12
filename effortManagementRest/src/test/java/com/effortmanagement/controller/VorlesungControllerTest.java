@@ -12,32 +12,32 @@ public class VorlesungControllerTest {
 
 	@Test
 	public void testCreateVorlesung() {
-		assertEquals(1, 1);
+		
 	}
 
 	@Test
 	public void testGetNotenList() {
-		assertEquals(1, 1);
+		
 	}
 
 	@Test
 	public void testGetVorlesung() {
-		assertEquals(1, 1);
+		
 	}
 
 	@Test
 	public void testBucheAufwand() {
-		assertEquals(1, 1);
+		
 	}
 
 	@Test
 	public void testGetAufwandById() {
-		assertEquals(1, 1);
+		
 	}
 
 	@Test
 	public void testGetListVorlesung() {
-		assertEquals(1, 1);
+		
 	}
 
 }

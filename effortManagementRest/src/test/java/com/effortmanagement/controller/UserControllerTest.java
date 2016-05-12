@@ -28,17 +28,17 @@ public class UserControllerTest {
 
 	@Test
 	public void testGetUser() {
-		assertEquals(1, 1);
+	
 	}
 
 	@Test
 	public void testChangeUser() {
-		assertEquals(1, 1);
+	
 	}
 
 	@Test
 	public void testChangePasswort() {
-		assertEquals(1, 1);
+	
 	}
 
 }

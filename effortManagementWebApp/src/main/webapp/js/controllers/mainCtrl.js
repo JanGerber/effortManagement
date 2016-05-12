@@ -1,10 +1,20 @@
 angular.module('wettEditor').controller(
             'mainCtrl',
-            [ '$rootScope', '$scope', '$filter', '$route' , 'alertService','semesterDataService',
-                    function($rootScope, $scope, $filter, $route, alertService, semesterDataService)  {
+            [ '$rootScope', '$scope', '$filter', '$route' , 'alertService','semesterDataService', '$window', '$uibModal',
+                    function($rootScope, $scope, $filter, $route, alertService, semesterDataService, $window, $uibModal)  {
              			$scope.$route = $route;
              			
              			 $rootScope.closeAlert = alertService.closeAlert; 
+             			 
+             			 $rootScope.user = {
+             					 userName: '',
+             					 passwort: '',
+             					 loggedIn: false
+             			 }
+             			 
+             			 $scope.scrollToTop = function(){
+             				$window.scrollTo(0, 0);
+             			 }
              			 
              			//Semester List laden
                      	$scope.loadSemesterListData = function() {
@@ -18,6 +28,34 @@ angular.module('wettEditor').controller(
          				};
          				
          		        $scope.loadSemesterListData();	
+         		        
+                    	//Modal oeffnen Login
+                    	$scope.openLogin = function() {
+                    		console.log("openLogin");
+        					var modalInstance = $uibModal.open({
+        						animation : $scope.animationsEnabled,
+        						templateUrl : 'pages/login.html',
+        						controller : 'loginCtrl',
+        						size : 'lg',
+        					});
+        					
+        					
+        				};
+        				
+        				
+                    	//Modal oeffnen Registrieren
+                    	$scope.openRegistrieren = function() {
+
+        					var modalInstance = $uibModal.open({
+        						animation : $scope.animationsEnabled,
+        						templateUrl : 'pages/registrieren.html',
+        						controller : 'registrierenCtrl',
+        						size : 'lg',
+        					});
+        				
+        				};
+
+         		        
          		        
                     } ]);
 

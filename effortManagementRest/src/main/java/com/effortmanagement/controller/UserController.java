@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.effortmanagement.dao.SemesterDatabase;
+import com.effortmanagement.exceptions.UserNotAuthenticated;
 import com.effortmanagement.exceptions.UserNotAuthorizedException;
 import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.ChangeUser;
+import com.effortmanagement.model.LoginUser;
 import com.effortmanagement.model.User;
 import com.effortmanagement.service.UserService;
 
@@ -47,6 +49,19 @@ public class UserController {
 	public void changePasswort( @RequestBody ChangePasswort passwort) {
 		userService.changePasswort(1, passwort); //TODO user
     }
+	
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public User login(@RequestBody LoginUser user) {
+		User userToCheck = userService.getUser(user.getUserName());
+		if(user.getUserName().equals(userToCheck.getUserName()) &&  user.getPasswort().equals(userToCheck.getPasswort()) ){	
+		}else{
+			throw new UserNotAuthenticated("Falsches User Name oder Falsches Passwort");
+		}
+		
+		return userToCheck;
+		
+    }
+	
 	
 
 
