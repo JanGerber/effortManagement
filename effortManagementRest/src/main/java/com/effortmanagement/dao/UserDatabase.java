@@ -72,7 +72,7 @@ public class UserDatabase extends DatenDAO {
 			if(rs != null){
 				
 					while (rs.next()){
-					    user.setUserId(rs.getInt(4));
+						user.setUserId(rs.getInt(4));
 					    user.setHochschule(rs.getString(2));
 					    user.setEmail(rs.getString(3));
 					    user.setUserName(rs.getString(1));

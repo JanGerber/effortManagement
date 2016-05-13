@@ -68,4 +68,8 @@ public class UserService {
 		}
 		userDatabase.newUser(user);
 	}
+
+	public String getPasswort(int userId) {
+		return userDatabase.getPasswort(userId);
+	}
 }

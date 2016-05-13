@@ -2,7 +2,7 @@
     	.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                redirectTo: '/startseite',
+                redirectTo: '/home',
             })
             // route for the semester page
             .when('/semester', {
@@ -15,12 +15,6 @@
                 templateUrl : 'pages/user.html',
                 controller  : 'userCtrl',
                 activetab: 'home'
-            })
-            // route for the start page
-            .when('/startseite', {
-                templateUrl : 'pages/startseite.html',
-                controller  : 'startCtrl',
-                activetab: 'startseite'
             })
             // route for the start page
             .when('/vorlesung', {

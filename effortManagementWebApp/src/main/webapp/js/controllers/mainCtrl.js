@@ -6,7 +6,7 @@ angular.module('wettEditor').controller(
              			
              			 $rootScope.closeAlert = alertService.closeAlert; 
              			 
-             			 $rootScope.user = {
+             			 $rootScope.userGlobal = {
              					 userName: '',
              					 passwort: '',
              					 loggedIn: false

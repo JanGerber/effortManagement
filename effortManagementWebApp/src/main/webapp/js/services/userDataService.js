@@ -22,7 +22,13 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
     };
     //login
     srv.loginUser = function(user) {
-		return $http.get( srv._baseUrl + "/user/login"); 
+    	console.log("srvLoginUser");
+    	console.log(user);
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/user/login",
+			  params: {'userName': user.userName, 'passwort': user.passwort},
+			});
     };
     
 

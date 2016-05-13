@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BucheAufwandTest {
-
+		
 	@Test
 	public void testGetVorlesungId() {
 		BucheAufwand bucheAufwand = new BucheAufwand();

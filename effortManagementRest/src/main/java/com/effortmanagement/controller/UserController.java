@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.effortmanagement.dao.SemesterDatabase;
@@ -51,14 +52,18 @@ public class UserController {
     }
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public User login(@RequestBody LoginUser user) {
-		User userToCheck = userService.getUser(user.getUserName());
-		if(user.getUserName().equals(userToCheck.getUserName()) &&  user.getPasswort().equals(userToCheck.getPasswort()) ){	
+	public User login(@RequestParam("userName") String userName, @RequestParam("passwort") String passwort) {
+		User user = userService.getUser(userName);
+		user.setPasswort(userService.getPasswort(user.getUserId()));
+		logger.error(userName +" : " + user.getUserName());
+		logger.error(passwort +" : " + user.getPasswort());
+		
+		if(userName.equals(user.getUserName()) &&  passwort.equals(user.getPasswort()) ){	
 		}else{
-			throw new UserNotAuthenticated("Falsches User Name oder Falsches Passwort");
+			throw new UserNotAuthenticated("Falscher User Name oder Falsches Passwort");
 		}
 		
-		return userToCheck;
+		return user;
 		
     }
 	

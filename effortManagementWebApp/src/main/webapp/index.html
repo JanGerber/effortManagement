@@ -51,7 +51,7 @@
 
 <body>
 	<div ng-controller="mainCtrl">
-		<div ng-if="user.loggedIn">
+		<div ng-if="userGlobal.loggedIn">
 			<nav class="navbar navbar-inverse"
 				ng-class="{hidden: $route.current.activetab == 'startseite'}">
 				<div class="container-fluid">
@@ -92,18 +92,23 @@
 					</div>
 				</div>
 			</nav>
+			
+			
 			<div>
 				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
 					close="closeAlert($index)">{{alert.msg}}</uib-alert>
-			</div>
+			</div>	
 			<div class="content" ng-view></div>
 		</div>
-		<div ng-if="!user.loggedIn" >	
-		<div ng-include="'pages/startseite.html'" ></div>	
+		
+		
+		<div ng-if="!userGlobal.loggedIn">
+			<div ng-include="'pages/startseite.html'"> </div> 
 		</div>
 
 
-	</div>
+
+</div>
 </body>
 
 

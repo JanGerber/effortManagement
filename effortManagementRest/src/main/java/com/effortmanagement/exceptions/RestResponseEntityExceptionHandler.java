@@ -21,6 +21,13 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         
         return handleExceptionInternal(ex, bodyOfResponse, httpHeader, HttpStatus.FORBIDDEN, request);
     }
+    @ExceptionHandler(value = { UserNotAuthenticated.class})
+    protected ResponseEntity<Object> handleConflict4(RuntimeException ex, WebRequest request) {
+        String bodyOfResponse = "{ \"statusCode\":\"403\", \"errorMessage\" : \"" +  ex.getMessage() + "\"}";
+        HttpHeaders httpHeader = new HttpHeaders();
+        
+        return handleExceptionInternal(ex, bodyOfResponse, httpHeader, HttpStatus.FORBIDDEN, request);
+    }
     @ExceptionHandler(value = { UserNameAlreadyExistException.class , PasswordsIsWrongException.class})
     protected ResponseEntity<Object> handleConflict2(RuntimeException ex, WebRequest request) {
         String bodyOfResponse = "{ \"statusCode\":\"400\", \"errorMessage\" : \"" +  ex.getMessage() + "\"}";
