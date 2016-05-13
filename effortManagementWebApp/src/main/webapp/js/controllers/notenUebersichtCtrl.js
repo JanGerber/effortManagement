@@ -46,8 +46,14 @@ angular.module('wettEditor').controller(
 					    }
 					}
 					$scope.avarage.angestrebteNote = gesamtAngestrebteNote / AnzAngestrebteNote;
-					$scope.avarage.erhalteneNote = gesamtErhalteneNote / AnzErhalteneNote;
-					
+					if(AnzErhalteneNote === 0){
+						$scope.avarage.erhalteneNote = 0;
+						
+					}else{
+						$scope.avarage.erhalteneNote = gesamtErhalteneNote / AnzErhalteneNote;
+	
+					}
+										
 				}; 
 								
 						

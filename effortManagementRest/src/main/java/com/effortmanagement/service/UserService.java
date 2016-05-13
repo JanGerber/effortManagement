@@ -63,7 +63,9 @@ public class UserService {
 	}
 
 	public void newUser(CreateUser user) {
-		if (userDatabase.getUserByName(user.getUserName()) != null) {
+		logger.error("new User :" + userDatabase.getUserByName(user.getUserName()).getUserName());
+		logger.error(user.getUserName());
+		if (userDatabase.getUserByName(user.getUserName()).getUserName() != null) {
 			throw new UserNameAlreadyExistException("Dieser User Name ist bereits vergeben");
 		}
 		userDatabase.newUser(user);

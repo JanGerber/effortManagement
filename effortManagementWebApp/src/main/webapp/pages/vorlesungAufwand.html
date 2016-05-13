@@ -6,7 +6,7 @@
 			<form name="myForm">
 			<div class="col-sm-2">
 				<div class="form-group">
-					<label for="semester">Semester w√§hlen:</label> <select
+					<label for="semester">Semester w‰hlen:</label> <select
 						class="form-control" id="semester" ng-model="aktuelleSemesterId"
 						ng-change="changeSemester()" required>
 						<option ng-repeat="semester in semesterList"
@@ -16,7 +16,7 @@
 			</div>
 			<div class="col-sm-2">
 				<div class="form-group">
-					<label for="vorlesung">Vorlesung w√§hlen:</label> <select
+					<label for="vorlesung">Vorlesung w‰hlen:</label> <select
 						class="form-control" id="vorlesung" ng-model="aktuelleVorlesungId"
 						required>
 						<option ng-repeat="vorlesung in vorlesungList"
@@ -38,7 +38,7 @@
 			</form>
 			
 		</div>
-		<div class="row" style="border: 1px solid black">
+		<div class="row" style="border: 1px solid black" ng-hide="aufwand == null">
 			<div class="container">
 				<h3 ng-bind="aufwand.vorlesungName"></h3>
 				<hr />

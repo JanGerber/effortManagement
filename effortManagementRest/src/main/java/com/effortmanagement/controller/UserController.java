@@ -54,10 +54,7 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public User login(@RequestParam("userName") String userName, @RequestParam("passwort") String passwort) {
 		User user = userService.getUser(userName);
-		user.setPasswort(userService.getPasswort(user.getUserId()));
-		logger.error(userName +" : " + user.getUserName());
-		logger.error(passwort +" : " + user.getPasswort());
-		
+		user.setPasswort(userService.getPasswort(user.getUserId()));		
 		if(userName.equals(user.getUserName()) &&  passwort.equals(user.getPasswort()) ){	
 		}else{
 			throw new UserNotAuthenticated("Falscher User Name oder Falsches Passwort");

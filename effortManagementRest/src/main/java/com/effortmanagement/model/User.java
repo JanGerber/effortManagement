@@ -10,10 +10,6 @@ public class User {
 	
 	
 	public User() {
-		this.userName = "Std Name";
-		this.passwort = "STD password";
-		this.email = "std@test.de";
-		this.hochschule = "STD DHBW";
 	}
 	/**
 	 * @param userName

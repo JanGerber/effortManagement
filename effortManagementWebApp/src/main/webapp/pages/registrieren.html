@@ -10,17 +10,19 @@
 		<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
 			close="closeAlert($index)">{{alert.msg}}</uib-alert>
 	</div>
-	<form action="registrieren.html" method="Post" autocomplete="off">
+	<form name="registerForm" autocomplete="off">
 		<div class="form-group form-groupNeu">
 			<label for="username"><span class="glyphicon glyphicon-user"></span>
 				Username</label> <input type="text" name="username" class="form-control"
-				id="username" required="required" placeholder="Username eingeben">
+				id="username" required="required" placeholder="Username eingeben"
+				ng-model="user.userName">
 		</div>
 		<div class="form-group form-groupNeu">
 			<label for="password"><span
 				class="glyphicon glyphicon-eye-open"></span> Password</label> <input
 				type="password" name="password" class="form-control" id="password"
-				required="required" placeholder="Passwort eingeben">
+				required="required" placeholder="Passwort eingeben"
+				ng-model="user.passwort">
 		</div>
 		<div class="form-group form-groupNeu">
 			<label for="passwordRepeat"><span
@@ -32,16 +34,19 @@
 		<div class="form-group form-groupNeu">
 			<label for="email"><span class="glyphicon glyphicon-envelope"></span>
 				E-Mail</label> <input type="email" name="email" class="form-control"
-				id="email" required="required" placeholder="E-Mail eingeben">
+				id="email" required="required" placeholder="E-Mail eingeben"
+				ng-model="user.email">
 		</div>
 		<div class="form-group form-groupNeu">
 			<label for="university"><span
 				class="glyphicon glyphicon-home"></span> Hochschule</label> <input
 				type="text" name="university" class="form-control" id="university"
-				required="required" placeholder="Name der Hochschule">
+				required="required" placeholder="Name der Hochschule"
+				ng-model="user.hochschule">
 		</div>
 		<div class="form-group" style="text-align: right;">
-			<button type="submit" value="register"
+			<button value="register" ng-click="userRegistrieren()"
+				ng-disabled="registerForm.$invalid"
 				class="btn btn-default btn-success" id="buttonRegisterM">
 				<span class="glyphicon glyphicon-ok"></span> Registrieren
 			</button>
