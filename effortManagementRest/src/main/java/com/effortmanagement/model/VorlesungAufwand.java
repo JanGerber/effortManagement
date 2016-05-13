@@ -12,6 +12,23 @@ public class VorlesungAufwand {
 	private int semesterId;
 	private int userId;
 	
+	public VorlesungAufwand(){
+	}
+	
+	public VorlesungAufwand(int aufwandNutzen,int vorlesungId,String vorlesungName,int aufwand,int geplanterAufwand,double angestrebteNote,double endNote,double lernzeit,int creditPoints,int semesterId,int userId){
+		this.aufwandNutzen = aufwandNutzen;
+		this.vorlesungId = vorlesungId;
+		this.vorlesungName = vorlesungName;
+		this.aufwand = aufwand;
+		this.geplanterAufwand = geplanterAufwand;
+		this.angestrebteNote = angestrebteNote;
+		this.endNote = endNote;
+		this.lernzeit = lernzeit;
+		this.creditPoints = creditPoints;
+		this.semesterId = semesterId;
+		this.userId = userId;
+	}
+	
 	public int getAufwandNutzen() {
 		return aufwandNutzen;
 	}
