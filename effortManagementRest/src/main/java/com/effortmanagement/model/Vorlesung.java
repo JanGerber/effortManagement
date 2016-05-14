@@ -12,6 +12,22 @@ public class Vorlesung {
 	private int semesterId;
 	private int userId;
 	
+	public Vorlesung(){
+	}
+	
+	public Vorlesung(int vorlesungsid, String vorlesungsname, int aufwand, int geplanteraufwand, double angestrebtenote, double endnote, double lernzeit, int creditpoints, int semesterid, int userid){
+		this.vorlesungId = vorlesungsid;
+		this.vorlesungName = vorlesungsname;
+		this.aufwand = aufwand;
+		this.geplanterAufwand = geplanteraufwand;
+		this.angestrebteNote = angestrebtenote;
+		this.endNote = endnote;
+		this.lernzeit = lernzeit;
+		this.creditPoints = creditpoints;
+		this.semesterId = semesterid;
+		this.userId = userid;
+	}
+	
 	public int getVorlesungId() {
 		return vorlesungId;
 	}

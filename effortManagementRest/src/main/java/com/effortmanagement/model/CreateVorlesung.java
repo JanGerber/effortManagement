@@ -8,6 +8,19 @@ public class CreateVorlesung {
 	private double angestrebteNote; 
 	private int creditPoints;
 	private int semesterId;
+	
+	public CreateVorlesung(){
+	}
+	
+	public CreateVorlesung(int userid, String vorlesungsname, int aufwand_, int geplanteraufwand, double angestrebtenote, int creditpoints, int semesterid){
+		this.userId = userid;
+		this.vorlesungName = vorlesungsname;
+		this.aufwand = aufwand_;
+		this.geplanterAufwand = geplanteraufwand;
+		this.angestrebteNote = angestrebtenote;
+		this.creditPoints = creditpoints;
+		this.semesterId = semesterid;
+	}
 
 	public String getVorlesungName() {
 		return vorlesungName;

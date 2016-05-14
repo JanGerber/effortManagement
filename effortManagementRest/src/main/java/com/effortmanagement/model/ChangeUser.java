@@ -3,7 +3,7 @@ package com.effortmanagement.model;
 public class ChangeUser {
 	
 	private String userName;
-	private String email;
+	private String eMail;
 	private String hochschule;
 	
 	
@@ -14,9 +14,10 @@ public class ChangeUser {
 	 * @param passwort
 	 * @param hochschule
 	 */
-	public ChangeUser(String userName, String eMail, String hochschule) {
+	public ChangeUser(String userName, String email, String hochschule) {
 		this.userName = userName;
 		this.hochschule = hochschule;
+		this.eMail = email;
 	}
 	public String getUserName() {
 		return userName;
@@ -31,10 +32,10 @@ public class ChangeUser {
 		this.hochschule = hochschule;
 	}
 	public String getEmail() {
-		return email;
+		return eMail;
 	}
-	public void setEmail(String eMail) {
-		this.email = eMail;
+	public void setEmail(String email) {
+		this.eMail = email;
 	}
 
 
