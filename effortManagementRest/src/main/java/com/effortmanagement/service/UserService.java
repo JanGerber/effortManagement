@@ -43,12 +43,12 @@ public class UserService {
 	}
 
 	public void changeUserName(int userId, String newUserName) {
-		logger.debug("NewUserName: " + newUserName);
+		logger.error("NewUserName: " + newUserName);
 		User testUser = userDatabase.getUserByName(newUserName);
-		if (testUser != null) {
-			logger.debug("testUser != null");
+		if (testUser.getUserName() != null) {
+			logger.error("testUser != null");
 			if (testUser.getUserId() != userId) {
-				logger.debug("testUser.getUserId,userId = " + testUser.getUserId() + " , " + userId);
+				logger.error("testUser.getUserId,userId = " + testUser.getUserId() + " , " + userId);
 				if (testUser.getUserName().equals(newUserName)) {
 					throw new UserNameAlreadyExistException("Dieser User Name ist bereits vergeben");
 				}
