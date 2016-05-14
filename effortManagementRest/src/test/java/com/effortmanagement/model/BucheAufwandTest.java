@@ -2,41 +2,40 @@ package com.effortmanagement.model;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BucheAufwandTest {
-	
-	BucheAufwand bucheAufwand1;
-	
-	@Before
-	public void setUp() throws Exception { //Erstellt ein Objekt der zu testenden Klasse und setzt Argumente
-		bucheAufwand1 = new BucheAufwand();
-		bucheAufwand1.setVorlesungId(1);
-		bucheAufwand1.setZeit(1);
-		
-	}
-	
+
 	@Test
 	public void testGetVorlesungId() {
-		assertEquals(1, bucheAufwand1.getVorlesungId());
+		BucheAufwand bucheAufwand = new BucheAufwand();
+		bucheAufwand.setVorlesungId(12);
+		assertEquals(12, bucheAufwand.getVorlesungId());
 	}
 
 	@Test
 	public void testSetVorlesungId() {
-		bucheAufwand1.setVorlesungId(2);
-		assertEquals(2,bucheAufwand1.getVorlesungId());
+		BucheAufwand bucheAufwand = new BucheAufwand();
+		bucheAufwand.setVorlesungId(12);
+		assertTrue(bucheAufwand.getVorlesungId() == 12);
 	}
 
 	@Test
 	public void testGetZeit() {
-		assertEquals(1, bucheAufwand1.getZeit(),0);//Zweite 0 steht für die Abweichung, muss bei Gleitkommazahlen angegeben werden 
+		BucheAufwand bucheAufwand = new BucheAufwand();
+		bucheAufwand.setZeit(0);
+		assertEquals(0, bucheAufwand.getZeit(),0);
 	}
 
 	@Test
 	public void testSetZeit() {
-		bucheAufwand1.setZeit(2);
-		assertEquals(2,bucheAufwand1.getZeit(),0);
+		BucheAufwand bucheAufwand = new BucheAufwand();
+		bucheAufwand.setZeit(0);
+		assertTrue(bucheAufwand.getZeit() == 0);
 	}
 
 }
