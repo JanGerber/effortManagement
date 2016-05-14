@@ -4,7 +4,7 @@
 
 
 		 <div class="row">
-		  <label class="col-sm-2" for="semesterId">Semester auswÃ¤hlen:</label>
+		  <label class="col-sm-2" for="semesterId">Semester auswählen:</label>
 		  <div class="col-sm-2">
 		  <select class="form-control" id="semesterId" ng-model="aktuelleSemesterId" ng-change="changeSemester(semester.semesterId)">
 		    <option ng-repeat="semester in semesterList"
@@ -39,7 +39,7 @@
 				<label for="vorlesungName">Angestrebter Durchschnitt:</label>
 			</div>
 			<div class="col-sm-5">
-				<p class="form-control-static" ng-bind="avarage.angestrebteNote">test</p>
+				<p class="form-control-static" ng-bind="avarage.angestrebteNote | number : 2">test</p>
 			</div>
 		</div>
 		<div class="row">
@@ -47,17 +47,17 @@
 				<label for="vorlesungName">Semester Durchschnitt:</label>
 			</div>
 			<div class="col-sm-5">
-				<p class="form-control-static" ng-bind="avarage.erhalteneNote">test</p>
+				<p class="form-control-static" ng-bind="avarage.erhalteneNote | number : 2">test</p>
 			</div>
 		</div>
 		</div>
 		
 		
 		<div class="table-responsive" ng-if="((vorlesungList.length === 0 ) && (aktuelleSemesterId !== null ))">
-			<p>Sie haben fÃ¼r dieses Semester noch keine Vorlesung angelegt!</p>
+			<p>Sie haben für dieses Semester noch keine Vorlesung angelegt!</p>
 		</div>
 		<div class="table-responsive" ng-if="(aktuelleSemesterId === null )">
-			<p>Sie haben noch kein Semester ausgewÃ¤hlt!</p>
+			<p>Sie haben noch kein Semester ausgewählt!</p>
 		</div>
 	</section>
 	<!-- SECTION END -->

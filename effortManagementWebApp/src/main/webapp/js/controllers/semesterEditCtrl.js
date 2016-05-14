@@ -16,21 +16,22 @@ angular.module('wettEditor').controller(
             	
             	//Semster laden
             	$scope.loadSemesterData = function() {
-            		console.log(semesterId);
             		semesterDataService.getSemesterById(semesterId).then(
 							function(response) {
 								$scope.semester = response.data;
+								$scope.datepickerStart.datum =  new Date($scope.semester.startDatum);
+								$scope.datepickerEnd.datum =  new Date($scope.semester.endDatum);
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);
 							});
 				};
 				
-				$scope.loadSemesterData();
+				
 		        //
 		        $scope.editSemester = function() {
 		        	createSemester.semesterName =  $scope.semester.semesterName;
-		        	createSemester.startDatum = $scope.semester.startDatum;
-		        	createSemester.endDatum = $scope.semester.endDatum;
+		        	createSemester.startDatum = $filter('date')($scope.datepickerStart.datum, 'yyyy-MM-dd');
+		        	createSemester.endDatum = $filter('date')($scope.datepickerEnd.datum, 'yyyy-MM-dd');
 		        	
 		        	semesterDataService.changeSemester(semesterId,createSemester).then(
 							function(response) {
@@ -39,7 +40,34 @@ angular.module('wettEditor').controller(
 								alertService.add("warning", response.data.errorMessage);
 							});
 				};
-								
+				
+				//DATE Picker
+				$scope.datepickerStart = {
+           			 opened: false,
+           			 datum : new Date()
+	           	};
+	           	$scope.datepickerEnd = {
+	             			 opened: false,
+	             			 datum : new Date()
+	              	};
+	              	
+	           	$scope.dateOptionsEnd ={
+	           		minDate : $scope.datepickerStart.datum
+	           	};
+	           	$scope.dateOptionsStart = {
+	           		maxDate : $scope.datepickerEnd.datum
+	           	};
+	           	
+	           	$scope.openDateStart = function() {
+					$scope.dateOptionsStart.maxDate = $scope.datepickerEnd.datum;
+				    $scope.datepickerStart.opend = true;
+				};
+				$scope.openDateEnd = function() {
+					$scope.dateOptionsEnd.minDate = $scope.datepickerStart.datum;
+				    $scope.datepickerEnd.opend = true;
+				};
+				
+				$scope.loadSemesterData();			
 						
 } ]);
 

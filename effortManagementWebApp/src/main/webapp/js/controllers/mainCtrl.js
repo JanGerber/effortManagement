@@ -17,7 +17,7 @@ angular.module('wettEditor').controller(
              			 }
              			 
              			//Semester List laden
-                     	$scope.loadSemesterListData = function() {
+             			$rootScope.loadSemesterListData = function() {
 
                      		semesterDataService.getSemesterList().then(
          							function(response) {
@@ -27,7 +27,7 @@ angular.module('wettEditor').controller(
          							});
          				};
          				
-         		        $scope.loadSemesterListData();	
+         					
          		        
                     	//Modal oeffnen Login
                     	$scope.openLogin = function() {
@@ -53,6 +53,13 @@ angular.module('wettEditor').controller(
         						size : 'lg',
         					});
         				
+        				};
+        				$scope.logout = function(){
+        					 $rootScope.userGlobal = {
+                 					 userName: '',
+                 					 passwort: '',
+                 					 loggedIn: false
+                 			 };
         				};
 
          		        
