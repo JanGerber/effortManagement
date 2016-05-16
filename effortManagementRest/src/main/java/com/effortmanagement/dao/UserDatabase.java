@@ -1,5 +1,6 @@
 package com.effortmanagement.dao;
 
+import com.effortmanagement.interfaces.UserInterface;
 import com.effortmanagement.model.CreateUser;
 import com.effortmanagement.model.User;
 
@@ -8,7 +9,7 @@ import java.sql.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UserDatabase extends DatenDAO {
+public class UserDatabase extends DatenDAO implements UserInterface{
 	
 	private final Logger logger = LoggerFactory.getLogger(UserDatabase.class);
 	
@@ -304,6 +305,51 @@ public class UserDatabase extends DatenDAO {
 		}
 		return rs;
 	}
+	
+	public int changeData (int userId, String args){
+		
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+		
+		changeArg(userId, args, dbConnection, preparedStatement, rs);
+		return rs;
+	}
+	
+	
+	
+	public void changeArg(int userId, String arg, Connection dbConnection, PreparedStatement preparedStatement, int rs){
+		String selectSQL = "UPDATE user SET " + arg + " userName= ? WHERE userID LIKE ?" ;
+		try {
+			dbConnection = getDBConnection();
+			preparedStatement = dbConnection.prepareStatement(selectSQL);
+			
+			preparedStatement.setString(1, arg);
+			preparedStatement.setInt(2, userId);
+			rs = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			logger.error("changeParameter");
+			logger.error(e.getMessage());
+		}
+		finally {
+
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (dbConnection != null) {
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return;
+	}
 
 	public User getUserById(int userID) {
 		Connection dbConnection = null;
@@ -396,10 +442,4 @@ public class UserDatabase extends DatenDAO {
 		}
 		return password;
 	}
-
-
-
-
-	
-	
 }
