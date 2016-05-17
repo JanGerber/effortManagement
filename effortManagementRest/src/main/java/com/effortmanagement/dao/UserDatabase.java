@@ -150,7 +150,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		
 		return rs;
 	}
-
+	@Deprecated
 	public int changePasswort(int userId, String newPasswort) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -190,7 +190,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		return rs;
 	
 	}
-
+	@Deprecated
 	public int changeEmail(int userId, String newEmail) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -229,6 +229,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		return rs;
 	}
+	@Deprecated
 	public int changeHochschule(int userId, String newHochschule) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -267,6 +268,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		return rs;
 	}
+	@Deprecated
 	public int changeUserName(int userId, String newUserName) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -306,29 +308,28 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		return rs;
 	}
 	
-	public int changeData (int userId, String args){
+	public int changeData (int userId, String column, String newData){
 		
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
-		int rs = 0;
-		
-		changeArg(userId, args, dbConnection, preparedStatement, rs);
-		return rs;
+
+		return changeArg(userId, column, newData, dbConnection, preparedStatement);
 	}
 	
 	
 	
-	public void changeArg(int userId, String arg, Connection dbConnection, PreparedStatement preparedStatement, int rs){
-		String selectSQL = "UPDATE user SET " + arg + " userName= ? WHERE userID LIKE ?" ;
+	public int changeArg(int userId, String column, String newData, Connection dbConnection, PreparedStatement preparedStatement){
+		String selectSQL = "UPDATE user SET " + column + " = ? WHERE userID LIKE ?" ;
+		int rs = 0;
 		try {
 			dbConnection = getDBConnection();
 			preparedStatement = dbConnection.prepareStatement(selectSQL);
 			
-			preparedStatement.setString(1, arg);
+			preparedStatement.setString(1, column);
 			preparedStatement.setInt(2, userId);
 			rs = preparedStatement.executeUpdate();
 		} catch (SQLException e) {
-			logger.error("changeParameter");
+			logger.error("changeArgument");
 			logger.error(e.getMessage());
 		}
 		finally {
@@ -348,7 +349,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 				}
 			}
 		}
-		return;
+		return rs;
 	}
 
 	public User getUserById(int userID) {

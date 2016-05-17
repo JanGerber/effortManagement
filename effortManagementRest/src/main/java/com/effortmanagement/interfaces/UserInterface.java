@@ -7,5 +7,5 @@ public interface UserInterface {
 	
 	//only changes of database entries implemented
 	//new entries should be added
-	public int changeData(int userId, String args);
+	public int changeData(int userId, String column, String newData);
 }
