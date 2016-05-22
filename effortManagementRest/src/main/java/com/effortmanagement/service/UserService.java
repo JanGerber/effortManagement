@@ -29,7 +29,7 @@ public class UserService {
 
 	public void changePasswort(int userId, ChangePasswort passwort) {
 		if (passwort.getOldPasswort().equals(userDatabase.getPasswort(userId))) {
-			userDatabase.changeData(userId, "passwort", passwort.getNewPasswort());
+			userDatabase.changePasswort(userId, passwort.getNewPasswort());
 		} else {
 			logger.error("altest Passwort falsch(eingegeben, muss): " + passwort.getOldPasswort() + " , "
 					+ userDatabase.getPasswort(userId));
@@ -39,7 +39,7 @@ public class UserService {
 	}
 
 	public void changeEmail(int userId, String newEmail) {
-		userDatabase.changeData(userId, "email", newEmail);
+		userDatabase.changeEmail(userId, newEmail);
 
 	}
 
@@ -55,12 +55,12 @@ public class UserService {
 				}
 			}
 		}
-		userDatabase.changeData(userId, "userName", newUserName);
+		userDatabase.changeUserName(userId, newUserName);
 
 	}
 
 	public void changeHochschule(int userId, String newHochschule) {
-		userDatabase.changeData(userId, "hochschule",newHochschule);
+		userDatabase.changeHochschule(userId, newHochschule);
 	}
 
 	public void newUser(CreateUser user) {

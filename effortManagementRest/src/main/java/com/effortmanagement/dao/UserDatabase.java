@@ -149,8 +149,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		
 		return rs;
-	}
-	@Deprecated
+	}	
 	public int changePasswort(int userId, String newPasswort) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -190,7 +189,6 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		return rs;
 	
 	}
-	@Deprecated
 	public int changeEmail(int userId, String newEmail) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -229,7 +227,6 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		return rs;
 	}
-	@Deprecated
 	public int changeHochschule(int userId, String newHochschule) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -268,7 +265,6 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		return rs;
 	}
-	@Deprecated
 	public int changeUserName(int userId, String newUserName) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -308,6 +304,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		return rs;
 	}
 	
+	@Deprecated
 	public int changeData (int userId, String column, String newData){
 		
 		Connection dbConnection = null;
@@ -317,7 +314,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 	}
 	
 	
-	
+	@Deprecated
 	public int changeArg(int userId, String column, String newData, Connection dbConnection, PreparedStatement preparedStatement){
 		String selectSQL = "UPDATE user SET " + column + " = ? WHERE userID LIKE ?" ;
 		int rs = 0;
