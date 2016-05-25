@@ -4,4 +4,4 @@ install:
 after_success:
   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report 
 deploy:
-  -mvn tomcat7:redeploy
+  - mvn tomcat7:redeploy
