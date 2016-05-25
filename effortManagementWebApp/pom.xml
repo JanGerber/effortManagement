@@ -16,9 +16,10 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.2</version>
         <configuration>
-            <url>http://localhost:8080/manager/text</url>
-            <server>TomcatServer</server>
-            <path>/effortManagement</path>
+            <url>http://effortmanagement.it.dh-karlsruhe.de/manager/text</url>
+			<username>effort-script</username>
+			<password>@wasserdach</password>
+            <path>/</path>
         </configuration>
     </plugin>
         </plugins>
