@@ -3,5 +3,5 @@ install:
   - mvn test-compile -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 after_success:
   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report 
-deploy:
+script:
   - mvn tomcat7:redeploy
