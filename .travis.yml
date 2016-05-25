@@ -4,4 +4,4 @@ install:
 after_success:
   - mvn clean cobertura:cobertura org.eluder.coveralls:coveralls-maven-plugin:report 
 script:
-  - mvn tomcat7:redeploy
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then mvn tomcat7:redeploy; fi
