@@ -54,6 +54,11 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public User login(@RequestParam("userName") String userName, @RequestParam("passwort") String passwort) {
 		User user = userService.getUser(userName);
+		if (user == null) {
+			logger.error("login Controller: user == null");
+		}
+		logger.error("login Controller:" + user.getUserId() );
+		logger.error("login Controller:" + userService.getPasswort(user.getUserId()));
 		user.setPasswort(userService.getPasswort(user.getUserId()));		
 		if(userName.equals(user.getUserName()) &&  passwort.equals(user.getPasswort()) ){	
 		}else{

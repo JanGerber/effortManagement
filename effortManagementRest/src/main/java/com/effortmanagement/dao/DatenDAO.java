@@ -5,10 +5,10 @@ import java.sql.SQLException;
 
 public class DatenDAO {
 
-	protected static final String DB_DRIVER = "org.h2.Driver";
-	protected static final String DB_CONNECTION = "jdbc:h2:~/effortManagementDB;AUTO_SERVER=TRUE";
-	protected static final String DB_USER = "sa";
-	protected static final String DB_PASSWORD = "";
+	protected static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+	protected static final String DB_CONNECTION = "jdbc:mysql:localhost/effortManagementDB;";
+	protected static final String DB_USER = "root";
+	protected static final String DB_PASSWORD = "mysql";
 
 
 	protected Connection getDBConnection() {
