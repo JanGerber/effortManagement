@@ -5,25 +5,43 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
     srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage';
 
     //get User
-    srv.getUser = function() {
-		return $http.get( srv._baseUrl + "/user"); 
+    srv.getUser = function(userId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/user",
+			  params: {'userId': userId},
+			});
     };
     //change User
-    srv.changeUser = function(user) {
-		return $http.put( srv._baseUrl + "/user/", user); 
+    srv.changeUser = function(userId,user) {
+    	console.log(user);
+		return $http({
+			  method: 'PUT',
+			  url: srv._baseUrl + "/user/",
+			  params: {'userId': userId},
+			  data: user
+			});
     };
     //new User
-    srv.newUser = function(user) {
-		return $http.post( srv._baseUrl + "/", user); 
+    srv.newUser = function(userId,user) {
+		return $http({
+			  method: 'POST',
+			  url: srv._baseUrl + "/",
+			  params: {'userId': userId},
+			  data: user
+			});
     };
   //change User
-    srv.changePasswort = function(passwort) {
-		return $http.put( srv._baseUrl + "/user/passwort", passwort); 
+    srv.changePasswort = function(userId,passwort) {
+		return $http({
+			  method: 'PUT',
+			  url: srv._baseUrl + "/user/passwort",
+			  params: {'userId': userId},
+			  data: passwort
+			});
     };
     //login
     srv.loginUser = function(user) {
-    	console.log("srvLoginUser");
-    	console.log(user);
 		return $http({
 			  method: 'GET',
 			  url: srv._baseUrl + "/user/login",
@@ -34,17 +52,17 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
 
     // Public API
     return {
-    	getUser: function() {
-            return srv.getUser();
+    	getUser: function(userId) {
+            return srv.getUser(userId);
         },
-        changeUser: function(user) {
-            return srv.changeUser(user);
+        changeUser: function(userId,user) {
+            return srv.changeUser(userId,user);
         },
-        newUser: function(user) {
-            return srv.newUser(user);
+        newUser: function(userId,user) {
+            return srv.newUser(userId,user);
         },
-        changePasswort: function(passwort) {
-            return srv.changePasswort(passwort);
+        changePasswort: function(userId,passwort) {
+            return srv.changePasswort(userId,passwort);
         },
         loginUser: function(user) {
             return srv.loginUser(user);

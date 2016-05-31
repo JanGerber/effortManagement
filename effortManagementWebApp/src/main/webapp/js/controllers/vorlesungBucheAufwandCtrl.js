@@ -15,7 +15,7 @@ angular.module('wettEditor').controller(
 				//Vorlesung laden
             	$scope.loadVorlesungData = function() {
             		
-            		vorlesungDataService.getVorlesungById(vorlesungId).then(
+            		vorlesungDataService.getVorlesungById($rootScope.userGlobal.userId, vorlesungId).then(
 							function(response) {
 								$scope.vorlesung = response.data;
 							}, function(response) {
@@ -26,7 +26,7 @@ angular.module('wettEditor').controller(
 				
 				//Buche Aufwand
 				$scope.bucheAufwand= function() {	
-            		vorlesungDataService.putAufwand(vorlesungId, $scope.aufwand).then(
+            		vorlesungDataService.putAufwand($rootScope.userGlobal.userId, vorlesungId, $scope.aufwand).then(
 							function(response) {
 								$scope.closeModal();
 							}, function(response) {

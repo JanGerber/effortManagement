@@ -21,6 +21,7 @@ angular.module('wettEditor').controller(
 								$uibModalInstance.dismiss('created');
 								$rootScope.globalUser.userName = $scope.user.userName;
 								$rootScope.globalUser.passwort = $scope.user.passwort;
+								$rootScope.userGlobal.userId = $scope.user.userId;
 								$rootScope.globalUser.loggedIn = true;
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);

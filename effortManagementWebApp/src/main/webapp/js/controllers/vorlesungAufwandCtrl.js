@@ -9,7 +9,7 @@ angular.module('wettEditor').controller(
             	
             	$scope.changeSemester = function(){
             		console.log("Change Semester: " + $scope.aktuelleSemesterId);
-            		vorlesungDataService.getVorlesungList($scope.aktuelleSemesterId).then(
+            		vorlesungDataService.getVorlesungList($rootScope.userGlobal.userId, $scope.aktuelleSemesterId).then(
 							function(response) {
 								$scope.vorlesungList = response.data;
 								console.log($scope.vorlesungList);
@@ -18,7 +18,7 @@ angular.module('wettEditor').controller(
 							});
             	};
             	$scope.showAufwand = function(){
-            		vorlesungDataService.getAufwandById($scope.aktuelleVorlesungId).then(
+            		vorlesungDataService.getAufwandById($rootScope.userGlobal.userId, $scope.aktuelleVorlesungId).then(
 							function(response) {
 								$scope.aufwand = response.data;
 								console.log($scope.aufwand);

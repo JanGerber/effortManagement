@@ -75,7 +75,7 @@ angular.module('wettEditor').controller(
 				//Semester List laden
             	$scope.loadSemesterListData = function() {
 
-            		semesterDataService.getSemesterList().then(
+            		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
 							function(response) {
 								$scope.semesterList = response.data;
 								$scope.loadVorlesungListData($scope.aktuelleSemesterId);
@@ -90,7 +90,7 @@ angular.module('wettEditor').controller(
 				//Vorlesung List laden
             	$scope.loadVorlesungListData = function(semesterId) {
             		
-            		vorlesungDataService.getVorlesungList(semesterId).then(
+            		vorlesungDataService.getVorlesungList($rootScope.userGlobal.userId,semesterId).then(
 							function(response) {
 								$scope.vorlesungList = response.data;
 							}, function(response) {

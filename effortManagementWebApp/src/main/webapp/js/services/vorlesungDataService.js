@@ -5,51 +5,76 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
     srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage/vorlesung';
 
     //new Vorlesung
-    srv.newVorlesung = function(vorlesung) {
-		return $http.post( srv._baseUrl + "/" , vorlesung); 
+    srv.newVorlesung = function(userId, vorlesung) {
+		return $http({
+			  method: 'POST',
+			  url: srv._baseUrl + "/" ,
+			  params: {'userId': userId},
+			  data: vorlesung
+			});
     };
     //get alle Noten 
-    srv.getNotenList = function(semesterId) {
-		return $http.get( srv._baseUrl + "/list/" + semesterId + "/noten"); 
+    srv.getNotenList = function(userId, semesterId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/list/" +  semesterId + "/noten",
+			  params: {'userId': userId}
+			});
     };
     //get Vorlesung
-    srv.getVorlesungById = function(vorlesungId) {
-		return $http.get( srv._baseUrl + "/" +  vorlesungId); 
+    srv.getVorlesungById = function(userId, vorlesungId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/" +  vorlesungId,
+			  params: {'userId': userId},
+			});
     };
     //put Aufwand
-    srv.putAufwand = function(vorlesungId, aufwand) {
-    	console.log(vorlesungId + aufwand);
-		return $http.put( srv._baseUrl + "/" +  vorlesungId + "/aufwand", aufwand); 
+    srv.putAufwand = function(userId, vorlesungId, aufwand) {
+		return $http({
+			  method: 'PUT',
+			  url: srv._baseUrl + "/" + vorlesungId+ "/aufwand",
+			  params: {'userId': userId},
+			  data: aufwand
+			});
     };
     //get Aufwand
-    srv.getAufwandById = function(vorlesungId) {
-		return $http.get( srv._baseUrl +"/" + vorlesungId  +"/aufwand"); 
+    srv.getAufwandById = function(userId,vorlesungId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/" +  vorlesungId + "/aufwand",
+			  params: {'userId': userId},
+			});
     };  
     //get alle Vorlesung
-    srv.getVorlesungList = function(semesterId) {
-		return $http.get( srv._baseUrl + "/list/" +  semesterId); 
+    srv.getVorlesungList = function(userId,semesterId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/list/" +  semesterId,
+			  params: {'userId': userId},
+			});
     };
     
     
     // Public API
     return {
-    	newVorlesung: function(vorlesung) {
-            return srv.newVorlesung(vorlesung);
+    	newVorlesung: function(userId, vorlesung) {
+            return srv.newVorlesung(userId, vorlesung);
         },
-        getNotenList: function(semesterId) {
-	        return srv.getNotenList(semesterId);
+        getNotenList: function(userId, semesterId) {
+	        return srv.getNotenList(userId, semesterId);
 	    },
-	    getVorlesungById: function(vorlesungId) {
-            return srv.getVorlesungById(vorlesungId);
+	    getVorlesungById: function(userId, vorlesungId) {
+            return srv.getVorlesungById(userId, vorlesungId);
         },
-        putAufwand: function(vorlesungId, aufwand) {
-	        return srv.putAufwand(vorlesungId, aufwand);
+        putAufwand: function(userId, vorlesungId, aufwand) {
+	        return srv.putAufwand(userId, vorlesungId, aufwand);
 	    },
-	    getAufwandById: function(vorlesungId) {
-            return srv.getAufwandById(vorlesungId);
+	    getAufwandById: function(userId, vorlesungId) {
+            return srv.getAufwandById(userId, vorlesungId);
         },
-        getVorlesungList: function(semesterId) {
-            return srv.getVorlesungList(semesterId);
+        getVorlesungList: function(userId, semesterId) {
+            return srv.getVorlesungList(userId, semesterId);
         }
    
     };

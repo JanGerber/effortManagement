@@ -26,29 +26,28 @@ public class UserController {
 	private final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public User getUser() {
-		return userService.getUser(1);//TODO user
+	public User getUser(@RequestParam("userId") int userId) {
+		return userService.getUser(userId);//TODO user
     }
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public void changeUser( @RequestBody ChangeUser user) {
+	public void changeUser( @RequestBody ChangeUser user, @RequestParam("userId") int userId) {
 		logger.info("changeUser: " + user.getEmail());
-		
 		
 		if(user.getEmail() != null){
 			logger.info("Email change: " + user.getEmail());
-			userService.changeEmail(1, user.getEmail()); //TODO user
+			userService.changeEmail(userId, user.getEmail()); //TODO user
 		}
 		if(user.getHochschule() != null){
-			userService.changeHochschule(1, user.getHochschule()); //TODO user
+			userService.changeHochschule(userId, user.getHochschule()); //TODO user
 		}
 		if(user.getUserName() != null){
-			userService.changeUserName(1, user.getUserName()); //TODO user
+			userService.changeUserName(userId, user.getUserName()); //TODO user
 		}
         
     }
 	@RequestMapping(value = "/passwort", method = RequestMethod.PUT)
-	public void changePasswort( @RequestBody ChangePasswort passwort) {
-		userService.changePasswort(1, passwort); //TODO user
+	public void changePasswort( @RequestBody ChangePasswort passwort , @RequestParam("userId") int userId) {
+		userService.changePasswort(userId, passwort); //TODO user
     }
 	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

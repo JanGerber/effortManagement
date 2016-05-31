@@ -6,7 +6,7 @@ angular.module('wettEditor').controller(
             	//Semester List laden
             	$scope.loadSemesterListData = function() {
 
-            		semesterDataService.getSemesterList().then(
+            		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
 							function(response) {
 								$scope.semesterList = response.data;
 							}, function(response) {
@@ -18,7 +18,7 @@ angular.module('wettEditor').controller(
 		        
 		      //Semester loeschen
             	$scope.deleteSemester = function(semesterId) {
-            		semesterDataService.deleteSemester(semesterId).then(
+            		semesterDataService.deleteSemester($rootScope.userGlobal.userId, semesterId).then(
 							function(response) {
 								$scope.loadSemesterListData();	
 							}, function(response) {

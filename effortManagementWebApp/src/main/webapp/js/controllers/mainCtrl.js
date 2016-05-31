@@ -9,6 +9,7 @@ angular.module('wettEditor').controller(
              			 $rootScope.userGlobal = {
              					 userName: '',
              					 passwort: '',
+             					 userId: '',
              					 loggedIn: false
              			 }
              			 
@@ -19,7 +20,7 @@ angular.module('wettEditor').controller(
              			//Semester List laden
              			$rootScope.loadSemesterListData = function() {
 
-                     		semesterDataService.getSemesterList().then(
+                     		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
          							function(response) {
          								$scope.semesterList = response.data;
          							}, function(response) {
@@ -58,6 +59,7 @@ angular.module('wettEditor').controller(
         					 $rootScope.userGlobal = {
                  					 userName: '',
                  					 passwort: '',
+                 					 userId: '',
                  					 loggedIn: false
                  			 };
         				};

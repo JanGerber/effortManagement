@@ -20,8 +20,8 @@ angular.module('wettEditor').controller(
 								$rootScope.loadSemesterListData();
 								$rootScope.userGlobal.userName = response.data.userName;
 								$rootScope.userGlobal.passwort = response.data.passwort;
+								$rootScope.userGlobal.userId = response.data.userId;
 								$rootScope.userGlobal.loggedIn = true;
-								console.log($rootScope.userGlobal);
 								$scope.closeModal();
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);

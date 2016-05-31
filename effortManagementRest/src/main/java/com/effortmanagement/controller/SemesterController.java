@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,14 +30,14 @@ public class SemesterController {
 	private SemesterService semesterService = new SemesterService();
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public List<Semester> getSemesterList() {
-		return semesterService.getSemesterList(1); //TODO user
+	public List<Semester> getSemesterList( @RequestParam("userId") int userId) {
+		return semesterService.getSemesterList(userId); //TODO user
     }
 	
 	@RequestMapping(value = "/{semesterId}", method = RequestMethod.GET)
-	public Semester getSemester(@PathVariable int semesterId) {
+	public Semester getSemester(@PathVariable int semesterId, @RequestParam("userId") int userId) {
 		Semester semester = semesterService.getSemester(semesterId);
-		if(semester.getUser_Id() != 1){
+		if(semester.getUser_Id() != userId){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu betrachten (SemesterId: " + semesterId +")");
 		}
 		return semester;
@@ -46,9 +47,9 @@ public class SemesterController {
 	
 	@RequestMapping(value = "/{semesterId}", method = RequestMethod.DELETE , produces="application/json")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public void deleteSemester(@PathVariable int semesterId) {
+	public void deleteSemester(@PathVariable int semesterId,  @RequestParam("userId") int userId) {
 		Semester semester = semesterService.getSemester(semesterId);
-		if(semester.getUser_Id() != 1){
+		if(semester.getUser_Id() != userId){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu löschen (SemesterId: " + semesterId +")");
 		}
 		semesterService.deleteSemester(semesterId);
@@ -56,10 +57,10 @@ public class SemesterController {
 	
 	
 	@RequestMapping(value = "/{semesterId}", method = RequestMethod.PUT, produces="application/json")
-	public void changeSemester(@PathVariable int semesterId, @RequestBody ChangeSemester semester) {
+	public void changeSemester(@PathVariable int semesterId, @RequestBody ChangeSemester semester,  @RequestParam("userId") int userId) {
 		Semester semesterOld = semesterService.getSemester(semesterId);
 		
-		if(semesterOld.getUser_Id() != 1){
+		if(semesterOld.getUser_Id() != userId){
 			throw new UserNotAuthorizedException("Sie sind nicht authenfiziert dieses Semester zu bearbeiten (SemesterId: " + semesterId +")");
 		}
 		
@@ -76,8 +77,8 @@ public class SemesterController {
 	
 	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void newSemester(@RequestBody CreateSemester semester) {
-		semester.setUser_Id(1); //TODO  userId
+	public void newSemester(@RequestBody CreateSemester semester,  @RequestParam("userId") int userId) {
+		semester.setUser_Id(userId); //TODO  userId
 		semesterService.newSemester(semester); 
     }
 	

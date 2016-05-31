@@ -10,7 +10,7 @@ angular.module('wettEditor').controller(
             	    };
             	    $scope.user = {};
 			        $scope.loadUserData = function() {
-						userDataService.getUser().then(
+						userDataService.getUser($rootScope.userGlobal.userId).then(
 								function(response) {
 									$scope.user = response.data;
 								}, function(response) {
@@ -26,7 +26,7 @@ angular.module('wettEditor').controller(
 						changeUser.userName = $scope.user.userName;
 						changeUser.hochschule = $scope.user.hochschule;
 						changeUser.email = $scope.user.email;
-						userDataService.changeUser(changeUser).then(
+						userDataService.changeUser($rootScope.userGlobal.userId,changeUser).then(
 								function(response) {
 									$uibModalInstance.dismiss('changed');
 								}, function(response) {
