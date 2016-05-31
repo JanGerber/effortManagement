@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class DatenDAO {
 
 	protected static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-	protected static final String DB_CONNECTION = "jdbc:mysql:localhost/effortManagementDB;";
+	protected static final String DB_CONNECTION = "jdbc:mysql://127.0.0.1:3306/effortManagementDB";
 	protected static final String DB_USER = "root";
 	protected static final String DB_PASSWORD = "mysql";
 
