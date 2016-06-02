@@ -25,7 +25,8 @@
 						<th width="60">Angestrebte Note</th>
 						<th width="60">Gebuchter Aufwand</th>
 						<th width="60">Aufwand Buchen</th>
-						<th width="30"></th>
+						<th width="60">Endnote</th>
+						<!-- <th width="30"></th>  -->
 					</tr>
 				</thead>
 				<tbody>
@@ -40,8 +41,13 @@
 								ng-click="aufwandBuchen(vorlesung.vorlesungId)">Aufwand
 								buchen</button>
 						</td>
-						<td><a ng-click="" style="cursor: pointer"><i
-								class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></td>
+						<td>
+							<button type="button" class="btn btn-default"
+								ng-click="endNoteEintragen(vorlesung.vorlesungId)">Endnote eintragen
+								</button>
+						</td>
+						<!-- <td><a ng-click="" style="cursor: pointer"><i
+								class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a></td>  -->
 					</tr>
 				</tbody>
 			</table>

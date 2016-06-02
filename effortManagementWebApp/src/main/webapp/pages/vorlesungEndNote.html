@@ -2,7 +2,7 @@
 <div class="modal-header " style="background-color: orange">
 	<button type="button" class="close" ng-click="closeModal()">&times;</button>
 	<h4 style="color: white;">
-		<span></span> Aufwand erstellen
+		<span></span> Endnote eintragen
 	</h4>
 </div>
 <div class="modal-body" id="modal-bodyLinks">
@@ -10,7 +10,7 @@
 		<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}"
 			close="closeAlert($index)">{{alert.msg}}</uib-alert>
 	</div>
-	<form name="bucheAufwandForm" class="form-horizontal"
+	<form name="endNoteForm" class="form-horizontal"
 		autocomplete="off">
 
 		<div class="form-group">
@@ -24,23 +24,14 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-2">
-				<label for="creditPoints">Momentane Lernzeit:</label>
-			</div>
-			<div class="col-sm-5">
-				<p class="form-control-static" ng-bind="vorlesung.lernzeit + ' Stunden'"></p>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-2">
-				<label for="aufwandHinz">Aufwand hinzugefügen:</label>
+				<label for="aufwandHinz">Endnote:</label>
 			</div>
 			<div class="col-sm-5">
 				<div class="input-group">
-					<input type="number" name="aufwandHinz" class="form-control"
-						id="aufwandHinz" required="required" min="0" step="1" 
-						ng-model="aufwand.zeit">
-					<div class="input-group-addon">Stunden</div>
+					<input type="number" name="endNoteEintragen" class="form-control"
+						id="endNoteEintragen" required="required" min="1" step="0.1" max="6"
+						ng-model="endNote.endNote">
+					<div class="input-group-addon"></div>
 				</div>
 			</div>
 		</div>
@@ -48,8 +39,8 @@
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-5">
 				<button type="button" class="btn btn-default btn-warning"
-					ng-click="bucheAufwand()" ng-disabled="bucheAufwandForm.$invalid">
-					<span class="glyphicon glyphicon-ok"></span>Aufwand hinzubuchen
+					ng-click="endNoteEintragen()" ng-disabled="endNoteForm.$invalid">
+					<span class="glyphicon glyphicon-ok"></span>Endnote eintragen
 				</button>
 			</div>
 		</div>

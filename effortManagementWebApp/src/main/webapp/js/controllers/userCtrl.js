@@ -9,8 +9,7 @@ angular.module('wettEditor').controller(
 			        
 			        
 			        $scope.loadUserData = function() {
-			        	console.log("loadUserData")
-						userDataService.getUser().then(
+						userDataService.getUser($rootScope.userGlobal.userId, $rootScope.userGlobal.userId).then(
 								function(response) {
 									$scope.user = response.data;
 								}, function(response) {

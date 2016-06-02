@@ -20,7 +20,7 @@ angular.module('wettEditor').controller(
 				//Semester List laden
             	$scope.loadSemesterListData = function() {
 
-            		semesterDataService.getSemesterList().then(
+            		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
 							function(response) {
 								$scope.semesterList = response.data;
 								$scope.vorlesung.semesterId = semesterId;
@@ -32,7 +32,7 @@ angular.module('wettEditor').controller(
 				
 				//Semester erstellen
             	$scope.vorlesungErstellen = function() {
-            		vorlesungDataService.newVorlesung($scope.vorlesung).then(
+            		vorlesungDataService.newVorlesung($rootScope.userGlobal.userId, $scope.vorlesung).then(
 							function(response) {
 								$scope.closeModal();
 							}, function(response) {

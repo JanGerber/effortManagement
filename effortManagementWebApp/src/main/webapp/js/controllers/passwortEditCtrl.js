@@ -26,7 +26,7 @@ angular.module('wettEditor')
 							$rootScope.closeAlert = alertService.closeAlert; 
 
 							$scope.passwortAendern = function() {
-								userDataService.changePasswort($scope.passwort)
+								userDataService.changePasswort($rootScope.userGlobal.userId,$scope.passwort)
 										.then(function(response) {
 											$uibModalInstance.dismiss('');
 										}, function(response) {

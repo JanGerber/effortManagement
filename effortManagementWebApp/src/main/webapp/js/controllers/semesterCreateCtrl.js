@@ -34,7 +34,7 @@ angular.module('wettEditor').controller(
             	$scope.newSemester = function() {
             		$scope.semester.startDatum = $filter('date')($scope.datepickerStart.datum, 'yyyy-MM-dd');
             		$scope.semester.endDatum = $filter('date')($scope.datepickerEnd.datum, 'yyyy-MM-dd');
-            		semesterDataService.newSemester($scope.semester).then(
+            		semesterDataService.newSemester($rootScope.userGlobal.userId, $scope.semester).then(
 							function(response) {
 								$rootScope.loadSemesterListData();
 								$uibModalInstance.dismiss('created');

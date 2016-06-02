@@ -51,6 +51,27 @@ angular.module('wettEditor').controller(
 					    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
 					    });
 				};
+				//Modal oeffnen Vorlesung Aufwand buchen
+				$scope.endNoteEintragen = function(vorlesungId) {
+
+					var modalInstance = $uibModal.open({
+						animation : $scope.animationsEnabled,
+						templateUrl : 'pages/vorlesungEndNote.html',
+						controller : 'vorlesungEndNoteCtrl',
+						size : 'lg',
+						resolve : {
+							vorlesungId : function() {
+								return vorlesungId;
+							}
+						}
+					})
+					
+					modalInstance.result.then(function (selectedItem) {
+					    }, function () {
+					    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
+					    });
+				};
+				
 				//Vorlesung loeschen
 				$scope.deleteVorlesung = function(vorlesungId){
 					
@@ -75,7 +96,7 @@ angular.module('wettEditor').controller(
 				//Semester List laden
             	$scope.loadSemesterListData = function() {
 
-            		semesterDataService.getSemesterList().then(
+            		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
 							function(response) {
 								$scope.semesterList = response.data;
 								$scope.loadVorlesungListData($scope.aktuelleSemesterId);
@@ -90,7 +111,7 @@ angular.module('wettEditor').controller(
 				//Vorlesung List laden
             	$scope.loadVorlesungListData = function(semesterId) {
             		
-            		vorlesungDataService.getVorlesungList(semesterId).then(
+            		vorlesungDataService.getVorlesungList($rootScope.userGlobal.userId,semesterId).then(
 							function(response) {
 								$scope.vorlesungList = response.data;
 							}, function(response) {

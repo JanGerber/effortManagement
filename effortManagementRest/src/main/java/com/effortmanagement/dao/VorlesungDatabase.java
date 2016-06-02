@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.effortmanagement.model.CreateVorlesung;
+import com.effortmanagement.model.EndNote;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.model.Vorlesung;
@@ -268,6 +269,47 @@ public class VorlesungDatabase extends DatenDAO{
 		}
 		
 		return rs;
+	}
+
+	public int changeEndnote(EndNote endNote) {
+		Connection dbConnection = null;
+		PreparedStatement preparedStatement = null;
+		int rs = 0;
+
+		String selectSQL = "UPDATE vorlesung SET endNote = ? WHERE vorlesungId like ?";
+
+		try {
+			dbConnection = getDBConnection();
+			preparedStatement = dbConnection.prepareStatement(selectSQL);
+			
+			preparedStatement.setDouble(1, endNote.getEndNote());
+			preparedStatement.setInt(2, endNote.getVorlesungId());
+
+			rs = preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			logger.error("changeEndnote");
+			logger.error(e.getMessage());
+
+		} finally {
+
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (dbConnection != null) {
+				try {
+					dbConnection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return rs;
+		
 	}
 
 }

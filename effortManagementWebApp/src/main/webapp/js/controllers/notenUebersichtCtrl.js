@@ -13,7 +13,7 @@ angular.module('wettEditor').controller(
             	//Vorlesung List laden
             	$scope.loadVorlesungListData = function(semesterId) {
             		
-            		vorlesungDataService.getVorlesungList(semesterId).then(
+            		vorlesungDataService.getVorlesungList($rootScope.userGlobal.userId,semesterId).then(
 							function(response) {
 								$scope.vorlesungList = response.data;
 								calcAvarage();

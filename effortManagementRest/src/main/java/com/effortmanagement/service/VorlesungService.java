@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import com.effortmanagement.dao.*;
 import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.CreateVorlesung;
+import com.effortmanagement.model.EndNote;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Vorlesung;
 import com.effortmanagement.model.VorlesungAufwand;
@@ -58,12 +59,28 @@ public class VorlesungService {
 	}
 
 	private int berechneAufwand(Vorlesung vorlesung) {
-		// TODO Auto-generated method stub
-		//TODO Berechnung des Nutzten Aufwand Faktors
-		return (int)(Math.random() * 100); 
+		double notenFaktor = vorlesung.getEndNote() / vorlesung.getAngestrebteNote();
+		double aufwandFaktor = vorlesung.getLernzeit() / vorlesung.getGeplanterAufwand();
+		double verhaeltnis = notenFaktor * aufwandFaktor;
+		
+		int returnWert;
+		if (verhaeltnis < 0.5) {
+			returnWert = 125;
+		}else if(verhaeltnis >= 1.5) {
+			returnWert = 0;
+		}else{
+			returnWert =(int) (1 - (verhaeltnis - 0.5)) *100; 
+		}
+		
+		return returnWert; 
 	}
 
 	public List<Vorlesung> getVorlesungList(int semesterId) {
 		return vorlesungDAO.selectVorlesungListById(semesterId);
+	}
+
+	public void changeEndnote(EndNote endNote) {
+		vorlesungDAO.changeEndnote(endNote);
+		
 	}
 }

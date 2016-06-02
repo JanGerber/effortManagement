@@ -5,42 +5,65 @@ angular.module('wettEditor').service('semesterDataService',[ '$http', '$location
     srv._baseUrl = $location.protocol() + '://' + $location.host() + ':' + $location.port() + '/resteffmanage';
 
     //get all Semester
-    srv.getSemesterList = function() {
-		return $http.get( srv._baseUrl + "/semester/"); 
+    srv.getSemesterList = function(userId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/semester/",
+			  params: {'userId': userId},
+			});
     };
     //get Semester by semesterId
-    srv.getSemesterById = function(semesterId) {
-		return $http.get( srv._baseUrl + "/semester/" +  semesterId); 
+    srv.getSemesterById = function(userId, semesterId) {
+		return $http({
+			  method: 'GET',
+			  url: srv._baseUrl + "/semester/" +  semesterId,
+			  params: {'userId': userId},
+			});
     };
     //delete a Semester
-    srv.deleteSemester = function(semesterId) {
-		return $http.delete( srv._baseUrl + "/semester/" + semesterId); 
+    srv.deleteSemester = function(userId, semesterId) {
+		return $http({
+			  method: 'DELETE',
+			  url: srv._baseUrl + "/semester/" +  semesterId,
+			  params: {'userId': userId},
+			});
+		
     };
     //change Semester
-    srv.changeSemester = function(semesterId, semester) {
-		return $http.put( srv._baseUrl + "/semester/" +  semesterId, semester); 
+    srv.changeSemester = function(userId, semesterId, semester) {
+		return $http({
+			  method: 'PUT',
+			  url: srv._baseUrl + "/semester/" +  semesterId,
+			  params: {'userId': userId},
+			  data: semester
+			});
     };
     //new Semester
-    srv.newSemester = function(semester) {
-		return $http.post( srv._baseUrl + "/semester" , semester); 
+    srv.newSemester = function(userId,semester) {
+		return $http({
+			  method: 'POST',
+			  url: srv._baseUrl + "/semester" ,
+			  params: {'userId': userId},
+			  data: semester
+			});
     };    
 
     // Public API
     return {
-    	getSemesterList: function() {
-            return srv.getSemesterList();
+    	getSemesterList: function(userId) {
+            return srv.getSemesterList(userId);
         },
-        getSemesterById: function(semesterId) {
-	        return srv.getSemesterById(semesterId);
+        getSemesterById: function(userId, semesterId) {
+	        return srv.getSemesterById(userId, semesterId);
 	    },
-	    deleteSemester: function(semesterId) {
-            return srv.deleteSemester(semesterId);
+	    deleteSemester: function(userId, semesterId) {
+            return srv.deleteSemester(userId, semesterId);
         },
-        changeSemester: function(semesterId, semester) {
-	        return srv.changeSemester(semesterId, semester);
+        changeSemester: function(userId, semesterId, semester) {
+	        return srv.changeSemester(userId, semesterId, semester);
 	    },
-	    newSemester: function(semester) {
-            return srv.newSemester(semester);
+	    newSemester: function(userId, semester) {
+            return srv.newSemester(userId, semester);
         }
    
     };

@@ -1,11 +1,11 @@
 angular.module('wettEditor').controller(
-            'vorlesungBucheAufwandCtrl',
+            'vorlesungEndNoteCtrl',
             [ '$rootScope', '$scope', '$location', '$routeParams' ,'$filter','$http', '$window', 'alertService' , '$uibModalInstance', 'vorlesungDataService','vorlesungId',
                     function($rootScope, $scope, $location, $routeParams, $filter, $http, $window , alertService , $uibModalInstance, vorlesungDataService, vorlesungId) {
             	
-            	$scope.aufwand = {
+            	$scope.endNote = {
             			vorlesungId : vorlesungId,
-            			zeit : 0
+            			endNote : 0
             	}
 								
             	$scope.closeModal = function() {
@@ -18,6 +18,7 @@ angular.module('wettEditor').controller(
             		vorlesungDataService.getVorlesungById($rootScope.userGlobal.userId, vorlesungId).then(
 							function(response) {
 								$scope.vorlesung = response.data;
+								$scope.endNote.endNote = $scope.vorlesung.endNote;
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);
 							});
@@ -25,8 +26,8 @@ angular.module('wettEditor').controller(
 				$scope.loadVorlesungData();
 				
 				//Buche Aufwand
-				$scope.bucheAufwand= function() {	
-            		vorlesungDataService.putAufwand($rootScope.userGlobal.userId, vorlesungId, $scope.aufwand).then(
+				$scope.endNoteEintragen= function() {	
+            		vorlesungDataService.putEndnote($rootScope.userGlobal.userId, vorlesungId, $scope.endNote).then(
 							function(response) {
 								$scope.closeModal();
 							}, function(response) {
