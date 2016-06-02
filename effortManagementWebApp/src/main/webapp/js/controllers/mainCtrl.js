@@ -19,10 +19,11 @@ angular.module('wettEditor').controller(
              			 
              			//Semester List laden
              			$rootScope.loadSemesterListData = function() {
-
+             				console.log($rootScope.userGlobal.userId);
                      		semesterDataService.getSemesterList($rootScope.userGlobal.userId).then(
          							function(response) {
          								$scope.semesterList = response.data;
+         								console.log($scope.semesterList);
          							}, function(response) {
          								alertService.add("warning", response.data.errorMessage);
          							});
@@ -32,7 +33,6 @@ angular.module('wettEditor').controller(
          		        
                     	//Modal oeffnen Login
                     	$scope.openLogin = function() {
-                    		console.log("openLogin");
         					var modalInstance = $uibModal.open({
         						animation : $scope.animationsEnabled,
         						templateUrl : 'pages/login.html',
@@ -46,7 +46,6 @@ angular.module('wettEditor').controller(
         				
                     	//Modal oeffnen Registrieren
                     	$scope.openRegistrieren = function() {
-
         					var modalInstance = $uibModal.open({
         						animation : $scope.animationsEnabled,
         						templateUrl : 'pages/registrieren.html',

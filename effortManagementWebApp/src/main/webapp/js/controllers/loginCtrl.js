@@ -14,14 +14,13 @@ angular.module('wettEditor').controller(
 				}
 				
 				$scope.logUserIn = function(){					
-					console.log("logUserIn")
 					userDataService.loginUser($scope.user).then(
 							function(response) {
-								$rootScope.loadSemesterListData();
 								$rootScope.userGlobal.userName = response.data.userName;
 								$rootScope.userGlobal.passwort = response.data.passwort;
 								$rootScope.userGlobal.userId = response.data.userId;
 								$rootScope.userGlobal.loggedIn = true;
+								$rootScope.loadSemesterListData();
 								$scope.closeModal();
 							}, function(response) {
 								alertService.add("warning", response.data.errorMessage);

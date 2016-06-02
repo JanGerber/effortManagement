@@ -38,6 +38,15 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
 			  data: aufwand
 			});
     };
+    //put Endnote
+    srv.putEndnote = function(userId, vorlesungId, endNote) {
+		return $http({
+			  method: 'PUT',
+			  url: srv._baseUrl + "/" + vorlesungId+ "/endnote",
+			  params: {'userId': userId},
+			  data: endNote
+			});
+    };
     //get Aufwand
     srv.getAufwandById = function(userId,vorlesungId) {
 		return $http({
@@ -69,6 +78,9 @@ angular.module('wettEditor').service('vorlesungDataService',[ '$http', '$locatio
         },
         putAufwand: function(userId, vorlesungId, aufwand) {
 	        return srv.putAufwand(userId, vorlesungId, aufwand);
+	    },
+	    putEndnote: function(userId, vorlesungId, endNote) {
+	        return srv.putEndnote(userId, vorlesungId, endNote);
 	    },
 	    getAufwandById: function(userId, vorlesungId) {
             return srv.getAufwandById(userId, vorlesungId);

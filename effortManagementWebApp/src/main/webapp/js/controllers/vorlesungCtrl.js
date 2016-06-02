@@ -51,6 +51,27 @@ angular.module('wettEditor').controller(
 					    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
 					    });
 				};
+				//Modal oeffnen Vorlesung Aufwand buchen
+				$scope.endNoteEintragen = function(vorlesungId) {
+
+					var modalInstance = $uibModal.open({
+						animation : $scope.animationsEnabled,
+						templateUrl : 'pages/vorlesungEndNote.html',
+						controller : 'vorlesungEndNoteCtrl',
+						size : 'lg',
+						resolve : {
+							vorlesungId : function() {
+								return vorlesungId;
+							}
+						}
+					})
+					
+					modalInstance.result.then(function (selectedItem) {
+					    }, function () {
+					    	$scope.loadVorlesungListData($scope.aktuelleSemesterId);	
+					    });
+				};
+				
 				//Vorlesung loeschen
 				$scope.deleteVorlesung = function(vorlesungId){
 					

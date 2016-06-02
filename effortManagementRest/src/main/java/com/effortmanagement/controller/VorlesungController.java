@@ -18,6 +18,7 @@ import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.ChangeUser;
 import com.effortmanagement.model.CreateVorlesung;
+import com.effortmanagement.model.EndNote;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.model.User;
@@ -70,6 +71,7 @@ public class VorlesungController {
 		}
 		return vorlesungService.getAufwandById(vorlesungId);
     }
+	
 	@RequestMapping(value = "/list/{semesterId}", method = RequestMethod.GET)
 	public List<Vorlesung> getListVorlesung(@PathVariable int semesterId,  @RequestParam("userId") int userId) {
 		if(semesterService.getSemester(semesterId).getUser_Id() != userId){ //TODO UserId	
@@ -77,6 +79,15 @@ public class VorlesungController {
 		}
 		return vorlesungService.getVorlesungList(semesterId); 
     }
+	@RequestMapping(value = "/{vorlesungId}/endnote", method = RequestMethod.PUT)
+	public void endNoteEintragen(@RequestBody EndNote endNote, @PathVariable int vorlesungId, @RequestParam("userId") int userId) {
+		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() != userId ){
+			throw new UserNotAuthorizedException("Sie sind können für diese Vorlesung keine Endnote eintragen");
+		}
+		//vorlesungService.addAufwand(aufwand);
+		
+    }
+
 
 
 }
