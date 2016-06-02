@@ -5,13 +5,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.effortmanagement.dao.SemesterDatabase;
+import com.effortmanagement.interfaces.SemesterInterface;
 import com.effortmanagement.model.CreateSemester;
 import com.effortmanagement.model.Semester;
 
 
 public class SemesterService {
 	
-	private SemesterDatabase semesterDao = new SemesterDatabase();
+	private SemesterInterface semesterDao = new SemesterDatabase();
 	
 	private final Logger logger = LoggerFactory.getLogger(SemesterService.class);
 	

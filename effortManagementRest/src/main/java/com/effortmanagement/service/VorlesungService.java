@@ -5,6 +5,7 @@ import java.util.List;
 import org.slf4j.LoggerFactory;
 
 import com.effortmanagement.dao.*;
+import com.effortmanagement.interfaces.VorlesungInterface;
 import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.CreateVorlesung;
 import com.effortmanagement.model.EndNote;
@@ -17,7 +18,7 @@ public class VorlesungService {
 	
 	private final Logger logger = LoggerFactory.getLogger(VorlesungService.class);
 	
-	private VorlesungDatabase vorlesungDAO = new VorlesungDatabase();
+	private VorlesungInterface vorlesungDAO = new VorlesungDatabase();
 
 	public void createSemester(CreateVorlesung vorlesung) {
 		logger.debug("createVorlesung: " + vorlesung.getVorlesungName());
