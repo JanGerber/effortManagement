@@ -66,7 +66,7 @@ public class VorlesungService {
 		int returnWert;
 		if (verhaeltnis < 0.5) {
 			returnWert = 125;
-		}else if(verhaeltnis <= 0) {
+		}else if(verhaeltnis >= 1.5) {
 			returnWert = 0;
 		}else{
 			returnWert =(int) (1 - (verhaeltnis - 0.5)) *100; 
