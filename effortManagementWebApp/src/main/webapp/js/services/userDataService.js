@@ -23,11 +23,10 @@ angular.module('wettEditor').service('userDataService',[ '$http', '$location' ,
 			});
     };
     //new User
-    srv.newUser = function(userId,user) {
+    srv.newUser = function(user) {
 		return $http({
 			  method: 'POST',
 			  url: srv._baseUrl + "/",
-			  params: {'userId': userId},
 			  data: user
 			});
     };
