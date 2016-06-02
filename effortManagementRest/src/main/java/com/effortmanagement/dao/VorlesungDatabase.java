@@ -11,13 +11,14 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.effortmanagement.interfaces.VorlesungInterface;
 import com.effortmanagement.model.CreateVorlesung;
 import com.effortmanagement.model.EndNote;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Semester;
 import com.effortmanagement.model.Vorlesung;
 
-public class VorlesungDatabase extends DatenDAO{
+public class VorlesungDatabase extends DatenDAO implements VorlesungInterface{
 	
 	private final Logger logger = LoggerFactory.getLogger(VorlesungDatabase.class);
 
@@ -189,7 +190,7 @@ public class VorlesungDatabase extends DatenDAO{
 				
 					while (rs.next()){
 						NoteVorlesung noteVorlesung = new NoteVorlesung();
-					    //TODO  Noten Attribute hinzufügen
+					    //TODO  Noten Attribute hinzufï¿½gen
 					    notenList.add(noteVorlesung);
 					}
 			}
