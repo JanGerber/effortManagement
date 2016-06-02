@@ -6,13 +6,14 @@ import org.slf4j.LoggerFactory;
 import com.effortmanagement.dao.UserDatabase;
 import com.effortmanagement.exceptions.PasswordsIsWrongException;
 import com.effortmanagement.exceptions.UserNameAlreadyExistException;
+import com.effortmanagement.interfaces.UserInterface;
 import com.effortmanagement.model.ChangePasswort;
 import com.effortmanagement.model.CreateUser;
 import com.effortmanagement.model.User;
 
 public class UserService {
 
-	private UserDatabase userDatabase = new UserDatabase();
+	private UserInterface userDatabase = new UserDatabase();
 
 	private final Logger logger = LoggerFactory.getLogger(UserService.class);
 

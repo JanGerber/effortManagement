@@ -1,6 +1,7 @@
 package com.effortmanagement.dao;
 
 
+import com.effortmanagement.interfaces.SemesterInterface;
 import com.effortmanagement.model.CreateSemester;
 import com.effortmanagement.model.Semester;
 
@@ -11,7 +12,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SemesterDatabase extends DatenDAO {
+public class SemesterDatabase extends DatenDAO implements SemesterInterface{
 	
 	private final Logger logger = LoggerFactory.getLogger(SemesterDatabase.class);
 	
