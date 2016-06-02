@@ -4,7 +4,7 @@
 
 
 		 <div class="row">
-		  <label class="col-sm-2" for="semesterId">Semester auswählen:</label>
+		  <label class="col-sm-2" for="semesterId">Semester ausw&aumlhlen:</label>
 		  <div class="col-sm-2">
 		  <select class="form-control" id="semesterId" ng-model="aktuelleSemesterId" ng-change="changeSemester(semester.semesterId)">
 		    <option ng-repeat="semester in semesterList"
@@ -54,10 +54,10 @@
 		
 		
 		<div class="table-responsive" ng-if="((vorlesungList.length === 0 ) && (aktuelleSemesterId !== null ))">
-			<p>Sie haben für dieses Semester noch keine Vorlesung angelegt!</p>
+			<p>Sie haben fÃ¼r dieses Semester noch keine Vorlesung angelegt!</p>
 		</div>
 		<div class="table-responsive" ng-if="(aktuelleSemesterId === null )">
-			<p>Sie haben noch kein Semester ausgewählt!</p>
+			<p>Sie haben noch kein Semester ausgew&aumlhlt!</p>
 		</div>
 	</section>
 	<!-- SECTION END -->

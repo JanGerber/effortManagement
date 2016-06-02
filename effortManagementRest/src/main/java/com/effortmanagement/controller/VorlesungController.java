@@ -84,7 +84,7 @@ public class VorlesungController {
 		if(vorlesungService.getVorlesungById(vorlesungId).getUserId() != userId ){
 			throw new UserNotAuthorizedException("Sie sind können für diese Vorlesung keine Endnote eintragen");
 		}
-		//vorlesungService.addAufwand(aufwand);
+		vorlesungService.changeEndnote(endNote);
 		
     }
 

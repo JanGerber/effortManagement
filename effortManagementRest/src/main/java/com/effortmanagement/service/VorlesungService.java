@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import com.effortmanagement.dao.*;
 import com.effortmanagement.model.BucheAufwand;
 import com.effortmanagement.model.CreateVorlesung;
+import com.effortmanagement.model.EndNote;
 import com.effortmanagement.model.NoteVorlesung;
 import com.effortmanagement.model.Vorlesung;
 import com.effortmanagement.model.VorlesungAufwand;
@@ -65,5 +66,10 @@ public class VorlesungService {
 
 	public List<Vorlesung> getVorlesungList(int semesterId) {
 		return vorlesungDAO.selectVorlesungListById(semesterId);
+	}
+
+	public void changeEndnote(EndNote endNote) {
+		vorlesungDAO.changeEndnote(endNote);
+		
 	}
 }
