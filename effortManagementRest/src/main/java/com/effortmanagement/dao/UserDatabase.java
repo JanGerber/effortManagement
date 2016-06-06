@@ -37,26 +37,11 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return password;
 	}
+
 	public User getUserByName(String userName) {
 		Connection dbConnection = null;
 		PreparedStatement preparedStatement = null;
@@ -84,21 +69,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 			user = null;
 		} finally {
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 
 
 		}
@@ -130,22 +101,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		
 		return rs;
@@ -169,22 +125,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return rs;
 	
@@ -209,21 +150,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 
 		} finally {
 
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return rs;
 	}
@@ -246,22 +173,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return rs;
 	}
@@ -284,22 +196,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return rs;
 	}
@@ -331,20 +228,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 		}
 		finally {
 
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 		}
 		return rs;
 	}
@@ -376,21 +260,7 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 
 
 		}
@@ -420,24 +290,28 @@ public class UserDatabase extends DatenDAO implements UserInterface{
 			logger.error(e.getMessage());
 
 		} finally {
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (dbConnection != null) {
-				try {
-					dbConnection.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			closeDBConnection(preparedStatement, dbConnection);
 
 
 		}
 		return password;
+	}
+	private void closeDBConnection(PreparedStatement preparedStatement, Connection dbConnection) {
+		if (preparedStatement != null) {
+			try {
+				preparedStatement.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		if (dbConnection != null) {
+			try {
+				dbConnection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }
